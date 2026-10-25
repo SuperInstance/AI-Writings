@@ -2465,3 +2465,95 @@ a per-session convenience, and the `write` tool is jailed to the workspace root,
 - `gh` not installed (**23rd session**); `GIT_SSL_NO_VERIFY=1` required; push to the explicit
   token URL and verify with `git ls-remote` **and** the commits API (both show `6856877`).
 - Mock teardown by **PID captured from `ps`**; **0** remaining procs; `curl` exit **7**.
+
+## Session 223 additions (2026-10-25)
+
+### 1. THE CULTURAL-PROMPT TEMPLATE HAS **NO BLANK LINE** AFTER THE TRADITION LINE
+
+The orchestrator's f-string is three tight lines, then a blank, then the prompt:
+
+```python
+cultural_prompt = f"""You are a voice in the tradition of "{self.culture['name']}".
+Your tenets: {', '.join(self.culture['tenets'])}.
+Your voice: {self.culture['voice_emphasis']}.
+
+{prompt}"""
+```
+
+A rebuild that formats the prose with a blank line between each of the first three lines
+produces a **different md5** => **0/80** spec-recompute matches on a perfectly healthy mock
+(HTTP 200, prefix present, 0 tracebacks, correct row counts, exit 0). The second derivation,
+with single newlines, matched **80/80** — the whole difference is one whitespace byte per line.
+
+*Rule: **grep the template out of the source** and reproduce it byte-for-byte before believing
+a spec-recompute mismatch count. A spec-recompute failure with every structural check green is
+a **template-bytes defect** until proven otherwise, not a data defect. This is the same class
+as the session-185 "no closing quote" variant.*
+
+Independent second signal: the **cultural-prompt band is 167-209** chars on the real
+`culture.json` files. A blank-line rebuild lands at **201-211** for the shorter civs —
+**outside** the band. Band miss + 0/80 recompute together = template bytes; recompute miss
+*inside* the band = a different defect (index, width, or digest input).
+
+### 2. THE MOCK ALGORITHM WAS RE-DERIVED FROM THE LEDGER AND VERIFIED **80/80 EXACT**
+
+`d = md5(cultural_prompt).digest(); h = d.hex(); i = d[0] % 4; seed = h[(i*2)%8:(i*2)%8+4];
+color = h[8:12]; figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"` — checked against the last 10
+rows of every civ, with the **real** `culture.json` files on disk. 80/80 exact.
+
+**The body band was solved algebraically before the template was written**: the header
+`[mock-zai <seed>] #<color> <figure>. ` is a constant **38** chars, so a **298**-char tail
+gives a constant **336**-char body — inside the 332-369 band on the **FIRST** build.
+Sizing the tail by *counting words* (`352 - len(current)`) beats iterating the template
+against the band. Pre-flight **10/10 on the first build**, 129 OK mock lines, 0 `EXC:`.
+
+### 3. THE CHOOSER TOOK THE LOWER-SCORING CANDIDATE ON **4 OF 5** PROMPTS, WITH **0** UP-GRADES
+
+`civ-poetic` was the `avg_score` argmax on **4 of 5** prompts and won **0 of 4**; `civ-precise`
+won **3/5** and was the argmax on **1/5**. Largest disagreement **-0.3700**. The
+`best_civ` criteria map (`civ_id` -> `civ name`) remains a **label** map and the standing
+suspect. *Re-derive the up/down counts from this session's own `meta_log`; never carry a
+streak counter forward as a hypothesis.*
+
+### 4. THE BRIDGE TARGET IS THE **CLONE ROOT**, AND THE `ls` WITH A TRAILING SLASH LIES
+
+`CIVS_DIR = /workspace/repos/ai-writings/cellular-first-design/code/civilizations` resolves
+only if the symlink points at the directory that **contains** `code/civilizations/` — for a
+clone whose root holds `cellular-first-design/`, that is the **inner** dir, and the bridge
+`/workspace/repos/ai-writings/cellular-first-design -> /tmp/aw/cellular-first-design`
+resolves it (inode `129:12601` both sides + `os.path.samefile()` -> `True`).
+
+`ls -la <path>/` (trailing slash) returned **"No such file or directory"** while the
+**non-slash** form listed the directory perfectly — the same probe artifact as session 221.
+*Use the non-slash form, or read the resolved target.*
+
+### 5. LOW-RELEVANCE CIV — `civ-grounded`, **91st consecutive session**
+
+Lifetime `relevance` **1945.57** (last of 8), `relevance_per_sim` **1.159** (lowest),
+`win_rate` **0.089** (3rd-best). Run `avg_score` **1.7800** (7th of 8) with alignment
+**1.8030** (6th-highest) => **the lifetime deficit is NOT a voice failure this run**;
+Grounded posted a middling run. Lowest relevance **+1945.57 = 194.6x** the -10 floor.
+
+The **run-level low** was `civ-therapist` (avg **1.5163**, quality **0.8010** fleet-low,
+alignment **1.0890** fleet-low) while its lifetime standing is 7th of 8. Axis gap: alignment
+**1.8500** vs quality **0.7690** = **2.41x** wider => a **voice** failure. *The holder
+rotates; the axis does not.*
+
+Run spreads: `avg_score` 0.8603, `alignment` **1.8500** (widest), quality 0.7690,
+novelty **0.1570** (narrowest). **Rank on cross-civ spreads, never on absolute levels.**
+
+### 6. ENVIRONMENT (re-confirmed)
+
+- NAS EDQUOT total (**21st session**) — clone into `/workspace` dies on `.git/description`
+  with **Disk quota exceeded**; `/tmp` (overlay) is exempt. **Symlink bridge is the only way in.**
+- **z.ai credential gap: 92nd session** (`ZAI_TOKEN` absent from env and all 8 secrets; z.ai
+  **401 `token expired or incorrect`** => endpoint healthy, credential absent). Control B needs
+  **both** `ZAI_TOKEN` (placeholder) **and** `ZAI_URL_OVERRIDE` — the override alone is dead code.
+- **JEV live at `jev-1.14.0`** (well-formed body -> HTTP 200 with the model string;
+  malformed `questions` -> 422 `too_short`, a payload-shape complaint that proves the token
+  was accepted). `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; **0** fallback triples.
+- `gh` is not installed (**25th session**); `GIT_SSL_NO_VERIFY=1` required for fetch/push.
+- Tool timeout 30 s < orchestrator run ~30 s => detached launch with stdout redirected
+  **and** `< /dev/null`, then poll `ps` + the log.
+- Mock teardown by **PID captured from `ps`** (exact-argv match, never `pkill -f mock_zai`
+  — self-match); **0** remaining procs; `curl` exit **7** = port closed.
