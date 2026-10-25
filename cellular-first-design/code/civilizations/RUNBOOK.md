@@ -1,3 +1,18 @@
+## Session 245 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~29 s.
+- Provider path: **Control B mock** (z.ai credential gap, **104th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `3490026` (session 244 tree). **Pre-flight gate: 11/11 PASS** (first build). **Run verification: 0 FAIL / 60 PASS.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **958 -> 963** (+5); 18 files changed.
+- Seed algorithm re-verified over the full current-format ledger: **2880/2880 exact, 0 mismatches**; new rows **80/80**.
+- Mock body **349** chars (38 header + 162 tail + 149 continuation), inside the 332-369 band, **first build**.
+- Winners: `civ-precise` **4/5**, `civ-engineer` **1/5**. Agreement with the `avg_score` argmax **1/5 (20 %)** — 4 down-grades, 0 up-grades.
+- Run low `civ-therapist` (avg **1.2447**) — quality **0.4710** and alignment **0.8300** both at the fleet low, a **two-axis** collapse; novelty 2.4330 2nd of 8.
+- Lifetime low `civ-grounded` (**2300.51**) for the **106th** consecutive session; also lowest rel/sim (**1.211**).
+- The bottom two are effectively tied: grounded 2300.51 vs therapist 2305.62, a gap of **5.11**.
+- Alignment spread **1.8470 = 2.34x** the `avg_score` spread (0.7890).
+- No civ near extinction (threshold `relevance < -10`; lowest **2300.51**, **230x** the floor). Registry 8, `max_civs` 12, all `generation=1`.
+
 ## Session 244 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, 29.00 s.

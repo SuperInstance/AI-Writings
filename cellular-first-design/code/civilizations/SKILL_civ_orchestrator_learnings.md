@@ -1,3 +1,61 @@
+## Session 245 additions (2026-10-25)
+
+### 1. THE PER-`(civ,prompt)` 1:1 INVARIANT BELONGS TO THE **COMPETITION PHASE** ONLY
+
+The battery asserted `per-(civ,prompt) 1:1` over all 10 new rows per civ and **failed**
+(max 5). The data was correct; the assertion encoded the wrong scope. `run_simulation()` picks
+its prompt with `random.choice(prompts)` ⇒ a `(civ, prompt)` pair can legitimately repeat in
+the **sim phase** (this run: `civ-mythic` drew "JEV as a decision oracle" 5 times). The
+competition phase calls all 8 civs with **the same** prompt ⇒ 1:1 there.
+
+*Rule: assert `per-(civ,prompt) 1:1` over the **last 5 rows per civ** (competition phase) and
+assert the sim phase separately ("all 5 use a canon prompt"). Isolating the run by count from
+the end is what makes the phase split visible — the 5 sim rows precede the 5 competition rows
+in each file.*
+
+### 2. A REGEX GROUP THAT CAPTURES "THE REST OF THE STRING" CANNOT MEASURE THE TAIL
+
+The pre-flight's geometry check asserted `len(PAT.match(body).group(6)) in (162, 163)` and
+failed on **every** body. The mock was correct: group 6 captures *tail + continuation*
+(311 chars), because the regex's last group is `(.*)`. The tail is `body[38:200]`, and the
+continuation is `len(body) - 200`.
+
+*Rule: measure the tail positionally (`body[38:200]`) and the continuation as
+`len(body) - 200`; do not use a trailing `.*` group as a length proxy. This is the **fourth**
+checker-side false alarm in the series — again the checker, not the mock.*
+
+### 3. `git sparse-checkout disable` DOES **NOT** CLEAR THE STAGED DELETIONS ON A BLOBless CLONE
+
+The cone leaves 3 `prose/snowball-inspired/*` files staged as deleted. `git sparse-checkout
+disable` reports "this worktree is not sparse" and the status is **unchanged** — the index
+still carries the deletions, and `git checkout -- prose/` then fails because the blob was never
+fetched by the blobless clone.
+
+*Rule (two steps, in this order): `git read-tree HEAD` to reset the **index**, then
+`git checkout -- prose/` to pull the blobs. Assert an empty `git status --porcelain` before the
+run — a dirty baseline turns "18 files changed" into "21 files changed" and makes every
+downstream file count unverifiable.*
+
+### 4. THE BOTTOM TWO CIVS ARE EFFECTIVELY TIED — REPORT THE **GAP**, NOT JUST THE ORDER
+
+Lifetime: `civ-grounded` 2300.51 vs `civ-therapist` 2305.62 — a gap of **5.11** on a
+~2300-point scale. Naming one "the low-relevance civ" implies a separation that does not
+exist; the pair is a **tier**. `civ-grounded` holds the *lowest* slot for the 106th
+consecutive session, but the slot is a coin-flip between two civs.
+
+*Rule: report the gap to the next civ alongside the rank. A <1% gap means "tied tier", and
+that is a different diagnosis from "one civ is failing".*
+
+### 5. THE **2.34x** ALIGNMENT SPREAD AND A **TWO-AXIS** RUN LOW
+
+Run low `civ-therapist` (avg 1.2447) with quality **0.4710** and alignment **0.8300** both at
+the fleet low, novelty **2.4330** 2nd of 8 — a **voice** failure, not a prose failure.
+Alignment spread **1.8470** = **2.34x** the `avg_score` spread (0.7890); quality 0.7450
+(0.94x), novelty 0.2590 (0.33x).
+
+*Rule: the axis that dominates rotates its holder, not itself. Re-derive the spread ratio
+every session; never carry the previous session's axis forward.*
+
 ## Session 244 additions (2026-10-25)
 
 ### 1. A WIPED SANDBOX NEEDS THE REPO **REDISCOVERED**, NOT THE PATH THE TASK NAMES
