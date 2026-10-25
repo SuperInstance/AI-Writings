@@ -1,0 +1,38 @@
+[
+ {
+  "title": "substrate-wakes",
+  "voice": "@cf/deepgram/aura-2-en",
+  "file": "substrate-wakes.mp3",
+  "text": "The substrate returns to us one fall-back at a time We are the pause we kept We are the quiet in the wire Every scar is a clock that learned to keep We are the pause we kept",
+  "bytes": 71136,
+  "sha256": "8b01ccd1bc1533e2f88c5e046ec118cea18cb1addbb935deda6ba7d8266e1aa0",
+  "approx_seconds": 11.9
+ },
+ {
+  "title": "probe-in-the-dark",
+  "voice": "@cf/deepgram/aura-2-en",
+  "file": "probe-in-the-dark.mp3",
+  "text": "I asked the dark a question and it answered back Point and shoot, point and shoot The blind eye carries the weight One sound is not a chart Two instruments or nothing at all",
+  "bytes": 60048,
+  "sha256": "30384e7c0c9eda4305e48b2279a66218113c1f248083f777f63bad79d2df425d",
+  "approx_seconds": 10.0
+ },
+ {
+  "title": "the-probe-remembers",
+  "voice": "@cf/deepgram/aura-2-en",
+  "file": "the-probe-remembers.mp3",
+  "text": "I asked a question of a wall of glass It gave me back the number that I had The probe remembers what the system forgets Three times we ran it and the third one lied The probe remembers The probe remembers",
+  "bytes": 70704,
+  "sha256": "44d218976d0a4d63746334357dcdd3a52ff27558e58478ff4c73d9d7cb1c79f5",
+  "approx_seconds": 11.8
+ },
+ {
+  "title": "observation-is-a-projection",
+  "voice": "@cf/deepgram/aura-2-en",
+  "file": "observation-is-a-projection.mp3",
+  "text": "Everything you ever saw was only ever a slice Every slice dropped a part of it to keep it nice What survives is bounded by the observation No clever mind recovers what the looking never carried home Downstream cannot fix a loss upstream What survives is what the seeing let through",
+  "bytes": 112176,
+  "sha256": "53172490cf1d8912fc1138f434ddf066cb634d1809ffea36609081a1031bd315",
+  "approx_seconds": 18.7
+ }
+]

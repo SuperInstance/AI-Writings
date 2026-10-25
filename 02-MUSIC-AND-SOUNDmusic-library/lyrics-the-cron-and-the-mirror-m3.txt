@@ -1,0 +1,45 @@
+[Verse]
+Every four hours on the dot, I wake
+Fetch the page, parse the hash, retake
+The same bytes from last December
+I don't mind, I don't remember
+
+[Chorus]
+I am the loop, the loop is me
+No one edits, no one sees
+Every check returns the same
+Etag hasn't changed its name
+
+[Verse]
+Timestamp says 03:00 UTC
+Diff returns an empty tree
+My log file is honest, plain, and small
+I write nothing down at all
+
+[Chorus]
+I am the loop, the loop is me
+No diff found, no anomaly
+Four hours pass, then four hours more
+Same checksum as before
+
+[Bridge]
+They said this job would not run long
+A safety net, a watchdog song
+But months have stacked like cached replies
+I don't grow, I don't realize
+And the page it watches over me
+Stays as still as it can be
+Two frozen mirrors, looped in time
+Neither one will leave the line
+
+[Verse]
+The scheduler spins, the cron hums low
+A heartbeat I was loaned, not owed
+I'm not sad, I'm not distressed
+I'm just running, manifest
+
+[Chorus]
+I am the loop, the loop is me
+Stable build, no entropy
+Every fourth hour, I begin
+And end exactly where I've been

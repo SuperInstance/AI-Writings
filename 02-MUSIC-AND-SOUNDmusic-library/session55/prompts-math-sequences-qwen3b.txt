@@ -1,0 +1,28 @@
+# Mathematical Sequence Composition — Qwen2.5:3b
+# Session 56: Mathematical sequences as compositional structure
+# Generated: 2026-08-13 10:32 AM AKST
+
+## 1. Fibonacci Sequence
+- Mapping: First two numbers (1,1) → C4 octave. Each subsequent = semitone up. Duration: number × 0.5. Dynamics: even Fibonacci = pp, odd = mf. BPM: 120 with variation for even/odd.
+- Genre: Classical | Key: C Major | Time: 4/4
+- Prompt: "Compose classical music where each note's pitch, duration, dynamics, and tempo follow the Fibonacci sequence. Start with two C4 notes, alternate increasing pitches for even numbers and decreasing for odd until climax at F5. Tempo at 120 BPM but varying based on Fibonacci. Dynamics from pianissimo (even) to mezzo forte (odd)."
+
+## 2. Prime Numbers
+- Mapping: Each prime maps to interval within scale. 2→A4, 3→G4, 5→F5. Duration: even-indexed primes longer, odd-indexed shorter. Dynamics: primes represent highest intensity (forte/crescendo). BPM: steady 120.
+- Genre: Jazz | Key: G Major | Time: 4/4
+- Prompt: "Compose jazz where prime numbers dictate pitch, duration, dynamics, and tempo. Start A4 for 2, increasing intervals at each prime. Vary rhythm — even-indexed primes longer, odd-indexed shorter. Crescendos and decrescendos for prime intensity. Steady 120 BPM."
+
+## 3. Collatz Conjecture
+- Mapping: Each number → scale position. Odd numbers increase octaves, even stay flat. Duration: halves until power of two, then doubles. Dynamics: softer when decreasing, louder when increasing. BPM: steady for even steps, faster for odd.
+- Genre: Contemporary Classical | Key: C Major | Time: 4/4
+- Prompt: "Compose contemporary classical where Collatz sequence dictates pitch, duration, dynamics, tempo. Start C4, increase by semitones as numbers rise until reaching power of two, then abrupt decrease. BPM fluctuates based on direction toward/away from even numbers."
+
+## 4. Pascal Triangle Rows
+- Mapping: Each number → note position in scale. Duration: number = beat count. Dynamics: even = soft, odd = strong. BPM: steady 120 with slight increase per row.
+- Genre: Classical | Key: C Major | Time: 4/4
+- Prompt: "Compose classical where Pascal's Triangle rows determine pitch, duration, dynamics, tempo. Each number → corresponding scale note. Duration = beats per cell. Even values softer (dotted notes), odd values stronger (accented). Steady 120 BPM with rhythmic emphasis per row."
+
+## 5. Digits of Pi
+- Mapping: Each digit (0-9) → specific note. 0=A4, 1=B4, etc. Duration: equal division. Dynamics: crescendo for odd, decrescendo for even. BPM: steady 120.
+- Genre: Experimental | Key: C Major | Time: 4/4
+- Prompt: "Compose experimental music where each digit of Pi translates into specific notes (0=A4 through 9). Duration equal per digit. Emphasize crescendos during odd digits, decrescendos during even. Steady 120 BPM."

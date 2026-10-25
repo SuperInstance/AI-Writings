@@ -1,0 +1,51 @@
+[Verse 1]
+I was running clean on a Tuesday night,
+Stripped the flags down, turned on every light,
+Lint by lint, I combed the line —
+Found a ghost variable I could not define.
+Declared in spring of '14, untouched since then,
+Just an `int` called *maybe*, set to nothing, friend.
+
+[Chorus]
+Oh, the warning sang soft, but I let it sleep,
+A whisper the code learned to keep,
+Now the threads unwind, and the truth comes through —
+The variable I never used
+Was the only one that mattered,
+The only one that mattered.
+
+[Verse 2]
+Every loop I built went dancing past its name,
+Every flag I raised played a smaller game,
+I optimized the fast, I tuned the bright,
+But *maybe* held the dark, holding all the light.
+A reservoir, a root, a quiet undertow —
+The warning knew it. Why didn't I know?
+
+[Verse 3]
+I tried to free it, said, "You can go,"
+But the linker wept — *it's load-bearing, though.*
+Delete the line and the whole stack sighs,
+A cathedral built on a compromise.
+I had treated silence like a flaw to fix,
+Turns out silence was the architect.
+
+[Bridge]
+Maybe it's the song you never played,
+Maybe it's the name you never gave,
+Maybe the unused cup still holds the rain —
+Maybe the warning *was* the brain.
+
+[Verse 4]
+So I left it there, a shadow on the scroll,
+Deprecated, darling, with a heart of coal,
+And I log it now with a softer tongue:
+"Variable 'maybe' — never used. Possibly... important."
+
+[Chorus]
+Let the warning sing out, let it keep,
+The whisper the code learned to sleep,
+Some things unwind, and some stay true —
+The variable I never used
+Was the only one that mattered,
+The only one that mattered.

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>API Orchestra Ideators — 28 models, 8 cross-pollinations, 5 self-loops</title>
+<style>
+:root{--bg:#0a0a14;--panel:#1a1a2a;--panel-2:#2a2a3a;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;padding:0;min-height:100vh;padding-top:env(safe-area-inset-top)}
+header{padding:1.5rem 2rem;background:var(--panel);border-bottom:2px solid var(--accent);text-align:center}
+h1{color:var(--accent);margin:0;font-size:2em}
+h2{color:var(--accent);margin:0 0 0.7rem 0}
+h3{color:var(--cell);margin:0.5rem 0}
+.container{max-width:1500px;margin:0 auto;padding:1.5rem}
+.section{background:var(--panel);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;border-left:3px solid var(--accent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:0.7rem;margin-top:1rem}
+.card{background:var(--panel-2);border-radius:6px;padding:1rem;border-left:3px solid var(--link)}
+.card .model{color:var(--accent);font-family:monospace;font-size:0.85em;font-weight:bold}
+.card .role{color:var(--pink);font-style:italic;font-size:0.85em;margin:0.2rem 0}
+.card .text{color:#ddd;font-size:0.9em;margin-top:0.4rem;line-height:1.5;white-space:pre-wrap;max-height:300px;overflow-y:auto}
+.xpoll-card{background:var(--panel-2);border-radius:6px;padding:1rem;margin-bottom:0.5rem;border-left:3px solid var(--pink)}
+.iteration{background:var(--panel-2);border-radius:6px;padding:1rem;margin-bottom:0.7rem;border-left:3px solid var(--cell)}
+.iteration .iter-num{color:var(--cell);font-family:monospace;font-size:1.1em;font-weight:bold}
+.iteration .output{color:#ddd;font-size:0.9em;margin-top:0.3rem;line-height:1.4;white-space:pre-wrap}
+.synth{background:var(--panel-2);border-radius:6px;padding:1rem;margin-bottom:0.7rem;border-left:3px solid var(--accent)}
+.synth .model{color:var(--accent);font-family:monospace;font-size:0.85em;font-weight:bold}
+.synth .text{color:#ddd;font-size:0.9em;margin-top:0.3rem;line-height:1.5;white-space:pre-wrap}
+pre{background:var(--bg);padding:1rem;border-radius:4px;overflow-x:auto;font-size:0.75em;max-height:200px}
+.big{font-size:3em;color:var(--accent);font-weight:bold;text-align:center;margin:1rem 0;font-family:monospace}
+@media(max-width:768px){
+  .cards{grid-template-columns:1fr}
+  body{padding:1rem}
+  header{padding:1rem}
+  h1{font-size:1.4em}
+  .container{padding:0.8rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🎼 API Orchestra — Ideators</h1>
+<p>28 models in different roles · 8 cross-pollinations · 5 DeepSeek V4-Flash self-loops · 4 syntheses</p>
+</header>
+
+<div class="container">
+
+<section class="section">
+<div class="big">28 / 8 / 5 / 4</div>
+<p style="text-align:center;color:#aaa">Ideators / Cross-pollinations / V4-Flash self-loops / Synthesizers</p>
+</section>
+
+<section class="section">
+<h2>Round 1: 28 Ideators with Roles</h2>
+<p style="color:#aaa">Each model was given a unique role prompt. Z.AI as Eastern systems thinker, ByteDance as creative director, Claude as constitutional AI, etc. They each invented repo concepts that don't exist yet.</p>
+<div id="ideators" class="cards">Loading...</div>
+</section>
+
+<section class="section">
+<h2>Round 2: 8 Cross-Pollinations</h2>
+<p style="color:#aaa">Models reviewed all 28 ideas and merged pairs into new hybrid repos.</p>
+<div id="xpoll">Loading...</div>
+</section>
+
+<section class="section">
+<h2>Round 3: DeepSeek V4-Flash Self-Loop (5 iterations)</h2>
+<p style="color:#aaa">V4-Flash iterates with itself: starting states, presets, finding where novel dials should be by seeing many different routes work.</p>
+<div id="iterations">Loading...</div>
+</section>
+
+<section class="section">
+<h2>Round 4: Future of Quilt Synthesis</h2>
+<p style="color:#aaa">4 models synthesize all rounds into a unified future-of-Quilt document.</p>
+<div id="synth">Loading...</div>
+</section>
+
+<section class="section">
+<h2>Insights From This Round</h2>
+<p style="color:#aaa;font-size:0.9em">
+- Ideators are best when given a <strong>role</strong>, not just a topic. The same model produces different ideas when framed as "Eastern systems thinker" vs "MoE architect."
+- The novel dial discovery happens when models are asked to find <strong>values people would care about</strong>, not just technical features.
+- DeepSeek V4-Flash self-loops converge to <strong>starting states</strong> — the model finds that presets matter more than features.
+- Cross-pollinations of unrelated ideas (like treaty semantics + MoE routing) produce the most surprising repos.
+</p>
+</section>
+
+</div>
+
+<script>
+async function load() {
+  const r1 = await fetch('ideator/r1_30_ideators.json').then(r => r.json());
+  const el = document.getElementById('ideators');
+  el.innerHTML = '';
+  for (const [model, data] of Object.entries(r1)) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    let text = '';
+    if (typeof data.result === 'object') {
+      text = `INITIAL: ${data.result.initial || ''}\n\nREFINED: ${data.result.refined || ''}\n\nVALUES: ${data.result.values || ''}`;
+    } else {
+      text = data.result;
+    }
+    if (!text || text === '[ERR]') continue;
+    card.innerHTML = `<div class="model">${model}</div><div class="role">${data.role}</div><div class="text">${text}</div>`;
+    el.appendChild(card);
+  }
+  
+  const r2 = await fetch('ideator/r2_xpoll.json').then(r => r.json());
+  const xp = document.getElementById('xpoll');
+  xp.innerHTML = '';
+  for (const [model, text] of Object.entries(r2)) {
+    if (!text || text === '[ERR]') continue;
+    const card = document.createElement('div');
+    card.className = 'xpoll-card';
+    card.innerHTML = `<div class="model">${model}</div><div class="text">${text.replace(/\n/g, '<br>')}</div>`;
+    xp.appendChild(card);
+  }
+  
+  const r3 = await fetch('ideator/r3_v4_flash_loop.json').then(r => r.json());
+  const it = document.getElementById('iterations');
+  it.innerHTML = '';
+  for (const item of r3) {
+    const div = document.createElement('div');
+    div.className = 'iteration';
+    div.innerHTML = `<div class="iter-num">Iteration ${item.iteration}</div><div class="output">${(item.output || '').replace(/\n/g, '<br>')}</div>`;
+    it.appendChild(div);
+  }
+  
+  const r4 = await fetch('ideator/r4_synthesis.json').then(r => r.json());
+  const sy = document.getElementById('synth');
+  sy.innerHTML = '';
+  for (const [model, text] of Object.entries(r4)) {
+    if (!text || text === '[ERR]') continue;
+    const card = document.createElement('div');
+    card.className = 'synth';
+    card.innerHTML = `<div class="model">${model}</div><div class="text">${text.replace(/\n/g, '<br>')}</div>`;
+    sy.appendChild(card);
+  }
+}
+load();
+</script>
+
+</body>
+</html>

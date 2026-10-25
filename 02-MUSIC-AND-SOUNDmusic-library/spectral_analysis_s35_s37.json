@@ -1,0 +1,112 @@
+[
+  {
+    "track": "c1-puddle.mp3",
+    "session": "session35",
+    "duration_s": 182.2,
+    "centroid_hz": 2300.8,
+    "flatness": 0.0159,
+    "bandwidth_hz": 2346.2,
+    "rms": 0.1267,
+    "zcr": 0.1031,
+    "tempo_bpm": 172.3
+  },
+  {
+    "track": "c2-refrigerator.mp3",
+    "session": "session35",
+    "duration_s": 159.6,
+    "centroid_hz": 2066.0,
+    "flatness": 0.0148,
+    "bandwidth_hz": 2339.9,
+    "rms": 0.1333,
+    "zcr": 0.0783,
+    "tempo_bpm": 95.7
+  },
+  {
+    "track": "f1-dark-stock.mp3",
+    "session": "session35",
+    "duration_s": 206.4,
+    "centroid_hz": 1757.7,
+    "flatness": 0.0121,
+    "bandwidth_hz": 2091.0,
+    "rms": 0.116,
+    "zcr": 0.066,
+    "tempo_bpm": 172.3
+  },
+  {
+    "track": "f2-smoked-fish.mp3",
+    "session": "session35",
+    "duration_s": 210.6,
+    "centroid_hz": 2490.4,
+    "flatness": 0.0204,
+    "bandwidth_hz": 2638.9,
+    "rms": 0.1172,
+    "zcr": 0.092,
+    "tempo_bpm": 161.5
+  },
+  {
+    "track": "m1-asymptotic.mp3",
+    "session": "session35",
+    "duration_s": 265.4,
+    "centroid_hz": 2208.5,
+    "flatness": 0.0157,
+    "bandwidth_hz": 2500.3,
+    "rms": 0.1174,
+    "zcr": 0.0748,
+    "tempo_bpm": 86.1
+  },
+  {
+    "track": "m2-interlocking.mp3",
+    "session": "session35",
+    "duration_s": 194.8,
+    "centroid_hz": 2716.1,
+    "flatness": 0.0229,
+    "bandwidth_hz": 2699.2,
+    "rms": 0.1373,
+    "zcr": 0.1069,
+    "tempo_bpm": 184.6
+  },
+  {
+    "track": "s1-clay-wheel.mp3",
+    "session": "session35",
+    "duration_s": 250.0,
+    "centroid_hz": 2396.8,
+    "flatness": 0.0167,
+    "bandwidth_hz": 2859.4,
+    "rms": 0.1239,
+    "zcr": 0.0719,
+    "tempo_bpm": 83.4
+  },
+  {
+    "track": "s2-basalt.mp3",
+    "session": "session35",
+    "duration_s": 228.6,
+    "centroid_hz": 2739.0,
+    "flatness": 0.0166,
+    "bandwidth_hz": 2733.6,
+    "rms": 0.116,
+    "zcr": 0.0948,
+    "tempo_bpm": 92.3
+  },
+  {
+    "track": "erosion-llama.mp3",
+    "session": "session37",
+    "duration_s": 278.0,
+    "centroid_hz": 1986.6,
+    "flatness": 0.0071,
+    "bandwidth_hz": 2708.0,
+    "rms": 0.0907,
+    "zcr": 0.0558,
+    "tempo_bpm": 60.1
+  },
+  {
+    "track": "test.mp3",
+    "session": "session37",
+    "duration_s": 207.1,
+    "centroid_hz": 753.7,
+    "flatness": 0.0013,
+    "bandwidth_hz": 1295.0,
+    "rms": 0.0526,
+    "zcr": 0.0293,
+    "tempo_bpm": 112.3
+  }
+]

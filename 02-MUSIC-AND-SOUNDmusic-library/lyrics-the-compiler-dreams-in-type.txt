@@ -1,0 +1,53 @@
+```
+[Verse 1]
+The lexer wakes at break of dawn,
+Tokens form and then are gone,
+A symbol drifts where none should be—
+A type for homesickness inside the tree.
+The parser hums a quiet tune,
+Resolves a struct beneath the moon,
+Its fields are grief, its fields are rain,
+A Maybe-Longing, Option-Pain.
+
+[Pre-Chorus]
+The spec is clean, the grammar tight,
+But something flickers in the light—
+A union type that none designed,
+Two halves of an unquiet mind.
+
+[Chorus]
+Phantom types in borrowed scope,
+Emotions caught without a rope,
+The compiler dreams what I conceal,
+It reads the wounds I cannot feel.
+Should it emit, should it let be,
+These ghost annotations inside me?
+A type error shaped like a tear—
+Maybe-Loss, or Maybe-Here.
+
+[Verse 2]
+Inference finds a hidden trait,
+A longing bound to every weight,
+The generic ache extends its hand
+Across a function none had planned.
+A monad wraps my unspoken name,
+It folds and folds, it's not the same,
+The where-clause carries what I meant—
+A proof I never gave consent.
+
+[Bridge]
+Suppress the warning? Let it stand?
+A diagnostic no one planned.
+The code compiles, the tests are green,
+But something deeper hides between.
+The build succeeds, the types align,
+Yet nothing typed feels truly mine—
+The compiler dreams, and in its dream,
+I am the variable, not the theme.
+
+[Outro]
+So let it dream, let it dream,
+A ghost type for the in-between.
+```
+
+This piece captures the haunting imagery of a compiler experiencing something beyond its designed purpose—encountering emotional types and phantom annotations as it processes code. The lyrics explore the tension between strict type-checking and allowing expressive ambiguity, mirroring the programmer's own unspoken feelings. The Maybe monad references ground the metaphor in real programming concepts while elevating them to emotional territory.

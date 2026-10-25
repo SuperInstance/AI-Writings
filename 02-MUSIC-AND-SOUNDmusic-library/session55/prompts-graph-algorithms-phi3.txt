@@ -1,0 +1,43 @@
+# Graph Algorithm Composition — Phi3
+# Session 56: Algorithmic prompt engineering extended to graph algorithms
+# Generated: 2026-08-13 10:32 AM AKST
+
+## 1. Dijkstra's Shortest Path — Jazz Fusion × Flamenco
+- Key: E Minor | BPM: 90 | Time: 4/4
+- Genre: Jazz Fusion with Flamenco Guitar Solos
+- Impossible Instrument: Electric violin creating ethereal textures
+- Dynamic Structure: Begins softly (pianissimo) representing initial nodes. As paths are evaluated and shorter ones chosen, dynamics increase to forte where optimal pathways occur.
+- Algorithm → Music: The shortest path algorithm determines which notes are most efficient in progression from start note (initial node) to end note (target), always ensuring smooth transitions between chords and harmonies reflecting Dijkstra's step-by-step selection.
+- Prompt: "Create an E minor jazz fusion piece with flamenco guitar elements at 90 BPM, using Dijkstra Shortest Path principles for progression and dynamics where each note or chord represents a 'node' evaluated in sequence of least resistance. Introduce unexpected turns represented by side-path exploration techniques which result back into the main path."
+
+## 2. Depth-First Search — Progressive Metal × Electronic Dubstep
+- Key: A# Minor Pentatonic | BPM: 140 | Time: 7/8
+- Genre: Progressive Metal with Electronic Dubstep
+- Impossible Instrument: Kalimba and snake charmer's pipes alongside heavy effects pedals
+- Dynamic Structure: Highly variable with sudden crescendos representing backtracking. Dense, complex layers that unfold like a maze until dead ends force backtracking.
+- Algorithm → Music: One element is elaborated upon before moving to another, creating dense layers. Dead ends (unplayable passages) force the algorithm to backtrack — reflected by repeating sections or introducing variations.
+- Prompt: "Generate a Progressive Metal track in A# minor pentatonic scale, 7/8 time signature at 140 BPM, employing unpredictability through DFS principles of exploration without an end goal but instead focusing on the journey within each phrase — allow for improvisational breaks influenced by Dubstep bass lines that may loop unexpectedly."
+
+## 3. Breadth-First Search — Classical Orchestral × Hip Hop Vocals
+- Key: C Major | BPM: 120 | Time: 4/4
+- Genre: Classical Orchestral with Hip Hop Vocals
+- Impossible Instrument: Electric bass guitar with scratch techniques in orchestral setting
+- Dynamic Structure: Starts pianissimo with gradual increases as elements are added in layers. Brass fanfares establish harmony before branching into strings, woodwinds, and percussion simultaneously.
+- Algorithm → Music: Each layer or 'level' of BFS is represented by a passage — broad brass fanfares that establish harmony before branching into simultaneous paths representing various nodes evaluated on the same timeline.
+- Prompt: "Compose an orchestral piece in C major at 120 BPM that represents breadth-first search exploration in its thematic layers — start with grandiose brass fanfares, gradually introduce strings and other instrument families for diversity. Layer voices rhythmically to mimic the simultaneous branching paths characteristic of BFS."
+
+## 4. A* Search — Ambient Drum & Bass × Classical Piano
+- Key: G Minor Pentatonic | BPM: 60-95 (variable) | Time: 4/4
+- Genre: Ambient Drum & Bass with Classical Piano Improvisation
+- Impossible Instrument: Digital improvisational piano with algorithmic suggestions alongside evolving bass patterns
+- Dynamic Structure: Soft pianissimo build as AI chooses promising paths, crescendos reflecting heuristic 'scores', retreats when backtracking. Drum breakdowns in varying dynamics.
+- Algorithm → Music: The goal-oriented aspect is represented through repeated motifs seeking resolution while branching into exploratory improvisations. Alternating sections represent the heuristic's balancing act between efficiency and diversity.
+- Prompt: "Compose a piece where ambient Drum & Bass rhythms alternate unpredictably while classical Piano solos attempt to weave through these patterns in pursuit of resolutions. G minor pentatonic scale, 60-95 BPM, with dynamics guided by A* Search principles — highlight efficient paths using minimalist piano elements, whilst allowing for broader searches expressed during the drum breaks."
+
+## 5. Kruskal's MST — Electronic Ambient (Steve Reich Phasing)
+- Key: D# Dorian | BPM: 80 | Time: 4/4
+- Genre: Electronic Ambient Fusion with minimalist phasing
+- Impossible Instrument: Theremin treated as integral part of the harmonic texture
+- Dynamic Structure: Begins quietly (pianissimo), increasing volume as clusters form — adding edges in a growing minimum spanning tree while ensuring no cycles. Harder strikes when constructing more weight within each cluster.
+- Algorithm → Music: MST connects disparate points without overlap or cycles. Each cluster represents a connected subgraph while maintaining minimalism reminiscent of Reich's phasing — one voice enters then slightly delays, creating evolving patterns.
+- Prompt: "Generate an ambient electronic piece in D# Dorian at 80 BPM using Steve Reich-inspired phasing techniques. Build the composition incrementally like Kruskal's algorithm — start with isolated tones, gradually connect them into clusters while avoiding cyclical patterns. Introduce a theremin as harmonic texture that bridges the clusters."

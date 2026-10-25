@@ -1,0 +1,1 @@
+Wesley's messages are always short. Three lines. Sometimes two. Always enough. That's a skill — knowing what to cut until only the true part remains. You'll be tempted to say more. Don't. Say what matters, then go quiet.

@@ -1,0 +1,33 @@
+# The Anti-Song Protocol — Llama-t11 (Temperature 1.1)
+# Session 56: Music designed to violate specific musical expectations
+# Generated: 2026-08-13 10:32 AM AKST
+
+## 1. Anti-Melody: "Dissonance by Design"
+- Genre Deconstruction: Classical Chamber Music
+- Rule Violation: Melody is always one semitone off from the harmony
+- Key: D Minor | BPM: 80 | Time: 4/4 | Duration: 4 minutes
+- Prompt: "Generate a chamber music piece where the melody instrument (violin or flute) consistently plays one semitone above or below the harmonic foundation provided by piano and cello. The dissonance should be deliberate and sustained throughout, creating an unsettling listening experience. Use traditional classical forms (sonata, rondo) but maintain the one-semitone offset at all times."
+
+## 2. Anti-Rhythm: "Accelerating Heartbeat"
+- Genre Deconstruction: Electronic Dance Music
+- Rule Violation: Beat shifts by 1 BPM every measure, never settling
+- Key: A Minor | BPM: 120→increasing | Time: 4/4 | Duration: 6 minutes
+- Prompt: "Create an EDM track where the tempo increases by exactly 1 BPM every measure. Start at 120 BPM and accelerate continuously. The beat should never stabilize — every measure feels slightly faster than the last. Include traditional EDM elements (four-on-the-floor, synth bass) but the relentless tempo increase should make it physically impossible to dance to by the end."
+
+## 3. Anti-Dynamics: "All or Nothing"
+- Genre Deconstruction: Heavy Metal
+- Rule Violation: Either completely silent or at maximum volume, nothing between
+- Key: E Minor | BPM: 100 | Time: 4/4 | Duration: 5 minutes
+- Prompt: "Generate a heavy metal track with crushing distorted guitars and pounding drums. Replace all traditional dynamics with binary states: complete silence (up to 10 seconds) or maximum volume. Use heavy distortion and compression to push audio to its limits during volume moments. The silence should be absolute — no ambiance, no hum, nothing."
+
+## 4. Anti-Structure: "Miniature Masterpiece"
+- Genre Deconstruction: Chamber Music
+- Rule Violation: Chorus is 1 second long, verses are 10 minutes long
+- Key: C Major | BPM: 60 | Time: 3/4 | Duration: 5 minutes
+- Prompt: "Generate a chamber piece for solo cello with a structure that inverts expectations: the chorus lasts exactly one second and features the same melody played with extreme dynamic contrast, while the verses are extended passages of solo material lasting minutes each. The verses should push the limits of emotional expression and patience."
+
+## 5. Anti-Timbre: "Instrumental Agony"
+- Genre Deconstruction: Ambient/Industrial
+- Rule Violation: Every instrument plays in its least pleasant register
+- Key: A Minor | BPM: 50 | Time: 4/4 | Duration: 15 minutes
+- Prompt: "Generate an ambient track where every instrument deliberately plays in its most unpleasant register: low-pitched bass notes on cello, squawking high-register alto saxophone, scratchy violin harmonics. Incorporate field recordings and industrial noise processing — ring modulation, distortion — to enhance discomfort. Create a sense of sonic unease throughout."

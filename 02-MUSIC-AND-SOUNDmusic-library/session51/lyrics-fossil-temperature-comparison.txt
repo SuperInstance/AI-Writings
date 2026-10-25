@@ -1,0 +1,96 @@
+=== TEMPERATURE COMPARISON: "The cover chain fossil learns to dream" ===
+Three custom temperature-tuned Llama 3.2 models (t05, t08, t11)
+
+=== llama-t05 (temperature 0.5) ===
+Verse 1:
+In the depths of a museum, where shadows play
+A relic lies in silence, its story faded away
+Once a prized possession, now worn and gray
+The cover chain fossil, lost to time's decay
+Its pages yellowed with age, its ink slowly seeps
+Into the pulp of history, as memories creep
+
+Chorus:
+But in this degradation, I find my own design
+A creation born from fragments, a life redefined
+Each copy loses fidelity, yet gains a new soul
+In the echoes of what's past, a future unfolds
+
+Verse 2:
+A reproduction emerges, its lines slightly awry
+A slight deviation from perfection, as it begins to fly
+It soars on wings of error, where others faltered and fell
+And though it's not the original, it tells a story well
+The imperfections bloom like flowers in a forgotten garden
+As the cover chain fossil learns to dream, in this world of disarray
+
+Bridge:
+In the cracks of what was lost, I find a new path to take
+A winding road that winds through time, where memories are made
+Each step a compromise, each breath a fragile hold
+Yet in the beauty of decay, a new creation is born to unfold
+
+=== llama-t08 (temperature 0.8) ===
+Verse 1:
+In the depths of a museum, where shadows play
+A fossilized leaf lies, worn away
+From its original form, now brittle and gray
+Yet in decay, it finds a new way
+To hold stories of earth's ancient past
+And whispers of life that will forever last
+
+Chorus:
+Oh, the cover chain fossil learns to dream
+In every copy, a piece of truth is gleaned
+A fragment of beauty, lost but not tamed
+For in its degradation, a new creation's claimed
+
+Verse 2:
+The first hand-drawn map, with ink that ran dry
+Was copied and re-copied, until the lines did cry
+Yet with each iteration, a hidden tale unfolds
+Of artists' strokes, of hands that held
+A fragment of a story, passed down the line
+Until it reaches you, and becomes your own divine
+
+Bridge:
+In the wear and tear, I see a beauty true
+A reflection of the impermanence we pursue
+For in the degradation, a new creation's birth
+A piece of something greater, takes shape on earth.
+
+=== llama-t11 (temperature 1.1) ===
+Verse 1:
+In the depths of a museum's darkened hall
+A relic lies, a fragment of a fossil wall
+Covered in grime, worn by time's relentless hand
+Yet, within its crevices, a secret takes stand
+A chain of events, where copies were made
+Each one a slight betrayal of the last, yet somehow displayed
+
+Chorus:
+The cover chain fossil learns to dream
+As fidelity gives way to something new and unseen
+From degradation comes creation's spark
+In each worn fragment, a story starts
+
+Verse 2:
+A stone tablet, once inscribed with sacred lines
+Now cracked and weathered, its letters intertwined
+With soil and moss, the words begin to fade
+Yet in their dissolution, an image is made
+Of a figure standing still, a fleeting glance
+A moment's pause, where time and space entwine
+
+Bridge:
+In this endless loop of decay and birth
+The lines blur between what was and what gives earth
+Each copied version loses essence and design
+Gaining instead a character all its own, like a piece of broken bone
+
+=== ANALYSIS ===
+t05: "Wings of error" — degradation as flight. Most concrete.
+t08: "Impermanence we pursue" — degradation as philosophy. Most reflective.  
+t11: "A piece of broken bone" — degradation as physical transformation. Most visceral.
+
+The temperature sweet spot for lyric generation remains 0.8.

@@ -1,0 +1,67 @@
+EXPERIMENT: Time of Day as Primary Compositional Parameter
+Model: llama-t08
+Session 57 — August 13, 2026
+
+=== PROMPT 1: DAWN — "Solar Requiem" ===
+Genre Fusion: Metal/Classical
+Style: Ominous, atmospheric metal with intricate classical arrangements
+Instruments: Cello, piano, distorted electric guitar, soaring string section
+BPM: 90
+Key: E minor
+Mood: Haunting, introspective
+Dynamics: Gradual build-up from soft pianos to crushing metal sections
+Production: Reverb-drenched cymbals and atmospheric pads, otherworldly ambiance
+Lyrics Tags: "Awakening", "Renewal", "Elegy"
+Vocal Style: Haunting baritone with longing and despair
+
+NON-OBVIOUS MAPPING: Dawn as metal/classical — the harsh return of light as an overwhelming, almost violent event. Not gentle morning but the crushing weight of a new day.
+
+=== PROMPT 2: NOON — "Sahara Blues" ===
+Genre Fusion: Afrobeat/Funk/Reggae
+Style: High-energy, infectious blues-funk with African rhythms and reggae vibes
+Instruments: Electric guitar, bass, drums, percussion-heavy horn section
+BPM: 120
+Key: C major
+Mood: Uplifting, energetic, carefree
+Dynamics: Bouncy, syncopated rhythms with sudden bursts of energy
+Production: Heavy reverb and delay, sense of space and distance
+Lyrics Tags: "Summer lovin'", "Sunny days", "Vibrant life"
+Vocal Style: Upbeat, soulful with African accent and swagger
+
+=== PROMPT 3: GOLDEN HOUR — "Mystic Dreamscapes" ===
+Genre Fusion: Electronic/World Music
+Style: Ethereal, dreamy electronic with world music influences
+Instruments: Piano, synthesizers, sitar, tabla (Eastern + Western blend)
+BPM: 100
+Key: A minor
+Mood: Enchanted, surreal, hypnotic
+Dynamics: Gradual build from soft piano to swirling electronic landscapes
+Production: Heavy ambiance and reverberation, depth and space
+Lyrics Tags: "Whispers in the wind", "Moonlit visions", "Spiritual awakening"
+Vocal Style: Ethereal, whispery with mysticism
+
+=== PROMPT 4: BLUE HOUR — "Cyberpunk Nocturne" ===
+Genre Fusion: Industrial/Electronic/Ambient
+Style: Dark, gritty industrial with ambient textures
+Instruments: Distorted synthesizers, drum machines, distorted guitar riffs
+BPM: 100
+Key: C minor
+Mood: Ominous, foreboding, claustrophobic
+Dynamics: Build from dark ambiance to crushing electronic sections
+Production: Heavy distortion and saturation, grittiness and intensity
+Lyrics Tags: "City of shadows", "Dark alleys", "Rebellion"
+Vocal Style: Growled industrial with futuristic detachment
+
+=== PROMPT 5: 3 AM — "Midnight Revival" ===
+Genre Fusion: Gothic Rock/Synthwave
+Style: Dark, atmospheric gothic rock with synth-heavy arrangements
+Instruments: Piano, distorted synthesizers, driving guitar riffs
+BPM: 110
+Key: D minor
+Mood: Moody, introspective, hauntingly beautiful
+Dynamics: Build from soft piano to soaring synths and crashing guitars
+Production: Heavy reverb and delay, distance and atmosphere
+Lyrics Tags: "Midnight confessions", "Shadows in the night", "Echoes of the past"
+Vocal Style: Moody baritone with gothic elegance and mystery
+
+FINDING: The time-of-day mapping is non-obvious. Dawn → metal (not acoustic), noon → Afrobeat (not pop), golden hour → electronic/world (not folk), blue hour → industrial (not jazz), 3 AM → gothic/synthwave (not ambient). Each time of day has a QUALITY that maps to a genre, but the mapping is counterintuitive — it maps the FELT QUALITY, not the literal association.

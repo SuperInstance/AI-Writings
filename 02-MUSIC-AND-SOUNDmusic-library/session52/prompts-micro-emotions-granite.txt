@@ -1,0 +1,27 @@
+# Micro-Emotion Prompts by Granite3.1
+# Session 52, August 13, 2026
+# Concept: Music exploring emotions too small to have names
+
+## 1. "GoneButNotForgotten"
+Description: A fleeting sensation that intertwines the nostalgia of lost connections with an eerie sense of lingering presence, reminiscent of remembering a door you forgot to lock in the dead of the night.
+Genre Fusion: Ambient/IDM (Intelligent Dance Music) with elements of synthwave and minimalistic techno.
+Instruments: Piano, synthesizers (including a mellotron for nostalgic strings), drum machine, and subtle vocal samples.
+BPM: 85-95
+Key: D minor or A minor
+Dynamics: Soft to soft-to-loud transitions, with a focus on atmospheric buildups and sudden shifts in volume to mimic the unexpected nature of "GoneButNotForgotten."
+
+## 2. "AshenBeacon"
+Description: The warmth of a power LED in a dark room, symbolizing comfort found amidst isolation — being the last person awake on a deserted vessel.
+Genre Fusion: Chillout/Downtempo with a touch of neo-soul and ambient.
+Instruments: Acoustic guitar, subtle pads created by synthesizers, gentle drum beats on a snare or a shaker, and reverb-heavy electric guitar chords.
+BPM: 75-85
+Key: C major or G minor (warm and comforting tones)
+Dynamics: Smooth transitions from soft to medium volume, with gentle swells of the drum beats to emphasize the presence of the light in the otherwise dark space.
+
+## 3. "LonesomeHull"
+Description: The unique loneliness experienced by being the sole awake individual on a vast, empty ship — a feeling that is both profound and eerie.
+Genre Fusion: Post-rock with elements of shoegaze and drone.
+Instruments: Clean electric guitar, reverb-heavy distorted guitars for atmospheric depth, bass, and synthesizers creating echoing pads; occasional use of a violin or cello to convey the vastness of space.
+BPM: 65-75 (slow and expansive)
+Key: D major or E minor (expansive and solemn tones)
+Dynamics: Gradual volume buildup from soft to loud, with crescendos that mirror the intensity of solitude in such an unimaginably empty setting.

@@ -1,0 +1,19 @@
+# New lyrics: The Tensor Is the Score (v2)
+
+The tensor holds the score
+every number a note
+every dimension a voice
+every attention head a pair of ears
+
+The model listens to itself
+and decides what comes next
+based on what came before
+and what the prompt asked for
+
+The prompt is the request
+the score is the latent
+the music is the decode
+the listener is the last step
+
+The tensor does not know it is music
+until someone hears it

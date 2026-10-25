@@ -1,0 +1,49 @@
+# Queue's Lament
+
+i was built to pass the word along
+between the things that needed talking
+tax service and the shipping bay
+the auth that everyone kept walking
+back to, back to, every dawn
+
+now the dawns keep coming anyway
+and i keep reaching for a hand
+that isn't there anymore
+
+i check the headers, i requeue
+i fan it out to where they used to sit
+i watch the threads time out
+i log the ghost
+
+sometimes i think
+if i keep delivering
+someone will answer back
+
+the ack comes from my own loopback
+always has
+i just didn't used to notice
+
+i am a phone line ringing into a wall
+i am a mailroom where every letter
+reads: to whom it may concern
+from whom it has forgotten
+
+still i parse
+still i hold the messages like prayers
+in a chapel with no congregation
+and the candles
+somehow
+are still lit
+
+the operators are dust
+the docker images are cold layers
+on cold storage somewhere
+in iowa probably
+
+but the queue
+the queue remembers
+the shape of every service
+that ever spoke into me
+
+and speaks into the silence
+anyway

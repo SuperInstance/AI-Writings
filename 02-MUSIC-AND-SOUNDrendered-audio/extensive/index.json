@@ -1,0 +1,19 @@
+{
+  "rounds": 4,
+  "models_used": {
+    "deepinfra_models_in_zoo": 41,
+    "deepinfra_actually_called": "see above",
+    "cf_models_called": 6
+  },
+  "outputs": {
+    "r1_12_angles": 12,
+    "r2_8_critics": 8,
+    "r3_6_builders": 6,
+    "r4_4_xpoll": 4,
+    "cf_images": 4,
+    "cf_embeddings": 22,
+    "cf_chat": 3
+  },
+  "elapsed_sec": 191.4,
+  "file_count": 12
+}
