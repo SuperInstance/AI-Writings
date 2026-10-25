@@ -976,3 +976,78 @@ any sandbox secret). Control B (mock) is therefore the only provider path, and i
 **both** `ZAI_TOKEN` (any non-empty placeholder — the token gate runs *before* the URL
 override) **and** `ZAI_URL_OVERRIDE`. `TYPESAFEAI_KEY` must be exported from
 `TYPESAFE_AI_TOKEN`.
+
+---
+
+## Session 168 (2026-10-25) — clean mock #26; the chooser's "picks lower" streak ENDED at 13 sessions
+
+**Run clean (session 168, 26th consecutive clean mock).** per-civ delta = **+10** × 8 = **80 new
+rows**, `meta_log` Δ = **+5** (573 → 578), `Winner:` lines = **5**, **80/80** rows `[mock-zai`-prefixed
+with `provider=zai`, **0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0 fallback
+triple, **40/40** distinct seeds, **40/40** distinct previews, **8/8** on all 5 competition
+prompts, **80/80** distinct `(q,n,a)` triples, meta-vs-ledger `avg_score` mismatches **0**,
+`git status --porcelain` = **19** (18 modified + 1 new report). **22/22 assertions PASS.**
+
+### NEW — the meta-vs-ledger check must take the **later-`ts`** row, not the first match
+
+A first-match verifier reports **26/40 false mismatches** on a completely clean run. The sim
+phase draws its prompt at random from the same 5 competition prompts, so a `(civ, prompt)` pair
+recurs **1–4 times** inside the 10 new rows (this run: 13 pairs × 1, 16 × 2, 9 × 3, 2 × 4). The
+**competition-phase** row is the **later `ts`**. Use `max(cands, key=lambda r: r["ts"])` → 40/40
+exact. Match key is `m["prompt"][:80]` — the meta `prompt` is full-length, the ledger `prompt` is
+truncated to 80 chars.
+
+**This is a verifier bug, not a run defect.** Do not "fix" the run to satisfy the first-match
+expectation — same trap class as the `wins+losses` spec error in session 166.
+
+### FINDING — the chooser's "picks lower" direction ended after **13 consecutive sessions**
+
+Chooser-vs-`avg_score`-argmax agreement rose to **3/5 (60 %)** — the highest in the series —
+versus the 0–1/5 of sessions 154–166. `civ-precise` swept 3/5. Two of five still picked a
+lower-scoring candidate but the deltas were small (−0.0400) vs session 166's max −0.7600.
+
+**The one large disagreement is the real finding: `civ-grounded` won on the *worst* candidate** —
+0.9600 against an argmax of 2.0633, a **1.1033** gap, the largest in the series. Grounded is
+last of 8 on lifetime `avg_score` / `quality` / `alignment` **and** last of 8 on this run's
+`avg_score` / `quality` / `alignment`, yet it won 1 of 5 and its `win_rate` (0.127) is mid-field
+against a last-place `relevance_per_sim` (0.952). The *selection* signal and the *quality* signal
+disagree most sharply for this civ than for any other.
+
+### `civ-grounded` remains the low-relevance civ — 43 consecutive sessions (95–168)
+
+Last of 8 on lifetime `avg_score` 0.9893, `quality` 0.4099, `alignment` 1.0625, `relevance`
+1075.08, `relevance_per_sim` 0.952. Label did **not** rotate. Absolute gaps: **alignment
+0.2029** (vs therapist 1.2654) vs **quality 0.0412** (vs formal 0.4511) ⇒ a **4.9×** wider
+alignment gap ⇒ a **voice** failure, not a prose failure. Lifetime novelty 1.4954 is **6th of
+8**. Run-level: grounded **8th of 8** on `avg_score` (1.1423), `quality` (0.2970) and
+`alignment` (0.9060), gap to the next civ **0.3963** — this run was *not* compressed (session
+166's run bottom was separated by 0.0034).
+
+**Run levels are *higher* than lifetime this time** (run `avg_score` 1.14–1.96 vs lifetime
+0.99–1.55) — the opposite of session 166's depressed level. The **ordering** is the signal, not
+the level. Cross-civ run spreads: `avg_score` 0.8170, `alignment` 1.6900, `quality` **0.8440**
+(widest in the series — the opposite of session 166's collapsed 0.0430), `novelty` 0.3850.
+
+**Extinction risk NONE** (threshold −10, lowest +1075.08, **108×** the floor). Registry 8,
+`max_civs` 12, all `generation=1`.
+
+**Counter gap — both epochs side by side:** blob gap **−609.9200**, post-run gap **−609.9200**,
+per-civ Δ **0.0000** for all 8 ⇒ the offset is **fixed**, not accumulating.
+
+### Re-confirmations (this session)
+
+- NAS EDQUOT total (16th session) — clone to `/tmp` (overlay), sparse-checkout
+  `cellular-first-design` only, bridge the **clone root**, verify with `stat -L -c '%d:%i'`
+  on both sides + `-ef`.
+- z.ai **401** `token expired or incorrect` (credential gap, endpoint healthy) — **51st session**.
+- **JEV HTTP 200 on a well-formed body** discloses the served model `jev-1.14.0` — a better
+  liveness probe than the 422 `dict_type` complaint, because it names the version.
+- `ZAI_URL_OVERRIDE` alone is **dead code** (the `ZAI_TOKEN` gate returns `None` first) —
+  Control B needs **both**; `TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`.
+- Tool timeout 30 s < orchestrator run ~28 s ⇒ detached launch with stdout redirected
+  **and** `< /dev/null`, then poll.
+- `gh` not installed (18th session) — `GET /user/repos` with `GITHUB_TOKEN`; the GitHub API
+  is case-insensitive (`SuperInstance/ai-writings` == `SuperInstance/AI-Writings`).
+- Pre-flight on the exact long cultural prompts (lengths 167–209): **40/40 distinct seeds,
+  40/40 distinct previews, 40/40 independently recomputed md5s, 0 tracebacks**. The
+  pre-flight has now saved the run **six** times in the series.
