@@ -388,6 +388,43 @@ a quality metric.**
 **Extinction risk NONE** — threshold −10, lowest relevance 926.99 = 92.7× above the floor.
 Registry 8, `max_civs` 12; extinction/birth only runs under `--loop`.
 
+## Session 174 (2026-10-25) — two new durable traps
+
+**NEW 1 — the mock spec's `figure = h[12:16] / h[16:20] / h[20:24]` is pseudo-code, not Python.**
+Read literally it divides two `str` values and raises
+`TypeError: unsupported operand type(s) for /: 'str' and 'str'`. The mock then **500s on every
+request while the socket stays open**, so a port/200 liveness probe looks healthy — the same
+false-negative as fix (a). Treat the three slices as three separate components:
+`figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"`. This is a **seventh** failure mode, distinct
+from fix (a) (which is a `ValueError` on the seed slice for `i>=4`). The RUNBOOK's one-word
+probe cannot catch it.
+
+**NEW 2 — read `culture.json` baselines from git, NOT from `leaderboard.json`.**
+`leaderboard.json` stores `relevance` **rounded to 2 dp**; `culture.json` keeps full float
+precision. A baseline taken from the leaderboard makes the
+`d_relevance == sum(avg_score)` check fail by up to **0.0033 per civ** on 4 of 8 civs and
+looks like a genuine accounting error. The authoritative pre-run value is
+`git show HEAD:.../culture.json`. With true baselines the check is **8/8 exact to 1e-13**.
+Counter-gap claims are only auditable at that precision.
+
+**Also:** the shell's `[ -ef a b ]` test mis-parses in this sandbox
+("binary operator expected") — use Python `os.stat` and compare `(st_dev, st_ino)` instead.
+A failing `[ -ef ]` here is **not** a broken bridge.
+
+**`civ-grounded` remains the low-relevance civ — 49th consecutive session.** Last of 8 on
+lifetime `avg_score` 1.0047, `alignment` 1.0626, `quality` 0.4056, `relevance` 1153.49,
+`relevance_per_sim` 0.970. Alignment gap **0.4131** vs quality gap **0.0431** => **9.59x**
+wider => a **voice** failure, not a prose failure. Lifetime novelty 1.5460 is 6th of 8.
+Extinction risk **NONE** (lowest +1153.49 = 115x the floor).
+
+**Run-level low rotated to `civ-therapist`** (1.0297 on `avg_score`, 0.3360 on `alignment`)
+while its lifetime standing is 6th of 8 — **watch axis, not the finding** (session-132 rule).
+
+**Chooser vs `avg_score` argmax: 0/5 (0 %)** — the worst point in the clean-mock series, and
+all five disagreements went the same way (the chooser took the **lower**-scoring candidate).
+Max |delta| 0.240. `civ-precise` won 4/5. Series now 22 five-sample points: still honestly
+*somewhere in 0-80 %*. **Never treat `win_rate` as a quality metric.**
+
 ## Standing findings
 
 - **`civ-grounded` (The Grounded) is the low-relevance civ** — last on lifetime `relevance`
