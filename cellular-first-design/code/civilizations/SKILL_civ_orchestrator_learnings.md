@@ -2705,3 +2705,65 @@ first build. `CIVS_DIR` must be exported for both (they default to `tools/..`).
 *Do not re-derive the mock body from the spec — the spec is pseudo-code and the shipped
 tool is the corrected form. The pre-flight gate is the artifact to trust, and it must
 exercise the same `CIVS_DIR` the orchestrator will write to.**
+
+## Session 250 additions (2026-10-25)
+
+### 1. THE **`dSims = 10`** RULE — THE SIM PHASE AND THE COMPETITION PHASE BOTH WRITE LEDGER ROWS
+
+`run_civilization_batch` does two things that both append to `simulations.jsonl`:
+(a) the **sim phase** writes `sims_per_civ` rows per civ, and (b) the **competition phase**
+calls `run_simulation` **again** for every civ on every prompt, so it writes `len(prompts)`
+**more** rows per civ. With `--sims 5 --prompts 5` that is **+10 rows per civ, +80 total** —
+and **`dSims` is 10 for every civ, not 5**.
+
+The correct reconciliation identities are therefore:
+- `dSims == sims_per_civ + len(prompts)` (10) — **for every civ**
+- `dW + dL == len(prompts)` (5) — **for every civ**
+- `dRelevance == sum(new rows' avg_score)` — exact to the last decimal
+
+*Rule: a "delta = 2W - 5" style rule is **wrong** for this script. A civ that wins 4 of 5 still
+gets +10 sims. Derive the identity from the code path, not from a single clean run — a run
+where one civ swept would make the wrong rule look almost right.*
+
+### 2. THE **BOTTOM-PAIR GAP SERIES IS NOT MONOTONE** — 0.79 (s247) -> **6.54** (s250)
+
+`civ-grounded` 2375.74 vs `civ-therapist` 2369.20: gap **6.54** on a ~2370 scale (0.275 %),
+after 0.79 (s247) and 3.17 (s246). The step up to `civ-engineer` is **287.14** — **44x** larger.
+
+*Rule: "the floor is converging" was a **three-session trend**, not a law. Report the **gap** and
+the **step ratio**, and let the series move. A gap can triple between sessions while the pair
+is still effectively tied.*
+
+### 3. **`civ-therapist` IS A **TWO-AXIS** COLLAPSE, `civ-grounded` IS A **ONE-AXIS** COLLAPSE
+
+`civ-therapist`: run-level **lowest avg (1.264)**, **lowest quality (0.528)**, **lowest
+alignment (0.860)**, narrowest band (1.143 – 1.350) — a *voice* failure, with novelty its
+strength (2.404, 3rd of 8). `civ-grounded`: **lowest lifetime rel/sim (1.219)** and **lowest
+lifetime quality (0.548)**, but alignment is mid-pack (1.641, 5th of 8) — a *prose* failure.
+
+*Rule: "low relevance" without the axis is not a diagnosis. Name the axis and the direction.
+The two bottom civs fail on **opposite** axes, so a single "which civ is worst" answer is
+always half wrong.*
+
+### 4. THE **CHOOSER-TO-ARGMAX** RATIO WAS **0/5** WITH **0 UP-GRADES** — 22nd SESSION
+
+`civ-poetic` was the `avg_score` argmax on **5 of 5** and won **0**. `civ-precise` took 4/5
+with lifetime `win_rate` 0.711. Agreement 0 %, down-grades 5, **up-grades 0** — structurally
+impossible, since the chooser is a JEV `choice` question over `content_preview[:150]` and
+never sees `avg_score`.
+
+*Rule: report the three numbers separately — (a) agreement ratio, (b) up/down-grade split,
+(c) the argmax civ's win count. They are independent axes and a blend hides the structure.*
+
+### 5. **THE NAS AT 100 % MAKES EVEN A 5-BYTE WRITE LAND AS 0 BYTES**
+
+`cp` of a 7301-byte report into `/workspace/output/` -> `failed to close: Disk quota exceeded`,
+leaving a **0-byte file that lists as present**. `printf 'x%.0s' {1..100}` -> also **0 bytes**.
+`df` reports `600G 600G 0 100%`; `du -sh /workspace` reports **0** (the quota is per-block, and
+`du` on the mount sees nothing).
+
+*Rule: when the NAS is at 100 %, **do not attempt the workspace copy at all** — it produces a
+phantom 0-byte file that a later `ls` will report as a successful deliverable. Write artifacts
+to the overlay, commit them to git, and **verify the remote blob through the git protocol**
+(`git cat-file -p HEAD:<path>`), not through the contents API (which returns the file
+truncated to 1 row for a 2000-row JSONL and silently under-reports).*
