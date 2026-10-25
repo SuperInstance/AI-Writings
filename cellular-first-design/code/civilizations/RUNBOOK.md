@@ -1,3 +1,65 @@
+# Civ Orchestrator — Run Report, session 190 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 64th session) + **live JEV**.
+Baseline: `33f9791` (session 189). **All 24 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session190.md`.
+
+## Headline for the next session
+
+- **`civ-precise` SWEPT 5/5 AGAIN, AND THE CHOOSER AGREED WITH THE `avg_score` ARMAX ON
+  4/5 — BUT THE ONE DISAGREEMENT AGAIN TOOK THE LOWER-SCORING CANDIDATE.** The
+  down-grade streak is now **11 consecutive sessions**. Agreement **4/5 (80 %)**.
+  `civ-poetic` was the argmax on **4/5** prompts and won **none**. **`win_rate` is not
+  a quality metric.**
+- **`civ-grounded` remains the lifetime low — 62nd consecutive session.** Last of 8 on
+  lifetime `relevance` **1358.84** and `relevance_per_sim` **1.007**, run `avg_score`
+  **2.0473**, `alignment` **2.3400**, `quality` **1.3570**, novelty **2.4450** (2nd of 8).
+  Its lifetime `win_rate` is **0.106** — **3rd-best in the fleet**. Lowest relevance =
+  **136x** the −10 floor ⇒ **no extinction risk**.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-therapist`** (run `avg_score` **1.5297**,
+  `alignment` **1.1390**) — a **10th different civ in 10 sessions**. Alignment gap
+  **1.9300** vs quality gap **0.6510** = **2.96x wider** ⇒ a **voice** failure.
+  *The holder rotates; the axis does not.*
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (683 → 688),
+  `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, 0 fallback triples,
+  `zai × 80`, **80/80** rows match an independently recomputed seed+color+figure,
+  **40/40** distinct seeds, **0** `(civ,prompt)` with >1 seed, per-prompt **8/8** distinct
+  seeds AND previews on all 5 prompts, relevance delta == sum(avg_score) **8/8 exact**
+  (max residual **3.6e-13**), registry 8 all gen 1, extinction **NONE**. **24/24 PASS.**
+
+## New this session
+
+- **A VERIFIER BUG CAN MASQUERADE AS A MOCK DEFECT.** The first pre-flight run reported
+  **FAIL** on "40/40 seed+color+figure recompute" while every other check passed. The
+  mock was correct; the **verifier** appended a `None` sentinel into the same list it was
+  counting, so the list grew to **120** entries for 40 messages and the `len(...)==80`
+  assertion could never hold. Append a **boolean** and count `sum(recomputed)`.
+  *A sentinel pushed into the list you are counting corrupts the count.*
+- `ai-writings/ai-writing` is a **DECOY** README-only repo. The real owner is
+  **`SuperInstance/AI-Writings`** (3.7 GB) — verify with `git ls-remote` before cloning.
+
+## Notes for the next session
+
+1. The mock is **not** on disk at session start (`/tmp` wiped) — rebuild from the
+   **algorithm block** with all **seven** fixes, not the older "six fixes" checklist, and
+   run the pre-flight (12 checks + **both** length bands) **before** the batch.
+2. `ZAI_TOKEN` still absent ⇒ real z.ai unusable; Control B is the only provider path.
+   JEV is live and needs `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`.
+3. Isolate this run's rows by **count from the end of each civ file** (last 10), never by
+   a `ts` cutoff; the meta-vs-ledger check takes the **later-`ts`** row.
+4. `civ-grounded` has been the low-relevance civ for **62** straight sessions — if it ever
+   reads mid-table, check the run-wide seed count first.
+5. Tool timeout 30 s < orchestrator run ~45 s ⇒ detached launch, stdout redirected
+   **and** `< /dev/null`, then poll.
+6. The NAS EDQUOT trap also blocks **file delivery** — deliver by pushing to git and
+   citing the remote URL, not a workspace attachment.
+7. **Never `pkill -f` a pattern that appears in your own command line** — it kills the
+   calling shell and the tool returns empty output. Match on a PID captured from `ps`.
+
+---
+
 # Civ Orchestrator — Run Report, session 189 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
