@@ -550,3 +550,95 @@ whimsical -173.14, formal -85.53, poetic -96.80, precise -32.63, mythic -51.11, 
 `quality` 0.3507. **`alignment` widest on both horizons.** Run-level `quality` did **not**
 collapse this session (0.093-0.729) — the collapse is a **LEVEL** that moves. **Rank on
 cross-civ spreads, never on absolute quality levels, never on a single run's low.**
+
+## Session 159 (2026-10-25) — concurrent peer sessions; the four merge rules for the civ tree
+
+**Run clean (134/134 assertions).** per-civ delta +10 x 8 = 80 new rows (all ts inside one
+02:23:15-02:23:44Z window, every new row newer than every pre-existing row), `meta_log` +5
+(523 -> 528), 134 assertions passed / 0 failed, 40/40 distinct seeds, 40/40 distinct previews,
+40/40 distinct template md5s, 0 tracebacks, 0 JEV error keys, 0 2.0/2.0/2.0 fallbacks,
+leaderboard reconciling 8/8 against `culture.json`.
+
+### NEW — a peer session can hold the same session number, and the run collides on push
+
+The push was rejected: upstream had moved `b002296` -> `0374e23`, a **peer session 158** (same
+command, different sandbox) that ran **concurrently** with ours — ours finished 02:23:44Z, theirs
+02:24:01Z. Their data differed from ours (their chooser-vs-argmax 1/5, ours 3/5): two
+independent mock runs, not a duplicate. Our local tree's last report was 157, so we numbered
+ours 158 and pushed — **158 was already taken upstream.** Renumbered to **159** and rebased.
+
+**Rule: never derive the next session number from the local tree alone.** `git fetch` and check
+`origin/main` **before** naming the report file and before the first push.
+
+### NEW — the civ tree has FOUR file classes, and they merge four different ways
+
+`git rebase` conflicted in **all 18 files**. Text-splicing the conflict markers corrupts the
+append-only ledgers.
+
+| file class | nature | correct merge |
+|---|---|---|
+| `simulations.jsonl` | append-only ledger | base + upstream's 10 + mine's 10, deduped on `(ts, civ, prompt, preview)` |
+| `meta_log.jsonl` | append-only ledger | base + upstream's 5 + mine's 5, deduped on `(ts, winner, prompt)` |
+| `culture.json` | snapshot, **additive counters** | base + (upstream − base) + (mine − base) for `simulations_run`/`relevance_score`/`wins`/`losses`; `preferred_params` = last writer wins |
+| `leaderboard.json` | snapshot, **derived** | **recompute** from the merged `culture.json` files; do not pick a side |
+
+**The first attempt kept only the 10 conflicted `meta_log` rows and silently dropped the 523
+ancestor rows**, and left `<<<<<<< HEAD` / `=======` / `>>>>>>>` marker lines embedded in the 8
+ledgers (3 bad lines per file; 1085 "rows" of which 3 were markers). `wc -l` alone would have
+reported 1085 and looked fine. **Caught only by a per-line JSON parse.** After the fix:
+`meta_log` 533 rows (523+5+5), ledgers base+20, `culture.json` +20 `sims_run` and +10 W+L for
+all 8, `generation` still 1, 0 conflict markers, all JSON valid, leaderboard rebuilt and
+reconciling 8/8.
+
+**Rules:** (1) resolve append-only ledgers by **reconstructing from git blobs**, never by
+splicing markers; (2) re-parse **every line** of every merged JSONL, don't trust `wc -l`;
+(3) `git show` inside a Python script needs `cwd=` set to the repo root — running from a
+subdirectory silently returned empty output and produced **0-row ledgers**;
+(4) a `culture.json` merge must be checked for the `relevance_score` delta, not just the row
+count.
+
+### NEW — a false mock-degeneracy alarm in the VERIFIER, not the mock
+
+The first verification pass reported **"10 distinct seeds across 80 new rows"** — the exact
+signature of a degenerate mock. It was a **bug in the verification script**: it built one
+concatenated list of *per-civ blocks* then took `allrows[-80:]`, but because `civ-grounded`'s
+block sits first, the tail-80 window covered only the last 5 civs' blocks. The correct window is
+**10 rows from each civ**. The mock was healthy (40/40 seeds, 40/40 previews, 8/8 on all 5
+prompts, 0 tracebacks).
+
+**Rule: a mock-degeneracy alarm must be re-derived from a correctly sliced window before the
+mock is rebuilt.** Rebuilding a healthy mock on a false alarm is the expensive error. When
+slicing a multi-file ledger, slice **per file**, never across a concatenation.
+
+### Low-relevance civ — `civ-grounded`, 50 consecutive sessions (95-159)
+
+Last of 8 on **every** lifetime axis in both the pre-merge and merged trees: `relevance`
+1016.24, `relevance_per_sim` 0.978, `avg_score` 1.0259, `alignment` 1.1338, `quality` 0.4396.
+Binding constraint is **alignment** (gap 0.2167) not quality (gap 0.0331) — a **voice failure,
+not a prose failure**. Lifetime novelty 1.5045 ranks **3rd of 8** (below the 8-civ median
+1.6455 but *near the top*) — **not** a second collapse; session 157's report had it as 6th,
+so re-derive the rank each session rather than carrying it forward. Extinction risk NONE
+(101.6x above the −10 floor). Watch axis: `civ-therapist` took the run low on `alignment`
+(0.0650) and `quality` (0.0160) for a 6th session but is mid-field lifetime => watch, not finding.
+
+Chooser-vs-argmax **3/5 (60%)**, up from 0/5; both disagreements took the lower-scoring
+candidate. 30-row trailing window 11/30. **The direction is the finding; the rate is not.**
+`civ-poetic` 1st on lifetime avg_score/quality/relevance but last on win_rate (0.012);
+`civ-precise` best win_rate (0.577), highest lifetime alignment (2.1654), won 4/5.
+
+### Env re-confirmed
+
+- Upstream is **`SuperInstance/AI-Writings`** (the `ai-writings/...` slug 404s). The REST core
+  quota was exhausted (0/5000) but the **search API has a separate bucket and still answers**;
+  for *absence* claims use `git ls-remote` (0 refs = genuinely empty), never a rate-limited REST
+  call. `gh` still not installed.
+- NAS EDQUOT total (600G/600G). Clone to `/tmp`; `mkdir`+`ln` work => **symlink bridge** is the
+  only way in. Verified by inode identity `129:10427` and `-ef`.
+- **z.ai credential gap: 46th session** (`ZAI_TOKEN` absent; z.ai 401). **JEV live** (empty
+  `questions` -> 422 `too_short` proves the token was accepted).
+- The transient NAS mount race on the symlinked deep path **recurred**: the first `ls -la` on
+  `/workspace/.../civilizations/` returned "No such file or directory" while everything was
+  present. `stat -L` + `readlink -f` + `[-e ]` + 5/5 retries passed. **One `ls` failure is not
+  evidence of a missing directory.**
+- Pre-flight saved the run for the **6th** time in the series (115, 117, 145, 147, 150, 159):
+  40/40 seeds, 40/40 previews, 40/40 md5s, 0 tracebacks, 8/8 + 8/8 on all 5 prompts.
