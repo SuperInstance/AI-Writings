@@ -1,3 +1,89 @@
+
+## Session 184 (2026-10-25) — THE NAS SILENTLY TRUNCATES TO 0 BYTES; `ls` IS NOT EVIDENCE
+
+**Run clean (session 184).** per-civ delta = **+10** x 8 = **80 new rows**,
+`meta_log` D = **+5** (653 -> 658), `Winner:` lines = **5**, **80/80** rows
+`provider=zai` with the `[mock-zai` prefix, **0** JEV `error` keys, **0**
+2.0/2.0/2.0 fallback triples, **80/80** rows match an independently recomputed
+seed+color+figure, **40/40** distinct seeds, **0** `(civ,prompt)` combos carrying
+>1 seed, **80/80** distinct `(q,n,a)`, relevance delta == sum(`avg_score`) **8/8
+exact** against an **unrounded git-blob** baseline, wins **+5** / losses **+35**.
+**Pre-flight 11/11 on the FIRST build.** **47/47 assertions PASS.**
+
+### NEW — A FULL NAS MAKES WRITES RETURN EXIT 0 AND LEAVE 0-BYTE FILES
+
+The `/workspace` NAS is at 600 G/600 G with 0 bytes free. On this session:
+
+- `cp` of a real file into `/workspace` -> `cp: failed to close ...: Disk quota exceeded`
+  (exit 1). Expected.
+- `python3` `open(path,"wb").write(data)` -> **raises** `OSError [Errno 122] Disk quota exceeded`.
+  Also expected.
+- **`echo "probe" > /workspace/.probe2` -> exit 0, and the file is created as a
+  0-BYTE file.** A binary search for "the largest write the NAS accepts" returns
+  **0 bytes** — because *every* write is truncated to nothing.
+- The same is true for a fresh subdirectory: `mkdir -p /workspace/out && echo hello >
+  /workspace/out/t.txt` -> exit 0, `t.txt` is **0 bytes**, and `cat` prints nothing.
+
+**The trap: `ls -la` shows the file present, with a plausible name, and the shell
+reports success.** A verification pass that only checks `ls` output would conclude
+the report was delivered. It is not. **Always assert a non-zero size after writing
+(`os.path.getsize`), or compare an md5 against the source.** A 0-byte artifact that
+"looks" fine is worse than a missing one, because it passes a naive existence check.
+
+Corollary for deliverables: if the NAS cannot hold the bytes, **the git blob is the
+durable copy**. Verify with `git cat-file -p HEAD:<path> | md5sum` against the
+working-tree md5, and confirm the remote by `git ls-remote` (the REST commits API
+kept returning 403 here, 2nd time this session). Do **not** report a workspace
+delivery that you have not size-checked.
+
+### The symlink bridge is still the only way to make the hardcoded path work
+
+`civilization_orchestrator.py` hardcodes
+`CIVS_DIR = /workspace/repos/ai-writings/cellular-first-design/code/civilizations`.
+A real copy of the repo into `/workspace` fails on the quota. The bridge works
+because a symlink costs ~0 bytes:
+
+```
+ln -sfn /tmp/aiw/cellular-first-design /workspace/repos/ai-writings/cellular-first-design
+```
+
+`test -ef` remains unusable in this sandbox (`binary operator expected`); verify
+with `readlink -f` or by inode identity. This is the **12th consecutive** session
+where the prompt path did not exist at start (workspace held only `.plugin-cache`).
+
+### The seven mock fixes are stable — rebuild from the spec, never from memory
+
+`ZAI_TOKEN` is still absent (62nd session) and the real z.ai endpoint returns
+**401 `token expired or incorrect`** (endpoint healthy => credential gap, not an
+outage). The Control B mock rebuilt cleanly with the canonical algorithm and
+**passed 11/11 on the FIRST build**:
+
+```
+d      = md5(cultural_prompt).digest()
+h      = d.hex()
+i      = d[0] % 4
+seed   = h[(i*2)%8:(i*2)%8+4]                  # CONTIGUOUS 4-char slice
+color  = h[8:12]
+figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"   # three STRING components
+```
+
+### Findings
+
+- **`civ-grounded` remains the lifetime low — 57th consecutive session.** Lifetime
+  `relevance` **1283.29** (last of 8), `relevance_per_sim` **0.996**, `win_rate`
+  0.111. Run `avg_score` 1.5260, `alignment` 1.6500, `quality` 0.3710, `novelty`
+  2.5570 (2nd of 8). The deficit is **alignment**, not prose: run alignment 1.6500
+  vs run-best 2.5430, while quality 0.3710 is mid-pack. Lowest relevance
+  **+1283.29 = 128x** the -10 extinction floor.
+- **The run-level low ROTATED to `civ-therapist`** (run `avg_score` 1.3383,
+  `alignment` 1.0250) — a **5th different civ in 5 sessions**, while its lifetime
+  standing is 7th of 8. Axis gaps: alignment **1.5180** vs quality 0.4200 =
+  **3.61x wider** => a **voice** failure. *The holder rotates; the axis does not.*
+- **Chooser vs `avg_score` argmax: 3/5 (60 %)** — `civ-precise` swept **5/5**; both
+  disagreements took the **lower**-scoring candidate.
+- Run spreads: `avg_score` 0.5880, `alignment` **1.5180** (widest), quality 0.4200,
+  novelty 0.1880.
+
 ---
 
 ## Session 182 (2026-10-25) — TWO 2-CHAR SLICES ARE NOT A 4-CHAR SLICE, and the 500 that hides behind an open socket
