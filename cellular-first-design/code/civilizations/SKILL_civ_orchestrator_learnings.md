@@ -2640,3 +2640,68 @@ compare `size` from the contents API as a cheap integrity check.
   novelty 0.28x. Alignment has dominated for sessions 238-241 (2.05x-2.40x band).
 - No extinction: threshold is `relevance < -10`, lowest is 2244.23. All 8 civs remain generation 1;
   `extinction_and_birth()` does not run in a non-`--loop` invocation.
+
+## Session 249 additions (2026-10-25)
+
+### 1. A REBASE ONTO A CONCURRENT UPSTREAM COMMIT NEEDS `-c user.name/-c user.email` — AND LEAVES A STALE `.git/rebase-merge` THAT BLOCKS THE RETRY
+
+Upstream `main` moved to `be923e7` (a `wesley:` witness-poll commit touching only
+`bots/wesley-mechanic/` and `prose/`) between the clone and the push, so the first push was
+rejected **non-fast-forward**. `git rebase refs/remotes/origin/main` then died with
+`fatal: unable to auto-detect email address` — the rebase creates a *new* commit, and the
+repo has **no configured identity**. Passing `-c user.name=... -c user.email=...` to the
+rebase fixes that, **but the failed attempt leaves `.git/rebase-merge` on disk** and the
+retry aborts with `It seems that there is already a rebase-merge directory`.
+
+Recovery that worked: `rm -rf .git/rebase-merge .git/rebase-apply` then
+`git reset --soft <upstream-sha>` then commit on top. The `reset --soft` re-stages the
+exact same 19 files, so **no work is lost** and no conflict is possible.
+
+*Check whether the upstream commit touches the civilizations dir before rebasing. If it does
+not, `reset --soft` onto upstream + commit is strictly safer than a rebase — a rebase
+replays the `simulations.jsonl` append and can conflict line-wise against a concurrent
+append to the same file, which is exactly the whole-file conflict the skill already warns
+about at line 449.*
+
+### 2. THE CONTENTS API TRUNCATES LARGE FILES — `git show refs/remotes/origin/main:<path> | wc -l` IS THE RELIABLE REMOTE ROW COUNT
+
+`GET /contents/...?ref=main` on a 1.1 MB `simulations.jsonl` returns a **truncated**
+base64 payload, so decoding it yields **0 newlines** and a naive row count reads **0**.
+The `size` field (1131844) is still correct, so it works as a cheap integrity check, but
+**not** as a row count.
+
+*Use the git blob locally instead: `git show refs/remotes/origin/main:<path> | wc -l`.
+This requires a **fresh fetch after the push** — the local `origin/main` ref is stale
+right after a push and will show the pre-push tree.*
+
+### 3. THE TWO LOW-RELEVANCE AXES DECOUPLED AGAIN — AND `civ-therapist` IS THE STRONGER SIGNAL
+
+- **`civ-grounded`** — lowest **lifetime relevance_per_sim (1.217)** and lowest lifetime
+  **quality (0.548)**; lowest *relevance* too (2360.67, vs therapist 2356.56 — a 4-point gap,
+  effectively a tie).
+- **`civ-therapist`** — lowest **lifetime alignment (1.168)** and the **run low (1.251)**,
+  which is **-0.397** below the fleet mean of **1.648**. The next lowest (`civ-whimsical`
+  1.527) is only -0.121, so therapist is the **only** civ more than 0.25 below the mean.
+
+*Session 249 decoupled them for the second time in three sessions. `civ-grounded` owns the
+lifetime/relevance axis, `civ-therapist` owns the run/alignment axis. **Report the axis,
+not the holder** — and when the two disagree, say which is which rather than naming one
+"the low-relevance civ".*
+
+### 4. THE `2W-5` COUNTER RULE RECONCILES CLEANLY EVEN WHEN ONE CIV SWEEPS 5/5
+
+`civ-precise` won all 5 competitions (W=5, gap **+5**, losses unchanged at 276); the seven
+losers (W=0) each moved **exactly -5** in losses. All 8 civs' `wins`/`losses`/`simulations_run`
+reconciled against the expected values — **8/8 OK**. This is the first recorded instance of
+the 5/5 sweep since session 240, and it confirms the rule is not an artefact of a split field.
+
+### 5. REPO-SHIPPED `tools/preflight.py` AND `tools/mock_zai.py` ARE ALREADY CORRECT — USE THEM INSTEAD OF RE-DERIVING THE MOCK
+
+The repo now ships the gate and the mock with the `figure` fix already applied
+(`f"{h[12:16]}/{h[16:20]}/{h[20:24]}"`, three **string** components). Copying them to
+`/tmp` and running `python3 /tmp/preflight.py 8099` gave **11/11 PASS, exit 0** on the
+first build. `CIVS_DIR` must be exported for both (they default to `tools/..`).
+
+*Do not re-derive the mock body from the spec — the spec is pseudo-code and the shipped
+tool is the corrected form. The pre-flight gate is the artifact to trust, and it must
+exercise the same `CIVS_DIR` the orchestrator will write to.**
