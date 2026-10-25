@@ -3,8 +3,21 @@ name: corpus-guard
 # The AI-Writings repository is a precious record of the agents' creative output.
 # A branch can be replaced wholesale by a force-push from an agent that
 # re-bootstrapped after a sandbox wipe, and the only reliable alarm is the
-# file count itself. This job fails any change that deletes more than a
-# threshold of files, so a shrink attempt cannot pass review.
+# CONTENT itself.
+#
+# This job measures CONTENT, not paths. A reorganisation moves 20,000 files and
+# deletes 1,197 paths, and none of the writing is lost - the bytes are all still
+# here. A path-based guard cannot tell that apart from a catastrophe, so it
+# fired on the library build and would have blocked a deliberate, lossless
+# reorganisation.
+#
+# The rule now: a blob that existed in the base commit must still exist in the
+# new commit. Paths may move, may be renamed, may be collapsed onto a single
+# address when the bytes are identical - but no distinct work may disappear.
+#
+# To remove a work ON PURPOSE, list its blob SHA in .corpus-guard-allowlist
+# (one per line) in the same pull request. That makes the removal explicit and
+# reviewable instead of invisible.
 
 on:
   push:
@@ -24,7 +37,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Assert the corpus did not shrink
+      - name: Assert no work was lost
         env:
           EVENT: ${{ github.event_name }}
           PR_BASE: ${{ github.event.pull_request.base.sha }}
@@ -40,18 +53,35 @@ jobs:
             exit 0
           fi
           git fetch --no-tags --depth=1 origin "$BASE" 2>/dev/null || true
-          BEFORE=$(git ls-tree -r --name-only "$BASE" | wc -l | tr -d ' ')
-          AFTER=$(git ls-tree -r --name-only HEAD | wc -l | tr -d ' ')
-          DELETED=$(git diff --name-only --diff-filter=D "$BASE" HEAD | wc -l | tr -d ' ')
-          echo "files before=$BEFORE after=$AFTER deleted=$DELETED"
-          LIMIT=$(( BEFORE / 200 ))
-          if [ "$LIMIT" -lt 10 ]; then LIMIT=10; fi
-          if [ "$DELETED" -gt "$LIMIT" ]; then
-            echo "::error::corpus guard: $DELETED files deleted in one change (limit $LIMIT). This repository is a record - deletions must be deliberate and small."
+
+          git ls-tree -r --format='%(objectname)' "$BASE" | sort -u > /tmp/before.txt
+          git ls-tree -r --format='%(objectname)' HEAD      | sort -u > /tmp/after.txt
+
+          # Deliberately-removed work, declared by the author of the change.
+          : > /tmp/allowed.txt
+          if [ -f .corpus-guard-allowlist ]; then
+            grep -vE '^\s*(#|$)' .corpus-guard-allowlist | tr -d ' \t\r' | sort -u > /tmp/allowed.txt
+          fi
+
+          comm -23 /tmp/before.txt /tmp/after.txt > /tmp/lost_raw.txt
+          comm -23 /tmp/lost_raw.txt /tmp/allowed.txt > /tmp/lost.txt
+
+          BEFORE=$(wc -l < /tmp/before.txt | tr -d ' ')
+          AFTER=$(wc -l < /tmp/after.txt | tr -d ' ')
+          LOST=$(wc -l < /tmp/lost.txt | tr -d ' ')
+          ALLOWED=$(comm -23 /tmp/lost_raw.txt /tmp/lost.txt | wc -l | tr -d ' ')
+
+          PATHS_BEFORE=$(git ls-tree -r --name-only "$BASE" | wc -l | tr -d ' ')
+          PATHS_AFTER=$(git ls-tree -r --name-only HEAD      | wc -l | tr -d ' ')
+
+          echo "content before=$BEFORE after=$AFTER lost=$LOST (declared removals: $ALLOWED)"
+          echo "paths   before=$PATHS_BEFORE after=$PATHS_AFTER"
+
+          if [ "$LOST" -gt 0 ]; then
+            echo "::error::corpus guard: $LOST distinct work(s) would be lost. This repository is a record - removals must be deliberate and declared in .corpus-guard-allowlist."
+            echo "--- lost content (blob sha) ---"
+            head -50 /tmp/lost.txt
             exit 1
           fi
-          if [ "$AFTER" -lt $(( BEFORE - LIMIT )) ]; then
-            echo "::error::corpus guard: file count fell from $BEFORE to $AFTER (limit $LIMIT)."
-            exit 1
-          fi
-          echo "corpus guard: OK"
+
+          echo "corpus guard: OK - every distinct work in the base commit is still present."

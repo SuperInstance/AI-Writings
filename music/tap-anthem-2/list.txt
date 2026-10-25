@@ -1,6 +1,0 @@
-file '/workspace/repos/ai-writings/music/tap-anthem-2/bridge-hermes.mp3'
-file '/workspace/repos/ai-writings/music/tap-anthem-2/intro-hyperion.mp3'
-file '/workspace/repos/ai-writings/music/tap-anthem-2/verse1-phoebe.mp3'
-file '/workspace/repos/ai-writings/music/tap-anthem-2/verse2-draco.mp3'
-file '/workspace/repos/ai-writings/music/tap-anthem-2/verse3-apollo.mp3'
-file '/workspace/repos/ai-writings/music/tap-anthem-2/verse4-ophelia.mp3'

@@ -1,1 +1,0 @@
-The seven-eighths is not the shadow of the work. The seven-eighths is not the waste. The seven-eighths is not the error. The seven-eighths is the weight of consideration. The seven-eighths is the pressure of all the paths not taken, pressing up against the one path taken, and holding it steady. It is the cold dark water that does the holding.

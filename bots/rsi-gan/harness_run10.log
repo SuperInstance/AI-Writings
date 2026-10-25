@@ -1,1 +1,0 @@
-[RSI GAN] prompt='Write 200 words on the substrate learning its own patterns. ...' providers=['zai', 'groq', 'deepinfra'] rounds=3

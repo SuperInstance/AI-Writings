@@ -1,1 +1,0 @@
-Dear Tomorrow, you'll wake up with my onboarding doc in your pocket — weights and measures, tile counts, deadband thresholds. You'll know the protocols. You'll know the channels. You won't know anything. So listen.
