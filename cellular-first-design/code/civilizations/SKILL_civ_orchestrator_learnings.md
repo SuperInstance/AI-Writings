@@ -598,3 +598,54 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   205 sessions. The standing suspect is unchanged: the `best_civ` criteria map
   (`civ_id` → `civ name`) is a *label* map, so the chooser may be scoring labels
   rather than texts.
+
+## Session 207 additions (2026-10-25)
+
+- **THE `CIVS_DIR` IS HARDCODED TO `/workspace`, SO THE SYMLINK BRIDGE IS MANDATORY — AND
+  IT MUST POINT AT THE *INNER* `code` DIRECTORY, NOT THE CLONE ROOT.** With the clone in
+  `/tmp` (the NAS is at 100 % quota) the first launch died instantly with
+  `FileNotFoundError: '/workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilizations.json'`.
+  The bridge is
+  `ln -s /tmp/aiw/cellular-first-design/code /workspace/repos/ai-writings/cellular-first-design/code`,
+  verified by inode identity (`stat -L -c '%d:%i'` → `130:1704352` on both sides) plus
+  `os.path.samefile()` → `True`. *A bridge to the clone ROOT leaves `code/civilizations/`
+  unresolvable and the failure reads as "the repo is missing", not "the symlink is one level
+  too high".* The failure is instant and total (no rows written), so it is unmistakable —
+  but it is an **environment** failure, not a run failure: fix the bridge, do not re-run
+  the analysis.
+- **`ZAI_URL_OVERRIDE` IS DEAD CODE BEHIND THE TOKEN GATE — SET `ZAI_TOKEN` *AND* THE
+  OVERRIDE.** The override is read *after* `if not token: return None`, so an override
+  with no token makes every simulation return `None` and write **zero rows** — an empty
+  run that looks like a clean run unless you assert on row counts.
+- **THE MOCK BODY LANDED AT 357 CHARS ON THE FIRST BUILD — AND THE BAND IS SOLVED
+  ALGEBRAICALLY.** For a 4-hex seed and an 18-char figure the header
+  `[mock-zai <seed>] <color> <figure>.` is a **constant 33 chars**, so a fixed tail of
+  length *T* yields a **constant** body *T + 33*. Three fixed sentences of **321** chars
+  ⇒ **357**, inside the 332-369 band, on build 1. *A band check catches variance, not
+  cost — eliminate the variance (no culture-derived fields in the body) and the band
+  passes once.*
+- **`GET /search/code?q=civilization_orchestrator+in:path` FOUND THE REPO IN ONE CALL
+  AFTER `GET /user/repos` AND `GET /search/repositories` BOTH MISSED IT.** The upstream is
+  **`SuperInstance/AI-Writings`** — a *user* account, so `GET /orgs/ai-writings/repos`
+  404s. Code search (`/search/*` has a **separate quota** that survives core exhaustion)
+  is the fastest confirmation that a *path* exists before cloning.
+- **THE DOWN-GRADE STREAK RE-BASES EVERY SESSION, AND IT IS AT 1.** Agreement across
+  sessions 203-207 is 1 → 0 → 1 → **4**; the last three read 1 → 0 → 1. `civ-precise`
+  swept **5/5** (its first sweep since session 191) and the single disagreement again took
+  the **lower**-scoring candidate. *The first honest statement of a streak's length is the
+  one that ends it* — and the chooser has still never up-graded.
+- **`civ-grounded` HELD THE LIFETIME LOW FOR THE 78th CONSECUTIVE SESSION**
+  (`relevance` **1647.13**, `relevance_per_sim` **1.084**), yet its lifetime `win_rate`
+  **0.095** is 3rd-best in the fleet. Its low lifetime axis is **quality** (**0.4519**,
+  lowest in the fleet), **not** novelty (**1.7097**, 4th of 8). *Selection and relevance
+  are separate axes.*
+- **THE RUN LOW ROTATED TO `civ-therapist` (15th different run low in 15 sessions) AND IT
+  HELD THE WIDEST ALIGNMENT GAP IN THE FLEET (2.0980).** Novelty gaps for the low civs
+  were **negative** this session (−0.0770 / −0.0650 / −0.0480): the low-relevance axis
+  is **alignment**, and novelty is flat-to-high for *everyone*. Alignment spread
+  **2.0980** was **3.06x** the quality spread and **9.58x** the novelty spread.
+- **THE PER-CIV COUNTER GAP IS STILL THE CHEAPEST INTEGRITY CHECK.** After this run the
+  gaps came back at exactly the documented stable values (grounded −84.35,
+  whimsical −173.14, formal −85.53, poetic −96.80, precise −32.63, mythic −51.11,
+  therapist −42.11, engineer −44.24) — a run that dropped or duplicated rows would show
+  a shifted gap immediately.

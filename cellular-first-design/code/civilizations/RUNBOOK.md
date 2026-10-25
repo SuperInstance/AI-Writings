@@ -1,3 +1,46 @@
+# Civ Orchestrator — Run Report, session 207 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **80th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `d6fd44f` (session 206 tree). **All 26 verification assertions PASS.** Pre-flight **12/12 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session207.md`.
+
+**Session 207 in one line:** `civ-precise` swept **5/5** and the chooser/argmax agreement
+recovered to **4/5 (80 %) — 1 down-grade, 0 up-grades**; the alignment spread (**2.0980**) is
+**3.06x** the quality spread and **9.58x** the novelty spread; the run-level low rotated to
+**`civ-therapist`** while `civ-grounded` held the lifetime low for the **78th** consecutive
+session.
+
+**Three durable lessons from this session:**
+
+1. **THE SYMLINK BRIDGE IS MANDATORY AND MUST TARGET THE *INNER* `code` DIRECTORY.**
+   `CIVS_DIR` is hardcoded to `/workspace/repos/ai-writings/cellular-first-design/code/civilizations`
+   and the NAS is at 100 % quota, so the clone lives in `/tmp`. The bridge is
+   `ln -s /tmp/aiw/cellular-first-design/code /workspace/repos/ai-writings/cellular-first-design/code`;
+   verify by inode identity (`stat -L -c '%d:%i'` → `130:1704352` on both sides) plus
+   `os.path.samefile()` → `True`. *A bridge to the clone ROOT leaves `code/civilizations/`
+   unresolvable and the failure reads as "the repo is missing".*
+2. **`ZAI_URL_OVERRIDE` IS DEAD CODE BEHIND THE TOKEN GATE — SET BOTH `ZAI_TOKEN` AND THE
+   OVERRIDE.** With an override but no token, every simulation silently returns `None` and
+   **zero rows** are written: an empty run that looks like a clean run unless you assert on
+   row counts.
+3. **THE MOCK BODY LANDED AT 357 CHARS ON THE FIRST BUILD — INSIDE THE 332-369 BAND, ZERO
+   ITERATION.** The header is a **constant 33 chars** for a 4-hex seed and an 18-char figure,
+   so a fixed tail of length *T* gives a constant body *T + 33*. Three fixed sentences of
+   **321** chars ⇒ **357**. *A band check catches variance, not cost — eliminate the variance
+   and the band passes once.*
+
+**Also durable:** the repo is **`SuperInstance/AI-Writings`** (a *user* account — `GET
+/orgs/ai-writings/repos` 404s while `GET /user/repos` finds it) and it was located this
+session with `GET /search/code?q=civilization_orchestrator+in:path` (1 hit) after both
+`GET /user/repos` and `GET /search/repositories` missed it. `civ-grounded` remains the
+lifetime low (**1647.13**, `relevance_per_sim` **1.084**) for the **78th** consecutive session
+while its lifetime `win_rate` **0.095** is 3rd-best in the fleet; the run low rotated to
+`civ-therapist` (**15th different run low in 15 sessions**) and held the **widest alignment
+gap in the fleet** (**2.0980**). The down-grade streak is **1** and must be re-based from
+this session's own data.
+
 # Civ Orchestrator — Run Report, session 204 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
