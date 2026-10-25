@@ -5,6 +5,46 @@ description: Durable operating knowledge for the Civilization Orchestrator (cell
 
 # Civ Orchestrator — durable learnings
 
+## The `wins`/`losses` counters are NOT in the ledger (false-FAIL trap)
+
+`simulations.jsonl` rows carry exactly **9 keys** —
+`avg_score, civ, civ_name, content_preview, params, prompt, provider, scores, ts` — and
+**no `won` flag**. A verification check that reads `row["won"]` gets `0` for every civ and
+reports a **false FAIL** on the wins and losses checks.
+
+The counters live only in `culture.json`, incremented at
+`civilization_orchestrator.py:296` for the **JEV-selected** winner
+(`answers.best_civ.choice`, falling back to max `avg_score`).
+
+**Take `times_won` from `meta_log.jsonl`'s `winner_civ` field**, never from the ledger.
+
+## `max(results)` is NOT the winner
+
+`meta_log.winner_civ` (the JEV `best_civ` selection) disagreed with the plain argmax on
+**2 of 5** prompts in session 187 — prompt 2: argmax `civ-poetic` 1.97 vs winner
+`civ-precise` 1.93; prompt 5: argmax `civ-precise` 1.94 vs winner `civ-formal` 1.69.
+
+The stdout `Winner:` line **agrees with `meta_log`**; the argmax is the misleading one.
+Count wins from `meta_log`, never from `max(results)`.
+
+## Diagnostic discriminators that are not what they look like
+
+- **A JEV 422 `union_tag_not_found` is a PAYLOAD-SHAPE error, not an auth error.** A probe
+  built as `{"question":…, "weight":…, "scale":…}` is rejected. The orchestrator's own
+  shape is `{"type": "score", "instructions":…, "criteria":[…]}`. **Copy the body from the
+  source** (`jev_score`), do not improvise. A well-formed body returns HTTP 200
+  `{"model":"jev-1.14.0", …}`.
+- **A z.ai 401 `token expired or incorrect` means the endpoint is HEALTHY and the
+  credential is ABSENT** — not that the provider is down. It is the expected probe result
+  when `ZAI_TOKEN` is missing.
+- **A zombie orchestrator process is a COMPLETED run.** The detached launcher never reaps
+  the child, so `ps` shows `Zs` indefinitely. **Verify completion by the log tail and the
+  row deltas, not by process exit.**
+- **A 403 from the GitHub REST core API can be a rate limit, not an absence.** Check
+  `/rate_limit` and note that **`/search/*` has its own separate quota** — core was
+  5000/5000 (403) while search still had 30. A 403 renders as "not found" for every
+  candidate at once.
+
 ## The mock provider algorithm (fully known; do not re-derive)
 
 The Control B mock for `zai` derives every response from the md5 of the request's

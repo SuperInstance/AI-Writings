@@ -1,3 +1,67 @@
+# Civ Orchestrator — Run Report, session 187 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 54th session) + **live JEV**.
+Baseline: `8c29350` (session 186). **All 21 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session187.md`.
+
+## Headline for the next session
+
+- **THE `wins`/`losses` COUNTERS ARE NOT IN THE LEDGER — A LEDGER-BASED CHECK IS A FALSE FAIL.**
+  A verification check that reads `row["won"]` gets `0` for every civ and reports a false FAIL
+  on checks 5 and 7. `simulations.jsonl` rows carry exactly 9 keys —
+  `avg_score, civ, civ_name, content_preview, params, prompt, provider, scores, ts` — and
+  **no `won` flag**. The counters live only in `culture.json`, incremented at
+  `civilization_orchestrator.py:296` for the **JEV-selected** winner
+  (`answers.best_civ.choice`, falling back to max `avg_score`).
+  **Take `times_won` from `meta_log.jsonl`'s `winner_civ` field**, never from the ledger.
+- **`max(results)` IS NOT THE WINNER.** `meta_log.winner_civ` disagreed with the argmax on
+  **2 of 5** prompts this session (prompt 2: argmax `civ-poetic` 1.97, winner `civ-precise`
+  1.93; prompt 5: argmax `civ-precise` 1.94, winner `civ-formal` 1.69). The log's `Winner:`
+  line agrees with `meta_log`; **the argmax is the misleading one.** Count wins from meta.
+- **A JEV 422 `union_tag_not_found` IS A PAYLOAD-SHAPE ERROR, NOT AN AUTH ERROR.** A probe
+  built with `{"question":…, "weight":…, "scale":…}` returns 422; the orchestrator's own
+  shape is `{"type": "score", "instructions":…, "criteria":[…]}`. **Copy the body from the
+  source, do not improvise.** A well-formed body returns HTTP 200 `{"model":"jev-1.14.0"}`.
+- **A ZOMBIE ORCHESTRATOR PROCESS IS A COMPLETED RUN.** The detached launcher never reaps
+  the child, so `ps` shows `Zs` indefinitely. **Verify completion by the log tail and the
+  row deltas, not by process exit** — otherwise you wait forever on a finished run.
+- **THE REST API CAN BE EXHAUSTED WHILE THE SEARCH API STILL HAS QUOTA.** Core quota was
+  **5000/5000 (403)** this session; `/search/repositories` still had **30 remaining** and
+  located the repo. A 403 renders as "not found" for every candidate — check
+  `/rate_limit` before concluding a repo is absent.
+- **THE SEVEN-FIX MOCK BUILT CLEAN: 10/10 PRE-FLIGHT ON THE FIRST BUILD.** Body lengths
+  **167–209**. The seed slice is the **contiguous** `h[(i*2)%8:(i*2)%8+4]`; `figure` is
+  `f"{h[12:16]}/{h[16:20]}/{h[20:24]}"` — three **string** components, never a division.
+- **`civ-grounded` remains the low-relevance civ — 59th consecutive session.** Last of 8 on
+  lifetime `relevance` **1309.27**, `relevance_per_sim` **0.993** (still the only sub-1.0
+  figure in the fleet), run `avg_score` **1.2197**, `alignment` **1.1050**, `quality`
+  **0.1800**, run novelty 2.3740 (3rd of 8) ⇒ a **voice** failure, not a prose failure.
+  Lowest relevance = **131x** the −10 floor ⇒ no extinction risk.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-therapist`** (run `avg_score` **1.0867**, `alignment`
+  **0.6830**, `quality` **0.1780**) — a **7th different civ in 7 sessions**. Alignment gap
+  to the leader **2.1320** vs quality gap **0.3690** = **5.8x wider**. **Do not code against
+  the rotation; watch the axis, not the holder.**
+- **Chooser vs `avg_score` argmax: 3/5 (60 %)** — the JEV chooser picked `civ-precise` 4x
+  and `civ-formal` 1x while the argmax would have picked `civ-precise` 5x. **Both
+  disagreements took the LOWER-scoring candidate** — the **8th consecutive session** in which
+  a disagreement is a *down*-grade. **Never treat `win_rate` as a quality metric.**
+- **THE LOWEST-RELEVANCE CIV IS NOT THE LEAST-SELECTED ONE.** `civ-grounded` has the
+  **2nd-best** `win_rate` (0.108) and the worst relevance. Selection and relevance are
+  different axes; conflating them hides the actual failure.
+- **Workspace empty (13th consecutive); `git clone` into `/workspace` fails with
+  `Disk quota exceeded`** (NAS EDQUOT, 600 G of 600 G). Clone to `/root/ai-writings` and
+  bridge with `ln -s /root/ai-writings /workspace/repos/ai-writings` (the symlink points at
+  the **clone root**). Verified by inode identity (`129:12603`).
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (668 → 673),
+  `Winner:` **5**, wins **+4/+1** (precise/formal) / losses **+35**, 0 JEV errors, 0 fallback
+  triples, `zai x 80`, **80/80** rows match an independently recomputed seed+color+figure,
+  **40/40** distinct seeds, **0** `(civ,prompt)` with >1 seed, per-prompt **8/8** distinct
+  seeds AND previews, relevance delta == sum(avg_score) **8/8 exact** (max residual
+  **6.0e-13**), registry 8 all gen 1, extinction **NONE** (lowest +1309.27 = **131×** the
+  floor). **21/21 PASS.**
+
 # Civ Orchestrator — Run Report, session 185 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
