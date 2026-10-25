@@ -1321,6 +1321,352 @@
           }
         }
       }
+    },
+    {
+      "ts": 1792933538.9366689,
+      "iso": "2026-10-25T13:05:38",
+      "verdict": "CAUTION",
+      "verdict_confidence": "high",
+      "score_avg": 2.7967,
+      "advance_prob": 0.66,
+      "control_avg": 0.1933,
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "witness_predictive_dance",
+        "wesleys-sunday-afternoon-dream",
+        "witness_log_reading_itself_rsi_gan"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 2.87,
+          "confidence": 0.76,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.03,
+            "2": 0.12,
+            "3": 0.76,
+            "4": 0.08
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.66
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.75
+        },
+        "q3": {
+          "type": "score",
+          "score": 2.36,
+          "confidence": 0.43,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.12,
+            "2": 0.34,
+            "3": 0.5,
+            "4": 0.01
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 3.16,
+          "confidence": 0.27,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.02,
+            "1": 0.1,
+            "2": 0.09,
+            "3": 0.32,
+            "4": 0.47
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "too-abstract",
+          "confidence": 0.52,
+          "probabilities": {
+            "low-quality": 0.05,
+            "redundant": 0.06,
+            "off-topic": 0.08,
+            "too-abstract": 0.62,
+            "none": 0.19
+          }
+        }
+      },
+      "control_answers": {
+        "q0": {
+          "type": "score",
+          "score": 0.01,
+          "confidence": 1.0,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.16
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.22
+        },
+        "q3": {
+          "type": "score",
+          "score": 0.51,
+          "confidence": 0.57,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.75,
+            "1": 0.01,
+            "2": 0.22,
+            "3": 0.02,
+            "4": 0.0
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.06,
+          "confidence": 0.96,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.96,
+            "1": 0.03,
+            "2": 0.01,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.39,
+          "probabilities": {
+            "low-quality": 0.2,
+            "redundant": 0.0,
+            "off-topic": 0.16,
+            "too-abstract": 0.13,
+            "none": 0.51
+          }
+        }
+      }
+    },
+    {
+      "ts": 1792933568.6368315,
+      "iso": "2026-10-25T13:06:08",
+      "verdict": "CAUTION",
+      "verdict_confidence": "high",
+      "score_avg": 2.78,
+      "advance_prob": 0.68,
+      "control_avg": 0.2,
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "witness_predictive_dance",
+        "wesleys-sunday-afternoon-dream",
+        "witness_log_reading_itself_rsi_gan"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 2.88,
+          "confidence": 0.77,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.03,
+            "2": 0.11,
+            "3": 0.77,
+            "4": 0.08
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.68
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.74
+        },
+        "q3": {
+          "type": "score",
+          "score": 2.32,
+          "confidence": 0.42,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.02,
+            "1": 0.13,
+            "2": 0.37,
+            "3": 0.47,
+            "4": 0.01
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 3.14,
+          "confidence": 0.28,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.02,
+            "1": 0.09,
+            "2": 0.09,
+            "3": 0.34,
+            "4": 0.46
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "too-abstract",
+          "confidence": 0.42,
+          "probabilities": {
+            "low-quality": 0.06,
+            "redundant": 0.07,
+            "off-topic": 0.11,
+            "too-abstract": 0.54,
+            "none": 0.22
+          }
+        }
+      },
+      "control_answers": {
+        "q0": {
+          "type": "score",
+          "score": 0.01,
+          "confidence": 1.0,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.17
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.19
+        },
+        "q3": {
+          "type": "score",
+          "score": 0.52,
+          "confidence": 0.56,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.74,
+            "1": 0.01,
+            "2": 0.23,
+            "3": 0.02,
+            "4": 0.0
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.07,
+          "confidence": 0.95,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.95,
+            "1": 0.04,
+            "2": 0.01,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.46,
+          "probabilities": {
+            "low-quality": 0.16,
+            "redundant": 0.0,
+            "off-topic": 0.16,
+            "too-abstract": 0.11,
+            "none": 0.57
+          }
+        }
+      }
     }
   ]
 }
