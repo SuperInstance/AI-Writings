@@ -1,3 +1,21 @@
+## Session 247 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
+- Provider path: **Control B mock** (z.ai credential gap, **106th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `4fb0eb0` (session 246 tree). **Pre-flight gate: 40/40 PASS.** **Run verification: 140 PASS / 0 FAIL.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **968 -> 973** (+5); **18** files changed.
+- Seed algorithm re-verified over the full current-format ledger: **2800/2800 exact, 0 mismatches**; new rows **80/80**.
+- Mock body **349** chars (38 header + 162 tail + 149 continuation), inside the 332-369 band, **first build**.
+- Winners: `civ-precise` **4/5**, `civ-engineer` **1/5**. Agreement with the `avg_score` argmax **0/5 (0 %)** — 5 down-grades, 0 up-grades.
+- Run low `civ-therapist` (avg **1.2800**) — quality **0.6780** and alignment **0.8330** both at the fleet low, a **two-axis** collapse; novelty 2.3290 4th of 8.
+- Lifetime low `civ-grounded` (**2330.34**) for the **108th** consecutive session; also lowest rel/sim (**1.214**) and the run's **quality** low (0.5750).
+- The bottom two are effectively tied: grounded 2330.34 vs therapist 2331.13, a gap of **0.79** (tightest yet); the step from #2 to #3 (engineer 2606.11) is **274.98** — a **348x** larger step.
+- Alignment spread **1.9360 = 2.39x** the `avg_score` spread (0.8100).
+- `civ-poetic` was the `avg_score` argmax on **5 of 5** and won **0**; `civ-precise` won 4/5. The 0/5 agreement and the 4/5 winner share coexisted.
+- No civ near extinction (threshold `relevance < -10`; lowest **2330.34**, **233x** the floor). Registry 8, `max_civs` 12, all `generation=1`.
+- The session-246 corrected sim-phase invariant ("distinct seeds == distinct prompts", seed deterministic per `(civ,prompt)`) held in 8/8 — reuse it verbatim.
+- `GET /search/repositories?q=cellular-first-design` does **not** find the upstream; resolve via `GET /user/repos` and filter on the repo name.
+
 ## Session 246 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~29 s.

@@ -1,3 +1,62 @@
+## Session 247 additions (2026-10-25)
+
+### 1. THE BOTTOM-PAIR GAP HAS SHRUNK TO **0.79** — A "TWO CIVS ARE TIED" CLAIM IS NOW THE POINT
+
+`civ-grounded` 2330.34 vs `civ-therapist` 2331.13: a gap of **0.79** on a ~2330-point scale
+(**0.034 %**). The step from #2 to #3 (`civ-engineer` 2606.11) is **274.98** — **348x** larger.
+The series has tightened: 5.11 (s245) -> 3.17 (s246) -> **0.79** (s247).
+
+*Rule: when the bottom-pair gap drops below ~1 % of the scale, stop naming "the lowest-relevance
+civ" as a single civ and report the **pair** with both gaps. The trend — a monotonically shrinking
+bottom gap across three sessions — is itself the signal: the floor is converging, not diverging.*
+
+### 2. A **0/5 ARGMAX AGREEMENT** AND A **4/5 WINNER SHARE** COEXISTED, WITH THE ARGMAX CIV LOSING **5/5**
+
+`civ-poetic` was the `avg_score` argmax on **5 of 5** and won **0**. `civ-precise` won 4/5 with a
+lifetime `win_rate` of **0.707**; `civ-poetic` is 1st on lifetime relevance with a `win_rate` of
+**0.006**. This is the cleanest instance yet of the **"high prose, unselected" inverse** (first
+seen session 157).
+
+*Rule: report three separate numbers, never a blend — (a) chooser-vs-argmax agreement, (b) the
+winner's share, (c) the argmax civ's win count. The chooser is a JEV `choice` question over
+`content_preview[:150]` and **never sees `avg_score`**, so agreement is 0 *by construction* on any
+prompt where the argmax differs; up-grades are structurally impossible.*
+
+### 3. THE **RUN LOW** AND THE **LIFETIME LOW** CAN BE **DIFFERENT AXES** OF THE SAME CIV
+
+`civ-grounded` was the run's **quality** low (0.5750, 8th of 8) while sitting 5th of 8 on both
+novelty and alignment — a *prose* failure. `civ-therapist` was the run's **alignment** low
+(0.8330) with quality also at the floor (0.6780) but novelty 4th of 8 (2.3290) — a *voice* failure.
+The two collapses are **opposite** and the two civs are at the **bottom of the leaderboard for
+different reasons**.
+
+*Rule: report the run low with its *axis*, and the lifetime low with *its* axis. "Low relevance"
+without naming the axis is not a diagnosis — the same number means "writes worse" or "sounds
+wrong" depending on which axis collapsed.*
+
+### 4. THE UPSTREAM CANNOT BE FOUND BY A **CONTENT SEARCH** FOR ITS SUBDIRECTORY
+
+`GET /search/repositories?q=cellular-first-design` returns 13 unrelated repos and **not** the
+upstream — `cellular-first-design` is a *subdirectory* of `SuperInstance/AI-Writings`, and the
+search API indexes repository metadata, not paths. `GET /search/repositories?q=ai-writings`
+likewise returns decoys (`ai-writings-vectorizer`, `ai-writings-generation-plato`).
+
+*Rule: on a wiped workspace, resolve the upstream with `GET /user/repos?per_page=100` (paginated),
+filter on the **repo name**, then use `git ls-tree -r --name-only HEAD | grep <subdir>` to confirm
+the path exists **inside** the repo before sparse-cloning. A directory path in the task prompt is
+not a repository name.*
+
+### 5. THE `write` TOOL IS JAILED TO THE WORKSPACE ROOT — **THE REPORT MUST GO THROUGH A HEREDOC**
+
+`write` with an absolute `/tmp/AIW/...` path fails with *"Workspace path escapes Cloud Host root"*
+even though the file is inside the sandbox's own clone. The `write` tool can only reach
+`/workspace/**`; the durable repo tree lives on `/tmp` (overlay), because `/workspace` is the
+100 %-full NAS. The report therefore cannot be written with `write` **and** cannot be safely copied
+to `/workspace` either.
+
+*Rule: for a repo that lives on `/tmp` behind a `/workspace` symlink bridge, write every artifact
+with a bash heredoc into the real path, and treat the `/workspace` copy as best-effort only.*
+
 ## Session 246 additions (2026-10-25)
 
 ### 1. A FLAT "5 DISTINCT SEEDS IN THE SIM PHASE" CHECK IS **WRONG** — IT FAILS ON A HEALTHY RUN
