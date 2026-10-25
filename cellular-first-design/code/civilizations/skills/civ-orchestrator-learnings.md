@@ -94,6 +94,16 @@ content is where I think it is". Verify with `find <root> -maxdepth 3 -not -path
   (**167-209**) — never a hand-typed fixture.
 - Take the baseline from `git show HEAD:.../culture.json`, **unrounded**; max residual
   this session **6.6e-13**.
+- **NEW — the verifier's baseline must be PINNED to the pre-run commit, not `HEAD`.**
+  After the run is committed, `HEAD` *is* the run's own commit, so the baseline becomes
+  the post-run state and every delta assertion reads **0** instead of the expected
+  value. Re-running the battery post-commit against `HEAD` produced **25/29** with
+  exactly four failures — `meta_log delta` (703 -> 703), `relevance delta` (resid
+  **22.65**), `wins/losses` (7/8, 1/8) and `simulations_run` (0) — **all four being
+  "the baseline moved to my own commit", and none being a data defect.** Pin
+  `BASE_COMMIT` to the pre-run sha (`3a16971a` here) and the same battery returns
+  **29/29**. *A verifier that reads its baseline from `HEAD` is only correct exactly
+  once — before you commit.*
 - Mock teardown: kill by **PID captured from `ps`**, never `pkill -f mock_zai`
   (self-matches the calling shell).
 
