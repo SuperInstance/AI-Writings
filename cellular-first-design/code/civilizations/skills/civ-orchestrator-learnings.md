@@ -1,3 +1,37 @@
+# Civ Orchestrator — Run Report, session 251 (2026-10-25) [NEW]
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 108th session) + **live JEV** (`jev-1.14.0`).
+Baseline: `d0247fd`. **Pre-flight gate: 40/40 PASS.** **Run verification: ALL PASS (0 FAIL).**
+Ledger delta: +10 rows/civ (+80 total); `meta_log` 988 -> 993; 18 files changed.
+
+## New durable findings
+
+1. **THE LEADERBOARD'S `sims_run` IS NOT THE TRUE `simulations_run` COUNTER — TAKE THE BASELINE
+   FROM GIT.** `update_leaderboard` writes `sims_run: civ.sims_run`, but the **pre-existing**
+   `leaderboard.json` on disk was produced by an earlier schema and its `sims_run` is
+   `relevance / relevance_per_sim` with `relevance_per_sim` **rounded to 3 dp**. Reading the
+   baseline from `leaderboard.json` produced **negative** dSims (civ-grounded **-33**,
+   civ-engineer **-12**) and a false "COUNTER RECONCILIATION: FAIL" — the run itself was perfect.
+   The correct baseline is `git show HEAD:<civ>/culture.json`, which carries the exact counter.
+   **Rule: derive every pre-run baseline from `git show HEAD:<path>`, never from a derived
+   leaderboard artifact.** The same trap applies to any rounded ratio the code persists.
+
+2. **A `ls -la` VERIFICATION OF "NEW ENTRIES" NEEDS THE ROW-COUNT DELTA, NOT THE MTIME.**
+   All 8 `simulations.jsonl` files show a fresh mtime after the run, but mtime alone cannot
+   distinguish "+10 rows" from "rewritten in place". Assert `wc -l` pre -> post per civ
+   (expected **+10** each: 5 sims + 5 competition sims) and `meta_log` **+5**.
+
+3. **A 349-CHAR BODY NEEDS THE 37-HEADER FORM.** The session-248 note says "38-char header";
+   the mock asserts `len(header) == 38`, yet the *observed* header slice is 37 chars because
+   `f"[mock-zai {seed}] #{color} {figure}. "` is 37 characters and the 38th is the first
+   character of the tail. The gate's geometry check is the authoritative form:
+   `body[38:200] == TAIL_REF` — always assert the **slice**, never a hand-counted header length.
+
+4. **THE RUNBOOK ENTRY ORDER IS A PREPEND, AND THE RUN-REPORT NUMBER IS `session<N+1>`.**
+   The most recent session-250 report is the newest file; the next report is **251**. Prepend
+   the new section above the old one so the log reads newest-first.
+
 # Civ Orchestrator — Run Report, session 248 (2026-10-25) [NEW]
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
