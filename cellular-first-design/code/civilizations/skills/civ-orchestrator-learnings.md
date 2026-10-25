@@ -1,3 +1,90 @@
+## Session 238 additions (2026-10-25)
+
+### 1. THE TAIL IS A **PER-SESSION CONSTANT** — AND THE POOL IS **13** TAILS SHARED BY ALL 8 CIVS
+
+Measuring the tail across the whole current-format ledger (2080 rows) gives **13 distinct
+tail strings**, every one exactly **162** chars, and the set is **identical for all 8 civs**
+(`all civs share identical 13-tail set: True`). Each `(civ, prompt)` pair carries **13**
+distinct tails across history, so the tail is **not** keyed to `(civ, prompt)`.
+
+Clustering the 2080 current-format rows by `ts` gap (> 30 s) gives **26 sessions**, and
+**every** session uses **exactly one** tail across all **80** of its rows. The tail rotates
+per session and is otherwise free.
+
+*Rule: the tail is a session-level constant. Do not try to derive it from `(civ, prompt)`
+or from a request counter — it is neither. Extract the current session's family from the
+ledger (the most recent 80-row cluster) and reuse it for all 80 rows.*
+
+### 2. THE COUNTER GAP MUST BE SUMMED OVER THE **FULL** LEDGER — A SIM-ONLY SUM INVENTS A REGRESSION
+
+A first pass compared the post-run `relevance` against the sum of the **new rows only**,
+excluding the 5 competition rows the ledger also contains. That made the gap appear to
+move by **11-21 points for every civ** — which would have been published as "the counter
+gap is accumulating", a fabricated regression.
+
+The ledger stores **both** sim-phase rows and competition rows; `relevance` counts only the
+former (line 207 adds `avg_score` inside `run_simulation`), so the two quantities can never
+be equal by construction. Summed over the **full** history the gap is stable to **3.3e-03**,
+exactly as the session-237 table documents.
+
+*Rule: the gap is `relevance - sum(avg_score over the ENTIRE ledger)`. Never over a subset
+of rows. A subset changes the gap by design and manufactures a fake drift. This is the same
+class of error as session 231's "a re-derivation is not a correction".*
+
+### 3. THE COMPETITION PHASE ISSUES **NO** PROVIDER REQUESTS OF ITS OWN
+
+The 80 new ledger rows are written by the sim phase. `civilization_competition()` calls
+`run_simulation` again, but the batch already holds those same rows, so the mock served
+**161** requests total — not 161 + 40. The session-237 report expected **89** (80 sims + 5
+competitions + 4 pre-flight) against a ledger that gained 80 rows: a decomposition that
+cannot reconcile.
+
+*Rule: expected mock requests = `preflight + repeat + (ledger row delta)`. The competition
+phase re-uses the sim rows. Derive the count from the ledger delta (80), never from the
+number of phase transitions.*
+
+### 4. `--filter=blob:none --no-checkout` IS THE CLONE FORM THAT ACTUALLY WORKS
+
+The workspace NAS was at 100 % quota again, so the clone went to the overlay. A
+`--depth 50` full clone pulled **1.2 GB** and was killed mid-transfer; `--depth 1` with a
+sparse cone still fetched the whole tree (session 217's note). The form that worked was:
+
+```
+git clone --depth 1 --filter=blob:none --no-checkout <url> /tmp/cfd-meta
+git sparse-checkout set cellular-first-design/code/civilizations
+git checkout
+```
+
+*Rule: `--filter=blob:none --no-checkout` first, then `sparse-checkout set` the inner path,
+then `checkout`. Note the sparse path needs the **subdirectory** (`cellular-first-design/...`)
+because the repo root contains it — `code/civilizations` alone matches nothing and the
+checkout silently succeeds with an empty tree.*
+
+### 5. THE **SWEEP RETURNS** AFTER A 2-2-1 SPLIT — THE HOLDER ROTATION IS NOT A LAW
+
+`civ-precise` took **5/5** this session, one session after the 2-2-1 split of session 237
+ended a 19-session sweep run. `civ-therapist` took the run low in **6 of the last 7**
+sessions while `civ-grounded` held the lifetime low for the **100th** consecutive session.
+
+*Rule: a winner-streak is a description of history, not a prediction, in **either**
+direction. A split is not evidence of a new regime and a sweep is not evidence of a law.*
+
+### 6. THE **ALIGNMENT AXIS** DOMINATED AGAIN AT **2.40x** — AND THE RUN LOW WAS A **THREE-AXIS** COLLAPSE
+
+Alignment spread **2.1460** = **2.40x** the `avg_score` spread (0.8960); quality 0.82x,
+novelty 0.27x. The run low `civ-therapist` (avg **1.1673**) held quality **0.4670**,
+novelty **2.3480** and alignment **0.7220** — **all three** at the fleet low, a
+three-axis collapse where sessions 225/227 were two-axis and 237 was two-axis.
+
+*Rule: report the axis signature **for this session**. The holder rotates; the alignment
+axis does not. The number of collapsed axes is itself a per-session quantity.*
+
+### 7. A **ONE-SHOT NFS `ls` FAILURE** MAY NOT REPRODUCE — REPORT ONLY WHAT WAS OBSERVED
+
+The session-237 bridge needed a stale-attribute-cache retry; this session's `ln -sfn` was
+followed by a successful `ls -la` on the **first** call. The retry recipe remains the right
+defence, but it must not be reported as a fact unless it is observed in that session.
+
 ## Session 237 additions (2026-10-25)
 
 ### 1. A **2-2-1 WINNER SPLIT** IS THE END OF A 19-SESSION `civ-precise` SWEEP RUN

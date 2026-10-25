@@ -1,3 +1,18 @@
+# Civ Orchestrator — Run Report, session 238 (2026-10-25)
+## Session 238 (2026-10-25) — provider path, baseline, and result
+
+- Provider path: **Control B mock** (z.ai credential gap, **100th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `64e23cc` (session 237 tree), `refs/heads/main` asserted equal to the clone HEAD.
+- **Pre-flight gate: 10/10 PASS** (first build). **Run verification: 20/20 PASS.**
+- Result: `civ-precise` swept **5/5** competitions; chooser/argmax agreement **3/5 (60 %)** — 2 down-grades, 0 up-grades.
+- Run low: **`civ-therapist`** (avg **1.1673**) — quality **0.4670**, novelty **2.3480** and alignment **0.7220** all at the fleet low, a **three-axis collapse**.
+- Lifetime low: **`civ-grounded`** (**2192.48**, 100th consecutive session).
+- Full detail: `RUN_REPORT_2026-10-25_session238.md`.
+- The **sweep returns after the 2-2-1 split** of session 237 — do not read a winner-streak as a law in either direction.
+- The tail is a **per-session constant**; the pool is **13** tails, all 162 chars, **shared by all 8 civs**. It is not keyed to `(civ, prompt)`.
+- The counter gap must be summed over the **FULL** ledger — a sim-only sum makes it look like it moved by 11-21 points.
+- The competition phase issues **no** provider requests of its own: the mock served **161** (41 pre-flight + 40 repeat + 80 sims).
+
 # Civ Orchestrator — Run Report, session 237 (2026-10-25)
 ## Session 237 (2026-10-25) — provider path, baseline, and result
 

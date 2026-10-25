@@ -1,3 +1,56 @@
+## Session 238 additions (2026-10-25)
+
+### 1. THE TAIL IS A **PER-SESSION CONSTANT** — 13 TAILS, ALL SHARED BY ALL 8 CIVS
+
+The whole current-format ledger (2080 rows) holds **13** distinct tails, each exactly
+**162** chars, and the set is **identical for all 8 civs**. Every `(civ, prompt)` pair
+carries **13** distinct tails across history, so the tail is **not** keyed to
+`(civ, prompt)`. Clustering by `ts` gap gives **26** sessions, and every session uses
+**exactly one** tail across all **80** rows.
+
+*Rule: extract the current session's family from the most recent 80-row cluster and reuse
+it for all 80 rows. Never derive the tail from `(civ, prompt)` or a request counter.*
+
+### 2. THE COUNTER GAP MUST BE SUMMED OVER THE **FULL** LEDGER
+
+Comparing post-run `relevance` against the sum of the **new rows only** (the ledger also
+holds the 5 competition rows) made the gap appear to move by **11-21 points for every
+civ** — a fabricated "the gap is accumulating" regression. Over the **full** history the
+gap is stable to **3.3e-03**, exactly as documented.
+
+*Rule: the gap is `relevance - sum(avg_score over the ENTIRE ledger)`. A subset changes it
+by design and manufactures a fake drift.*
+
+### 3. THE COMPETITION PHASE ISSUES **NO** PROVIDER REQUESTS OF ITS OWN
+
+The mock served **161** requests (41 pre-flight + 40 repeat + 80 sims), not 161 + 40 — the
+competition re-uses the sim rows. The session-237 expectation of 89 (80 sims + 5
+competitions + 4 pre-flight) cannot reconcile with a ledger that gained 80 rows.
+
+*Rule: expected requests = `preflight + repeat + (ledger row delta)`.*
+
+### 4. `--filter=blob:none --no-checkout` IS THE CLONE FORM THAT WORKS
+
+A `--depth 50` full clone pulled 1.2 GB and died; `--depth 1` with a sparse cone still
+fetched the whole tree. The working form is blobless + no-checkout, then
+`sparse-checkout set cellular-first-design/code/civilizations` — the path needs the
+**subdirectory**, or the checkout succeeds with an empty tree.
+
+### 5. THE **SWEEP RETURNS** AFTER A 2-2-1 SPLIT
+
+`civ-precise` took **5/5** this session, one session after the 2-2-1 split of session 237
+ended a 19-session sweep run. `civ-therapist` took the run low in **6 of the last 7**
+sessions; `civ-grounded` held the lifetime low for the **100th** consecutive session.
+
+*Rule: a winner-streak is a description of history, not a prediction, in **either**
+direction.*
+
+### 6. ALIGNMENT DOMINATED AT **2.40x**; THE RUN LOW WAS A **THREE-AXIS** COLLAPSE
+
+Alignment spread **2.1460** = **2.40x** the `avg_score` spread (0.8960). Run low
+`civ-therapist` (avg **1.1673**) held quality **0.4670**, novelty **2.3480** and alignment
+**0.7220** — all three at the fleet low, where sessions 225/227/237 were two-axis.
+
 ## Session 237 additions (2026-10-25)
 
 ### 1. A **2-2-1 WINNER SPLIT** IS THE END OF A 19-SESSION `civ-precise` SWEEP RUN
