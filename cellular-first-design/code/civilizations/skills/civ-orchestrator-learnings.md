@@ -2143,3 +2143,68 @@ Session 185's run-level low was `civ-mythic` — a **6th different civ in 6 sess
   `TYPESAFEAI_KEY` exported as an alias of `TYPESAFE_AI_TOKEN`. Baseline derived from
   the **git blob** at `2d2a417`. Mock torn down by exact-argv kill (2 pids) and the
   port proven closed (`curl` exit **7**, `HTTP=000`).
+
+## Session 211 (2026-10-25) — the CHOOSER/ARGMAX STREAK RECURRENCE, and the counter-gap constant
+
+**Run clean (session 211).** per-civ delta = **+10** x 8 = **80 new rows**, `meta_log` D =
+**+5** (788 -> 793), `Winner:` = **5**, **80/80** rows `provider=zai` with the `[mock-zai`
+prefix, **0** JEV `error` keys, **0** 2.0/2.0/2.0 fallback triples, **80/80** rows match
+an independently recomputed seed+color+figure, **40** distinct seeds (message-level), **0**
+`(civ,prompt)` slots with >1 seed, per-prompt **8/8** distinct seeds AND previews on all 5
+competition prompts, **80/80** distinct `(q,n,a)`, relevance delta == sum(`avg_score`) **8/8**
+exact (max residual **6.86e-13**), wins **+5** / losses **+35**, counter gap **UNCHANGED 8/8**,
+registry 8 all gen 1, extinction **NONE** (lowest +1720.01 = **172x** the floor),
+leaderboard 8 sorted. **Pre-flight PASS on the FIRST build (13/13).** **29/29 assertions PASS.**
+
+### NEW — a 0 % chooser/argmax agreement is the THIRD recurrence, not a one-off
+
+Session 199 reported 0/5 (5 down-grades, 0 up-grades). Session 211 reports **0/5 again**
+(**5 down-grades, 0 up-grades**). The intermediate sessions recovered to 2/5-4/5, so the
+series does **not** show a clean trend in either direction — it shows a **regime that
+alternates**. *Rule: never carry a streak counter forward as a hypothesis. Re-derive the
+up/down counts from THIS session's own meta_log every time. Sessions 199 and 211 are
+separate zeroes, not one continuing streak.*
+
+### NEW — the counter-gap values are now a FIXED FLEET CONSTANT
+
+The `culture - ledger` gaps are **bit-identical** to session 210's:
+`grounded -84.35, whimsical -173.14, formal -85.53, poetic -96.80, precise -32.63,
+mythic -51.11, therapist -42.11, engineer -44.24`. These are historical merge artefacts
+that stopped moving once the fleet's row-writing path stabilised. *A gap that MOVES is
+still the defect — the check remains worth running (it is the cheapest merge-integrity
+check in the series), but expect it to be a no-op and do not read a frozen gap as a
+newly-clean merge.*
+
+### NEW — the lifetime low and the run low diverged on the AXIS for the first time
+
+`civ-grounded` (lifetime low, 1720.01, 80th consecutive session) had a **quality-led**
+deficit this run (quality **1.2630**, fleet-low) rather than the usual alignment gap,
+while the run low `civ-whimsical` (avg_score **1.3997**) was **alignment-led**
+(alignment **0.8430**). The run low was also a civ whose lifetime standing is **3rd of 8**.
+*Rule: report the axis per civ, and never predict the run-low holder from the previous
+session — this session's holder was a mid-table lifetime civ, not the usual suspects.*
+
+### Re-confirmations (this session)
+
+- The bridge symlink must point at the **inner** `cellular-first-design/code` directory
+  (verified by inode identity **129:10424** both sides + `os.path.samefile()` -> `True`).
+  A bridge to the clone root leaves `code/civilizations/` unresolvable and the failure
+  reads as "the repo is missing".
+- The repo is **`SuperInstance/AI-Writings`** (a *user* account; `GET /orgs/ai-writings/repos`
+  **404s** while `GET /search/repositories` finds it). The GitHub API is case-insensitive,
+  so the `ai-writings` slug resolves to `AI-Writings`. Located via
+  `GET /search/repositories?q=ai-writings+in:name` then the `contents/` walk.
+- `ZAI_TOKEN` absent from env and all 8 sandbox secrets; z.ai **401 `token expired or
+  incorrect`** (**83rd session**) => endpoint healthy, credential absent.
+  `ZAI_URL_OVERRIDE` alone is dead code behind the token gate: Control B needs **both**.
+- `TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`; JEV live at `jev-1.14.0`;
+  **0** fallback triples.
+- Pre-flight check 5 (independently recomputed seed+color+figure) is the check that
+  catches a wrong mock **shape**; the length band alone would not.
+- Baseline pinned to the **pre-run commit** `a715cb9` and read from the **git blob** —
+  never from a remembered count.
+- `gh` is not installed; `GIT_SSL_NO_VERIFY=1` required for fetch/push; push to the
+  explicit token URL and verify with `git ls-remote` **and** the commits API. The remote
+  per-civ row counts were re-read from the API to confirm the 80 new rows landed.
+- Mock teardown by exact-argv match (wrapper **and** server pid), then prove the port
+  closed (`curl` exit 7 = refused). Never `pkill -f mock_zai` (self-match).
