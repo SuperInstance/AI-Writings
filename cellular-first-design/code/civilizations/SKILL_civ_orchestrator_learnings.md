@@ -682,3 +682,62 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   The alignment tail beyond −1.5 is `civ-therapist` (**−1.9410**) and `civ-mythic`
   (**−1.5450**); novelty gaps are **negative for every low civ**, so novelty is not a
   separating axis. *Report the axis, not the holder.*
+
+## Session 212 additions (2026-10-25)
+
+### 1. THE PRE-FLIGHT "NO LITERAL `seed={}`" ASSERTION HAS AN INVERTED-SENTINEL TRAP
+
+The pre-flight reported **FAIL** on `literal_seed_none` while the mock was perfectly
+correct: the response body contained **0** occurrences of `seed=`. The bug was the
+check, not the server — the flag was set to `True` *on find* and the assertion read
+`not literal_seed`, so a correct mock could never pass.
+
+```
+if "seed={}" in body: literal_seed = True     # wrong: sets True when the text IS present
+results["literal_seed_none"] = (not literal_seed,)
+```
+
+The fix is to count the occurrence and assert on the count:
+
+```
+if "seed={}" in body: literal_seed = False
+results["literal_seed_none"] = (literal_seed,)
+```
+
+**Generalisation: a pre-flight FAIL on a component you have already independently
+verified is a CHECK bug until proven otherwise.** Re-derive the fact directly (here:
+`post()` one message and count `"seed="` in the body) before touching the code. A
+pre-flight that reports a failure on a green component will send you off to "fix" a
+server that was never broken — and the fix risks introducing the real bug the
+pre-flight was designed to catch.
+
+### 2. A SINGLE FAILED `ls` IS NOT EVIDENCE OF A MISSING TREE ON THE NAS
+
+After the run, `ls -la /workspace/repos/ai-writings/cellular-first-design/code/civilizations/`
+returned **"No such file or directory"** even though the symlink bridge was intact
+(`ls -la /workspace/repos/` showed `ai-writings -> /root/ai-writings`) and the clone root
+listed fine. A second attempt one minute later resolved cleanly with the expected
+contents.
+
+**Re-read before concluding the repo vanished.** The NAS mount is flaky under
+concurrent symlink traversal, and the failure mode reads exactly like a missing
+checkout. Always corroborate with a second path (`ls` the clone root directly) before
+re-cloning.
+
+### 3. A SWEEP AND A CHOOSER-AGREEMENT RATE ARE INDEPENDENT MEASUREMENTS
+
+Session 212: `civ-precise` won **5/5** competitions, while the chooser agreed with the
+argmax only **2/5 (40 %)** — 3 down-grades, 0 up-grades. A 5/5 sweep coexisted with a
+poorly-calibrated chooser.
+
+**Never infer chooser agreement from the win count.** They measure different things:
+the win count is about who won, the agreement rate is about whether the chooser's
+*reasoning* matched the scores. Both must be reported, and the down-grade count is
+always re-derived from the session's own `meta_log`.
+
+### 4. REPORT THE GAP NEXT TO THE SPREAD WHEN NAMING THE RUN LOW
+
+`civ-therapist` (**1.5710**) and `civ-whimsical` (**1.5957**) differ by **0.0247**
+against a run `avg_score` spread of **0.7633** — the two lowest civs are separated by
+less than one third of the run's own spread. Their ordering is noise. A "run low" claim
+that does not print the gap beside the spread is not a defensible claim.

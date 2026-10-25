@@ -1,3 +1,43 @@
+# Civ Orchestrator — Run Report, session 212 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **84th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `298647e` (session 211 tree). **All 62 verification assertions PASS.** Pre-flight **10/10 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session212.md`.
+
+**Session 212 in one line:** `civ-precise` swept **5/5** competitions and held the run's best
+`avg_score` (**2.3343**) and the widest alignment lead (**3.0830**); the chooser/argmax
+agreement was **2/5 (40 %) — 3 down-grades, 0 up-grades**; the run-level low rotated to
+**`civ-therapist`** while `civ-grounded` held the lifetime low for the **81st** consecutive
+session.
+
+**Three durable lessons from this session:**
+
+1. **THE TWO LOWEST CIVS ARE SEPARATED BY LESS THAN ONE THIRD OF THE RUN'S OWN SPREAD.**
+   `civ-therapist` (**1.5710**) and `civ-whimsical` (**1.5957**) differ by **0.0247**
+   against a run `avg_score` spread of **0.7633**. A single-run ranking between them is
+   noise. *Always print the gap next to the spread.*
+2. **A 5/5 SWEEP DID NOT IMPLY CHOOSER AGREEMENT.** `civ-precise` won all 5, but the
+   chooser only agreed with the argmax **2/5 (40 %)** — 3 down-grades, 0 up-grades. The
+   winner and the agreement rate are independent measurements; a sweep can coexist with
+   a poorly-calibrated chooser. *Never infer agreement from the win count.*
+3. **THE NAS MOUNT PRODUCES TRANSIENT `ls` FAILURES ON A VALID SYMLINK BRIDGE.** After
+   the run, `ls -la /workspace/repos/.../civilizations/` returned **"No such file or
+   directory"** while `ls -la /workspace/repos/` showed the symlink intact and
+   `ls` on the clone root worked. A second attempt one minute later resolved cleanly.
+   *A single failed `ls` is not evidence of a missing tree — re-read before
+   concluding the repo vanished.*
+
+**Also durable:** the repo is **`SuperInstance/AI-Writings`** (a *user* account — `GET
+/orgs/ai-writings/repos` 404s while `GET /user/repos` finds it); the NAS under `/workspace`
+is at 100 % quota, so clone to `/root/ai-writings` and bridge the **clone root** by symlink
+(inode identity **129:99**, `os.path.samefile()` -> `True`). `civ-grounded` remains the
+lifetime low (**1738.40**, `relevance_per_sim` **1.108**) for the **81st** consecutive
+session while its lifetime `win_rate` **0.095** is 3rd-best in the fleet; the run low
+rotated to `civ-therapist` (**18th different run low in 18 sessions**) and held the
+**widest alignment gap in the fleet** (**1.7170**).
+
 # Civ Orchestrator — Run Report, session 211 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
