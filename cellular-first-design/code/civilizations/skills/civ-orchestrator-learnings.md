@@ -1,3 +1,100 @@
+---
+
+## Session 182 (2026-10-25) — TWO 2-CHAR SLICES ARE NOT A 4-CHAR SLICE, and the 500 that hides behind an open socket
+
+**Run clean (session 182).** per-civ delta = **+10** x 8 = **80 new rows**,
+`meta_log` D = **+5** (643 -> 648), `Winner:` lines = **5**, **80/80** rows
+`provider=zai` with the `[mock-zai` prefix, **0** JEV `error` keys, **0**
+2.0/2.0/2.0 fallback triples, **80/80** rows match an independently recomputed
+seed+color+figure, **40/40** distinct seeds, **0** `(civ,prompt)` combos carrying
+>1 seed, **8/8** distinct seeds AND previews on all 5 competition prompts,
+**80/80** distinct `(q,n,a)`, relevance delta == sum(`avg_score`) **8/8 exact**
+against an **unrounded git-blob** baseline, wins **+5** / losses **+35**.
+**Pre-flight 12/12 on the FIRST build.** **21/21 run-wide assertions PASS.**
+
+### NEW — the canonical SEED is a CONTIGUOUS 4-CHAR SLICE, and the two forms are different values
+
+Session 179 widened the seed from 2 to 4 hex chars because the 2-char slice had only
+**16** reachable values over **40** slots. But it left the spec block reading
+`h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]` — two 2-char slices
+concatenated — while the headline said the slice should be `h[(i*2)%8:(i*2)%8+4]`.
+**These are not the same value.** `h[0:4]` is not `h[0:2] + h[2:4]`.
+
+This matters because the seed is a **reconciliation key**: a later session recomputes
+the seed from the message and asserts the stored row matches. A row written under
+the concatenated form does not reconcile against a recompute under the contiguous
+form, and the failure looks like a **data defect** rather than an algorithm
+mismatch. The 4-char width is satisfied either way, so the width check passes while
+the value check fails.
+
+*Rule: when a spec says "widen the slice", widen the SLICE. Do not pad, do not
+concatenate neighbouring slices, and do not infer the new form from the old one —
+a width assertion cannot distinguish three different 4-char renderings. Assert the
+stored value against an independent recompute of the **documented expression**.*
+
+### NEW — fix (g) fails SILENTLY behind an open socket
+
+The spec's `figure = h[12:16] / h[16:20] / h[20:24]` is pseudo-code: `h` is a hex
+**string**, so a literal transcription raises
+`TypeError: unsupported operand type(s) for /: 'str' and 'str'`. The mock then
+500s on **every** request **while the socket stays open**, so a port-open or a
+bare-HTTP-200 liveness probe still looks healthy. The correct form is
+`f"{h[12:16]}/{h[16:20]}/{h[20:24]}"` — three **string** components.
+
+*Rule: a liveness probe that only checks the socket is not a liveness probe. Send
+a **real request body** and assert the response **content**, not the status line
+alone. A 500 with a correct Content-Length is a valid HTTP response — the socket
+test cannot see it.*
+
+### NEW — the FIX LIST IS NOT THE SPEC
+
+The "six fixes" checklist in the RUNBOOK was missing (g) for several sessions, and
+the same list carried a seed form that contradicted its own headline. The
+**algorithm block** and the **fix checklist** had drifted apart. This session read
+the newest session's report and the skill file rather than the older checklist, and
+found both discrepancies *before* the run.
+
+*Rule: when rebuilding a mock from a checklist, re-derive the expected output from
+the **canonical algorithm** and compare — do not trust the checklist's form
+against the algorithm's form. Where the two disagree, the algorithm wins, and the
+disagreement is itself worth writing down.*
+
+### Re-confirmations (this session)
+
+- **NAS EDQUOT is total** (600 G/600 G) while visibly empty: `git clone` into
+  `/workspace` fails with `Disk quota exceeded`; `/tmp` (overlay, 28 G free) is
+  exempt. **Verify bytes, not exit codes.**
+- **Bridge symlink** must satisfy BOTH the requested script path and the script's
+  internal hardcoded `CIVS_DIR`; `ln -sfn` into `/workspace/repos/ai-writings` +
+  `[ -ef ]` -> `EF_OK` was sufficient here.
+- **`TYPESAFEAI_KEY` from `TYPESAFE_AI_TOKEN`**; JEV liveness = HTTP 200 with
+  `{"model":"jev-1.14.0", ...}` and a real score body.
+- **`ZAI_TOKEN` still absent** from env and all 8 secrets; z.ai 401s (endpoint
+  healthy, credential gap) — **61st session**. Control B needs **both**
+  `ZAI_TOKEN` (placeholder) and `ZAI_URL_OVERRIDE`; the override alone is dead code.
+- **Take the baseline from `git show HEAD:.../culture.json`, unrounded** — the
+  leaderboard's 2-dp relevance is a display artifact and injects phantom residuals
+  of up to +/-0.0067 per civ into the delta check.
+- **`civ-grounded` remains the low-relevance civ — 56th consecutive session.** Last
+  of 8 on lifetime `relevance` 1250.21, `relevance_per_sim` 0.985, `avg_score`
+  1.0172, `alignment` 1.0698, `quality` 0.4010. Alignment gap 0.1367 vs quality
+  gap 0.0432 = **3.16x** wider => a **voice** failure, not a prose failure.
+  Lifetime novelty 1.5807 is 6th of 8.
+- **The run-level low did NOT rotate** — `civ-grounded` was the run low (1.4323)
+  *and* the lifetime low, the first agreement in four sessions (179: whimsical,
+  180: therapist, 181: engineer, 182: grounded). **The rotation is not a law; do
+  not code against it.**
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — `civ-precise` swept **5/5**. All
+  four disagreements took the **lower**-scoring candidate (-0.107, -0.237, -0.190,
+  -0.217). **Never treat `win_rate` as a quality metric.**
+- **Counter gap** (ledger vs rounded leaderboard) is a **fixed** offset: per-civ
+  delta **0.000000** for all 8 civs, unchanged from sessions 179-181.
+- Run spreads: `avg_score` 0.6290, `alignment` **1.3270** (widest), quality 0.6430,
+  novelty 0.1760.
+- **Mock teardown**: kill by exact-argv match (wrapper **and** server pid), then
+  prove the port closed (`curl` exit 7 = refused, `HTTP=000`). Never
+  `pkill -f mock_zai` (self-match).
+
 
 ---
 

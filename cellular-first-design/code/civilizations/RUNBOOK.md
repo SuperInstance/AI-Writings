@@ -1,3 +1,58 @@
+# Civ Orchestrator — Run Report, session 182 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 61st session) + **live JEV**.
+Baseline: `2a774e3` (session 181). **All 21 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session182.md`.
+
+## Headline for the next session
+
+- **THE MOCK NEEDS SEVEN FIXES, AND THE SEED SLICE IS A CONTIGUOUS 4-CHAR SLICE.**
+  The canonical seed is `h[(i*2)%8:(i*2)%8+4]`, **not** the
+  `h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]` still shown in the older spec
+  block. **These two are different values.** Concatenating two 2-char slices is not
+  the contiguous slice, so a row written under one algorithm does **not** reconcile
+  against a recompute under the other. *Check the SLICE, not the render.*
+- **Fix (g) is mandatory and its failure is silent.** `figure` must be
+  `f"{h[12:16]}/{h[16:20]}/{h[20:24]}"` — three **string** components. Read the
+  spec's `h[12:16] / h[16:20] / h[20:24]` literally and it divides two `str` values:
+  `TypeError`, HTTP 500 on **every** request, **while the socket stays open** — a
+  port/200 liveness probe still looks healthy. This session's first build hit
+  exactly that on its first live probe. **Always probe with a real request body,
+  not a socket open.**
+- **PRE-FLIGHT GATE: 12 CHECKS, 12/12 ON THE FIRST BUILD** (after the two corrections
+  above). Includes the **repeat-same-message => same seed AND preview** probe
+  (40 x 2) — the only check that can catch fix (f) — and the
+  **0 `(civ,prompt)` with >1 seed** check. Body lengths 212.
+- **TAKE THE BASELINE FROM THE GIT BLOB, NOT THE LEADERBOARD.**
+  `git show HEAD:.../culture.json` (unrounded) gave 8/8 exact relevance deltas with
+  residuals <= 3.6e-13. The leaderboard's 2-dp relevance is a **display** artifact
+  and injects phantom residuals of up to +/-0.0067 per civ.
+- **`civ-grounded` remains the low-relevance civ — 56th consecutive session.**
+  Last of 8 on lifetime `relevance` **1250.21**, `relevance_per_sim` **0.985**,
+  `avg_score` **1.0172**, `alignment` **1.0698**, `quality` **0.4010**. Alignment gap
+  **0.1367** vs quality gap **0.0432** = **3.16x** wider => a **voice** failure, not a
+  prose failure. Lifetime novelty 1.5807 is 6th of 8.
+- **The run-level low did NOT rotate this session** — `civ-grounded` was the run low
+  (1.4323) *and* the lifetime low, the first time in four sessions that the two
+  agreed. Sessions 179/180/181 each had a different run-level low. **The rotation
+  is not guaranteed; do not code against it.**
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — `civ-precise` swept **5/5**. All
+  four disagreements took the **LOWER**-scoring candidate (-0.107, -0.237, -0.190,
+  -0.217). **Never treat `win_rate` as a quality metric** — it is a *selection* metric.
+- **Counter gap** (ledger vs rounded leaderboard) is a **fixed** offset: per-civ delta
+  **0.000000** for all 8 civs, unchanged from sessions 179-181.
+- Run spreads: `avg_score` 0.6290, `alignment` **1.3270** (widest), quality 0.6430,
+  novelty 0.1760.
+- Verification: per-civ D **+10 x 8** = **80** new rows, `meta_log` **+5** (643 -> 648),
+  `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, 0 fallback triples,
+  `zai x 80`, **80/80** rows match an independently recomputed seed+color+figure,
+  **40/40** distinct seeds, **0** `(civ,prompt)` with >1 seed, **80/80** distinct
+  `(q,n,a)`, relevance delta == sum(avg_score) **8/8 exact** (unrounded baseline),
+  registry 8 all gen 1, extinction **NONE** (lowest +1250.21 = **125x** the floor).
+  **21/21 PASS.**
+
 # Civ Orchestrator — Run Report, session 181 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
