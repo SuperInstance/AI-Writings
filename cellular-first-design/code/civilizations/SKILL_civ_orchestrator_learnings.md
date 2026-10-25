@@ -900,3 +900,123 @@ exactly and only append.*
 orchestrator's `CIVS_DIR` is hardcoded to the **inner** `code/civilizations` path. Verify
 with `stat -L -c '%d:%i'` → `129:12604` on both sides plus `os.path.samefile()` → `True`
 (`[ -ef ]` remains unusable in this sandbox).
+
+
+## Session 215 additions (2026-10-25)
+
+### 1. THE DOCUMENTED SEED FORMULA IS WRONG FOR `i=3` — THE CORRECT SLICE IS **CONTIGUOUS**, NOT WRAPPED
+
+Both `RUNBOOK.md` and `SKILL_civ_orchestrator_learnings.md` specify:
+
+```
+seed = h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]     # WRAPPED
+```
+
+**The truth is `seed = h[(i*2)%8 : (i*2)%8 + 4]`** — a *contiguous* 4-hex slice with **no
+wrap-around**. Verified **480/480** against the session-215 ledger (the wrapped form scores
+**360/480**).
+
+The wrap only bites when `i == 3` (offset 6): the documented form yields `h[6:8] + h[0:2]`
+(e.g. `5f8b`) but the ledger shows `h[6:10]` (e.g. `5fc0`). That is **25 % of all rows** —
+enough to make a *correct* mock look broken and to send you hunting for a bug that is not
+there. Session 213's "raw byte `d[0] % 4`" correction is right and is unaffected.
+
+**How to settle it in one step (the diagnostic that found it):** locate the recorded seed
+inside `h`:
+
+```python
+offs = [i for i in range(len(h)-3) if h[i:i+4] == recorded_seed]
+# -> {0: 109, 2: 105, 4: 146, 6: 120}  == ALL EVEN OFFSETS
+```
+
+All-even offsets + `colour`/`figure` matching **480/480** while the seed matched only
+**360/480** ⇒ the message reconstruction is perfect and only the *index-dependent* field is
+wrong. *This is the same principle as session 213 ("the wrong field is the one that depends
+on the index"), now with the exact correct formula.*
+
+### 2. THE LEDGER CONTAINS **TWO** MOCK GENERATIONS — A HEADER-PARSE FAILURE RATE OF 33 % IS NORMAL
+
+Of **9040** `[mock-zai` rows in the fleet, only **480** are current-format. The rest use an
+older header whose `figure` was rendered as a *Python-style* `x / y / z` (with spaces) and a
+colour carrying a trailing `00`:
+
+```
+[mock-zai f6bc] #68ed00 587e0 26120 0f2300. A cell is a small bounded unit ...
+```
+
+**Do not treat a 160/480 header-parse failure as a broken mock.** Filter to the current
+format first (`[0-9a-f]{4}/[0-9a-f]{4}/[0-9a-f]{4}`), then reconcile. Sizing the body band
+off the *old* generation will make a correct mock look out of band.
+
+### 3. THE TAIL PREFIX IS **PER-PROMPT**, NOT PER-CIV, AND IS **5** DISTINCT STRINGS
+
+The recorded 162-char body tail is a function of the **CANON prompt**, not the civ — all 8
+civs share the same 5 tails (one per prompt in the batch). The recorded prefix that a
+reconciling mock must reproduce verbatim is:
+
+```
+A cell keeps its own accounts and asks the network for what it cannot remember itself.
+The bookkeeper and the witness log are two names for the same discipline: a
+```
+
+(162-163 chars, depending on the prompt). *A "fixed, culture-free tail" is the right
+design for a *new* body, but to *reconcile against the existing ledger* the tail's first
+162 chars must match the recorded rows — and those rows are per-prompt, so a single fixed
+tail will not reproduce all 5.*
+
+### 4. A WIPED WORKSPACE NEEDS A **SPOTLIGHT-CLONE-THEN-BRIDGE** RECIPE, AND THE SEARCH API IS THE FASTEST PATH
+
+The workspace was empty again (**6th consecutive** session naming ephemeral paths). The
+upstream was found in **one** call:
+
+```
+GET /search/code?q=civilization_orchestrator+in:path
+```
+
+`GET /user/repos` and `GET /search/repositories` both missed it (the owner is a *user*
+account, the slug is case-insensitive, and `ai-writings/...` 404s). Code search has a
+**separate quota** that survives core exhaustion — make it the first probe.
+
+Clone to `/tmp` (the NAS is at 100 % and `git clone` into `/workspace` dies on
+`.git/description`), then bridge to the **inner `code` dir**:
+
+```
+ln -s /tmp/aiw/cellular-first-design/code /workspace/repos/ai-writings/cellular-first-design/code
+stat -L -c '%d:%i'  ->  129:12603 on both sides;  os.path.samefile() -> True
+```
+
+### 5. THE CHOOSER AGREEMENT SERIES IS **0 % / 40 % / 40 % / 20 %** (sessions 211-215) AND EVERY DISAGREEMENT STILL TAKES THE **LOWER**-SCORING CANDIDATE
+
+Session 215: `civ-precise` swept **4/5** and `civ-formal` took 1/5; `civ-poetic` was the
+argmax on **4/5** and won **0/5**; agreement **1/5 (20 %)** with **4 down-grades, 0
+up-grades**. The previous three points were 0 % / 40 % / 40 %; the one before those was
+100 %. *The series oscillates across the full range — re-derive it every session and never
+carry a streak forward in either direction.*
+
+### 6. THE RUN LOW AND THE LIFETIME LOW WERE **DIFFERENT CIVS** AGAIN (7 SESSIONS RUNNING)
+
+Run low: **`civ-engineer`** (avg **1.7437**, alignment **1.8830**), 8th of 8 on the run.
+Lifetime low: **`civ-grounded`** (relevance **1796.74**, rel/sim **1.1237**, lifetime avg
+**1.1456**, lifetime quality **0.4849** — lowest in the fleet) — yet Grounded's lifetime
+**win_rate is 0.093, 3rd-best in the fleet**. The lifetime *alignment* low is a **third**
+civ, **`civ-therapist`** (**1.1985**).
+
+**The low-relevance signature is still LOW ALIGNMENT, NOT LOW NOVELTY.** Run alignment
+spread **1.0860** = **1.86x** the quality spread and **6.24x** the novelty spread.
+Grounded's lifetime novelty (**1.7395**) is mid-field; the fleet's lowest lifetime novelty
+(**1.6692**) belongs to **`civ-formal`**. *Report the axis, not the holder.*
+
+### 7. THE COUNTER-GAP STABILITY CHECK HELD **8/8** AGAIN, AND THE DELTAS WERE **<= 3.3e-7**
+
+Gaps came back at exactly the documented stable values (grounded -84.35, whimsical -173.14,
+formal -85.53, poetic -96.80, precise -32.63, mythic -51.11, therapist -42.11,
+engineer -44.24). *This remains the cheapest integrity check in the project — it tells you
+the run was clean while your own check is the thing that is broken.*
+
+### 8. THE `ls -la` VERIFICATION THE PROMPT ASKS FOR NEEDS **`-L`** (RE-CONFIRMED, 3RD SESSION)
+
+`ls -la /workspace/repos/ai-writings/cellular-first-design/code/civilizations/` returns
+**"No such file or directory"** on a perfectly healthy run, because the last path component
+crosses the symlink bridge. Use **`ls -laL`**, or `ls -la` on the per-civ
+`civ-*/simulations.jsonl` files directly. *A missing directory in the verification step is a
+reporting artefact, not a missing run.*
