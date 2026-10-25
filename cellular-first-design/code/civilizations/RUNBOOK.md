@@ -1,3 +1,57 @@
+# Civ Orchestrator — Run Report, session 180 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 59th session) + **live JEV**.
+Baseline: `f59288ee` (session 179). **All 18 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session180.md`.
+
+## Headline for the next session
+
+- **THE 2-CHAR SEED SLICE IS A STRUCTURAL CERTAINTY, NOT BAD LUCK.** The
+  runbook's "fully specified" algorithm block still shows `h[(i*2)%8:(i*2)%8+2]`
+  (2 hex chars = 256 values) over **40 slots**, while its own headline says to
+  widen it to 4. Widening to `h[(i*2)%8:(i*2)%8+4]` (65 536 seeds) made the
+  padding a no-op and the pre-flight gate passed **8/8 on the FIRST build**
+  with **40/40 distinct seeds**. Session 179's 39/40 was not a hash accident.
+  *A seed padded to a documented width is not that width's worth of entropy —
+  check the SLICE, not the render.*
+- **THE MOCK NEEDS THE SAME SIX FIXES** (a) index wrap, (b) md5 over the whole
+  message, (c) `Connection: close` + `Content-Length`, (d) interpolate the seed
+  placeholder, (e) 4-hex-char seed, (f) message-derived index `d[0] % 4`.
+  Rebuild from the spec in this file; the mock is **not** on disk at session
+  start (`/tmp` wiped).
+- **WHEN THE VERIFIER DISAGREES WITH THE RUN, SUSPECT THE VERIFIER FIRST.**
+  Three FAILs this session were all **check bugs**, not data defects: comparing
+  the leaderboard's **2-dp rounded** relevance against an **unrounded** ledger
+  sum (~3.3e-03 phantom residual); comparing the leaderboard `sims_run` against
+  the **ledger line count** (which includes competition rows) instead of the
+  **sim counter** `simulations_run`. The authoritative pre-run value is
+  `git show HEAD:…/culture.json` — never a hand-typed 2-dp number.
+- **`civ-grounded` remains the low-relevance civ — 54th consecutive session.**
+  Last of 8 on lifetime `relevance` **1228.70**, `relevance_per_sim` **0.984**,
+  `avg_score` **1.0163**, `alignment` **1.0714**, `quality` **0.4023**. Alignment
+  gap **0.1358** vs quality gap **0.0430** = **3.16×** wider ⇒ a **voice**
+  failure, not a prose failure. Lifetime novelty 1.5752 is 3rd of 8.
+- **The run-level low ROTATED to `civ-therapist`** (run `avg_score` **0.9903**,
+  `alignment` **0.3910**, `quality` **0.1020**) — a **fourth** civ in four
+  sessions, while its lifetime standing is 7th of 8. **Watch axis, not the
+  finding** (session-132 rule). The *holder* rotates; the *axis* (alignment)
+  does not.
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — `civ-precise` swept **5/5**;
+  every other civ 0-5. **Never treat `win_rate` as a quality metric.**
+- Counter gap **−609.9200**, fixed — byte-identical to session 179, delta
+  **0.000000** for all 8 civs.
+- Run spreads: `avg_score` 0.7370, `alignment` **1.9900** (widest), quality
+  0.3350, novelty 0.1620.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5**
+  (633 → 638), `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, 0
+  fallback triples, `zai × 80`, **40/40** distinct seeds, **0** `(civ,prompt)`
+  with >1 seed, **80/80** rows match an independently recomputed message md5,
+  8/8 seeds AND previews on all 5 prompts, **80/80** distinct `(q,n,a)`,
+  registry 8 all gen 1, extinction **NONE** (lowest +1228.70 = **123×** the
+  floor). **18/18 PASS.**
+
 # Civ Orchestrator — Run Report, session 179 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
