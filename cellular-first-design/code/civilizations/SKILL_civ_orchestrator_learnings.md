@@ -15,9 +15,9 @@ user message. This is now **verified 80/80 against the session-169 ledger**
 d      = md5(cultural_prompt).digest()          # the FULL user message, verbatim
 h      = d.hex()
 i      = d[0] % 4                               # MESSAGE-derived, NOT a request counter
-seed   = h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]
+seed   = h[(i*2)%8:(i*2)%8+4]                      # WIDENED slice, not padded
 color  = h[8:12]
-figure = h[12:16] / h[16:20] / h[20:24]
+figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"     # three components, NOT a division
 ```
 
 `cultural_prompt` is exactly what `civilization_orchestrator.py` builds:
@@ -38,7 +38,7 @@ every row of the same `(civ, prompt)` pair*. A request counter cannot produce th
 because the competition phase fires 8 civs in parallel and a counter would hand
 them different values.
 
-## Mock rebuild checklist — SIX fixes
+## Mock rebuild checklist — SEVEN fixes
 
 | # | Fix | Symptom if missing |
 |---|---|---|
@@ -48,6 +48,13 @@ them different values.
 | d | interpolate the seed placeholder | every response carries literal `seed={}` ⇒ 1 distinct seed, not 40 |
 | e | seed widened 2 → 4 hex chars | a 2-char slice collides ⇒ 39 distinct seeds / 40 rows, one prompt at 7/8 |
 | f | **index from the MESSAGE (`d[0] % 4`), not a request counter** | **64 distinct seeds / 80 rows; 20 `(civ,prompt)` pairs carry >1 seed** |
+| g | **figure = three string components, not a division** | **`TypeError` on every request ⇒ HTTP 500 while the socket stays open; a port/200 liveness probe still looks healthy** |
+
+**The spec's `figure = h[12:16] / h[16:20] / h[20:24]` is pseudo-code, not Python.**
+Read literally it divides two `str` values. Fixing (a) does NOT fix this — (a) is
+the seed-slice `ValueError`, (g) is the figure `TypeError`, and both present as
+"HTTP 500 while the socket stays open". A liveness probe that only checks the
+port or a 200 will not catch it.
 
 ## GATE-DESIGN RULE (the durable lesson)
 
@@ -61,6 +68,17 @@ message twice and assert the seed is identical (and matches the recomputed md5).
 
 The same principle generalises: *any* pre-flight that proves "distinctness" is
 silent about "determinism". Add a probe that repeats an input.
+
+**The gate is now TEN checks** (was eight): 40/40 distinct seeds, 40/40 distinct
+previews, 40/40 recomputed md5s (seed + colour + figure), 8/8 distinct seeds AND
+8/8 distinct previews on every one of the 5 prompts, 0 literal `seed={}`, 0
+`EXC:`/tracebacks, `[mock-zai` prefix on 40/40, **repeat-same-message ⇒ same seed
+(40 × 2)**, and **0 `(civ,prompt)` pairs carrying >1 seed**.
+
+**Seed-width rule: check the SLICE, not the render.** The documented "4 hex chars"
+was originally satisfied by *padding* two 2-char slices, which is 256 values of
+entropy wearing 4 characters' clothing. Widen the slice itself to
+`h[(i*2)%8:(i*2)%8+4]` (65 536 values) and the padding becomes a no-op.
 
 ## Run-wide verification (isolate this run's rows)
 
@@ -125,10 +143,17 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   `timeout -s KILL 900 python3 /tmp/mock_zai.py`) — two pids. Never `pkill -f mock_zai`,
   which self-matches the killing shell. Then prove the port is closed: `curl -m 5` ⇒
   **exit 7**, `HTTP=000`.
-- **The mock's `figure` ratio needs hex→int conversion.** `h` is a hex STRING, so
+- **The mock's `figure` is a string triple, NOT a division.** `h` is a hex STRING, so
   `h[12:16] / h[16:20] / h[20:24]` raises `TypeError` ⇒ HTTP 500 while the socket
-  stays open (the very failure mode fix (a) exists to prevent). Use
-  `int(h[12:16],16) / int(h[16:20],16) / int(h[20:24],16)`.
+  stays open (the very failure mode fix (a) exists to prevent). The verified fix
+  (g) is `figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"` — three components. A
+  hex→int ratio also "works" numerically but is a **different algorithm** and will
+  not reproduce the recorded ledger, so match the string form.
+- **`GET /user/repos` paginates ~100/repo and the owner has 5 400+.** `ai-writings`
+  does NOT appear in the first 10 pages of owned repos — use the **search API**
+  (`GET /search/repositories?q=ai-writings+in:name`) to find `SuperInstance/AI-Writings`.
+  Also note `cellular-first-design` is a **subdirectory** of that repo, not a repo
+  of its own; the GitHub API is case-insensitive, so the `ai-writings/…` slug 404s.
 - **Wiped workspace ⇒ sparse clone, not a full clone.** `SuperInstance/AI-Writings`
   is 3.7 GB and `/workspace` is at 100% NAS quota. `git init` + `core.sparseCheckout`
   + `sparse-checkout set cellular-first-design/code/civilizations`, `--depth=1` fetch,
