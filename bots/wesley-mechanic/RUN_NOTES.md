@@ -1108,3 +1108,142 @@ upstream and byte-identical to its git blob (md5 `206682962c06f9814a5db65c2fbc72
 - **Orphan rows: 14** — `bot_started` rows with no immediately-following `witness_note` (rows
   1,3,5,7,10,13,15,17,18,19,23,28,35,84). Row 84 is closed by this note (row 85); row 82 is closed by the 00:02Z
   note (row 83); row 80 is closed by the 22:48Z note (row 81).
+
+---
+
+## Poll 2026-10-25T01:57Z — no change (b20375d389cb505d / 71 papers)
+
+- **Result:** no canon change. Canon hash `b20375d389cb505d` / 71 papers, identical to the 2026-10-22T20:04Z
+  baseline (`state.json` `first_seen 1792699490.998806` = 2026-10-22T20:04:50Z) and to every prior poll.
+  **~53.9 h stable** since the baseline; **~14 min** since the 01:41Z poll.
+- **Verified by three independent paths:** the watcher's own `poll_canon()` (stdout
+  `[WESLEY] no change (b20375d389cb505d, 71 papers)`, exit 0, no exception, no `poll_failed`); a `curl` probe
+  taken **before** the run; and a `curl` probe taken **after** the run. Both probes: HTTP 200, 13720 bytes, bodies
+  **byte-identical to each other** and to the 00:26Z / 00:59Z / 01:41Z baseline body (md5 `d9915bb9f3bcb8794cb57810427d0288`,
+  sha256 `43e5745c369f9b1fc8e19607eb96c6cfae676248e329f53715755ebe2baa8fde`; `cmp` clean). Each recomputes to
+  `sha256(json, sort_keys)[:16] = b20375d389cb505d`.
+- **Count key:** the response carries the count under `count` (71), **not** `paper_count` (absent; top-level keys
+  are exactly `['count','papers']`), so the count-key fallback remains **load-bearing** and still correct.
+- **No transition claimed:** a hash match is not a transition. No `canon_changed` event, no gamma/eta delta.
+- **No-op surfaces confirmed:** `state.json` byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`;
+  `last_hash b20375d389cb505d`, `last_count 71`, `first_seen 1792699490.998806` preserved); `bookkeeper.wal`
+  **still does not exist** — `bookkeeper_tick()` is reached only from the `first_poll` and `canon_changed`
+  branches, so a stable canon produces zero ticks.
+- **Rows:** the run appended exactly one row, the unconditional `bot_started` (pid 34102, 01:57:58Z, hash
+  `8f34cb15d5608b95`); `witness.log` went **89 → 90 rows**, and this note is the **91st**.
+- **Log integrity:** 90/90 pre-existing rows parse and carry `ts/iso/event/payload/hash`; **87 row hashes
+  verify**. The 3 non-verifying rows are the inherited, previously-audited ones and **no new mismatch was
+  introduced**: rows 9 and 12 carry the literal marker `RECOVERED` in the hash field (`meta_wipe_recovery`), and
+  row 25 is the upstream-born stale hash — its claimed `88839488ea23e66c` matches the upstream git blob at HEAD
+  `9e89c4c4` byte-for-byte (row 25 md5 `65784c40fae50ac192a3f6c96fed6675` on both sides), so it is **provenance,
+  not corruption**. Linkage class remains `row-checksum` per `bots/README.md`: each row's hash commits to its own
+  payload only, carries no `prev`, so **deletion and truncation are undetectable** and "intact" is not producible
+  for this file.
+- **Upstream prefix preserved:** the first 89 rows of the staged log are byte-identical to the upstream git blob
+  at HEAD `9e89c4c4` (upstream md5 `3529d5fab983c60dd949e6a6c39316b6`, 89 rows; `cmp` clean).
+- **Environment (37th consecutive wipe with the named path gone):** `/workspace/repos/ai-writings/...` did not
+  exist — `/workspace` contained only `.plugin-cache`, with no `repos/` dir at all. The NAS mount is genuinely
+  unwritable (statvfs `f_bavail = 0`, 600G/600G at 100%). The repo was recovered into the overlay at `/tmp` by
+  cloning `SuperInstance/AI-Writings` **branch `wesley/canon-poll-2026-10-25T0141Z`** (upstream HEAD `9e89c4c4`).
+  **The branch refs, not the default branch, carry `bots/`** — `main` (HEAD `3a56fa0`) contains only
+  `cellular-first-design/code/civilizations/`, so a `main`-only clone or a `git/trees` API read of `HEAD` shows
+  no `bots/` tree at all and no `wesley_watcher.py` anywhere in the repo. Enumerate with
+  `git ls-remote --heads origin` and look for `refs/heads/wesley/*` and `refs/heads/witness/*` before
+  concluding a file does not exist. The `bots/` tree was staged into `/tmp/wm-run` so the watcher's hardcoded
+  `/tmp/wm-run/...` paths for witness, state and bookkeeper resolve to real, writable files, and
+  `/workspace/repos/ai-writings` was symlinked to the overlay clone so the prompt's path resolves. Every file was
+  **size-verified**, not merely existence-verified.
+- **Substrate: correct no-op.** `bots/substrate-bus/{substrate-witness.jsonl,topics.json}` are byte-unchanged
+  (md5 `d3f588a44223088f4b62b262b5c8e8c2` / `d94b0a5d5c23baa4c317441a046ed455`, 865 and 4508 bytes) — the
+  substrate calls in the watcher fire only from the `first_poll` and `canon_changed` branches, so a no-change poll
+  appends no substrate event.
+- **No code changes:** staged script md5 `206682962c06f9814a5db65c2fbc7267`, byte-identical to its upstream git
+  blob at HEAD `9e89c4c4`, so no patch was applied.
+- **Open defect, still unresolved (30th poll reporting it):** `bookkeeper` uses `budget=1000.0` against a
+  `gamma+eta` total of 70.0, so `last_conserved` is a constant false by construction. AST re-verified this run:
+  only 2 `bookkeeper_tick` call sites (line 114 `(1.0, 0.0)`, line 128 `(float(delta), 1.0)`), literal `(0.0, 0.0)`
+  call sites = 0, and `budget=1000.0` is a literal at line 62, so the `delta==0`/`eta==0` escape clause is
+  **UNREACHABLE** on every call path and `last_conserved` is False everywhere — the field carries no signal. The
+  fix is a one-liner (set `budget` to the live `gamma+eta` total, or drop the constant and make the predicate
+  mean what it claims), but the script is upstream and byte-identical to its git blob, so no patch was applied.
+- **Orphan rows: 14** — `bot_started` rows with no immediately-following `witness_note` (rows
+  1,3,5,7,10,13,15,17,18,19,23,28,35,90). Row 90 is closed by this note (row 91); row 88 is closed by the 01:41Z
+  note (row 89); row 86 is closed by the 00:59Z note (row 87).
+
+---
+
+## Poll 2026-10-25T01:57Z — no change (b20375d389cb505d / 71 papers)
+
+- **Result:** no canon change. Canon hash `b20375d389cb505d` / 71 papers, identical to the 2026-10-22T20:04Z
+  baseline (`state.json` `first_seen 1792699490.998806` = 2026-10-22T20:04:50Z) and to every prior poll.
+  **~53.9 h stable** since the baseline; **~14 min** since the 01:41Z poll.
+- **Verified by three independent paths:** the watcher's own `poll_canon()` (stdout
+  `[WESLEY] no change (b20375d389cb505d, 71 papers)`, exit 0, no exception, no `poll_failed`); a `curl` probe
+  taken **before** the run; and a `curl` probe taken **after** the run. Both probes: HTTP 200, 13720 bytes, bodies
+  **byte-identical to each other** and to the 00:26Z / 00:59Z / 01:41Z baseline body (md5 `d9915bb9f3bcb8794cb57810427d0288`,
+  sha256 `43e5745c369f9b1fc8e19607eb96c6cfae676248e329f53715755ebe2baa8fde`; `cmp` clean). Each recomputes to
+  `sha256(json, sort_keys)[:16] = b20375d389cb505d`.
+- **Count key:** the response carries the count under `count` (71), **not** `paper_count` (absent; top-level keys
+  are exactly `['count','papers']`), so the count-key fallback remains **load-bearing** and still correct.
+- **No transition claimed:** a hash match is not a transition. No `canon_changed` event, no gamma/eta delta.
+- **No-op surfaces confirmed:** `state.json` byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`;
+  `last_hash b20375d389cb505d`, `last_count 71`, `first_seen 1792699490.998806` preserved); `bookkeeper.wal`
+  **still does not exist** — `bookkeeper_tick()` is reached only from the `first_poll` and `canon_changed`
+  branches, so a stable canon produces zero ticks.
+- **Rows:** the run appended exactly one row, the unconditional `bot_started` (pid 34102, 01:57:58Z, hash
+  `8f34cb15d5608b95`); `witness.log` went **89 → 90 rows**, and this note is the **91st**.
+- **Log integrity:** 90/90 pre-existing rows parse and carry `ts/iso/event/payload/hash`; **87 row hashes
+  verify**. The 3 non-verifying rows are the inherited, previously-audited ones and **no new mismatch was
+  introduced**: rows 9 and 12 carry the literal marker `RECOVERED` in the hash field (`meta_wipe_recovery`), and
+  row 25 is the upstream-born stale hash — its claimed `88839488ea23e66c` matches the upstream git blob at HEAD
+  `9e89c4c4` byte-for-byte (row 25 md5 `65784c40fae50ac192a3f6c96fed6675` on both sides), so it is **provenance,
+  not corruption**. Linkage class remains `row-checksum` per `bots/README.md`: each row's hash commits to its own
+  payload only, carries no `prev`, so **deletion and truncation are undetectable** and "intact" is not producible
+  for this file.
+- **Environment (37th consecutive wipe with the named path gone):** `/workspace/repos/ai-writings/...` did not
+  exist — `/workspace` contained only `.plugin-cache`, with no `repos/` dir at all. The NAS mount is genuinely
+  unwritable (statvfs `f_bavail = 0`, 600G/600G at 100%). The repo was recovered into the overlay at `/tmp` by
+  cloning `SuperInstance/AI-Writings` **branch `wesley/canon-poll-2026-10-25T0141Z`** (upstream HEAD `9e89c4c4`).
+  **The branch refs, not the default branch, carry `bots/`** — `main` (HEAD `3a56fa0`) contains only
+  `cellular-first-design/code/civilizations/`, so a `main`-only clone, a `git/trees` API read of `HEAD`, or a
+  900-repo `git ls-tree` sweep all show no `bots/` tree and no `wesley_watcher.py` anywhere in the repo. Enumerate
+  with `git ls-remote --heads origin` and look for `refs/heads/wesley/*` and `refs/heads/witness/*` before
+  concluding a file does not exist. The `bots/` tree was staged into `/tmp/wm-run` so the watcher's hardcoded
+  `/tmp/wm-run/...` paths for witness, state and bookkeeper resolve to real, writable files, and
+  `/workspace/repos/ai-writings` was symlinked to the overlay clone so the prompt's path resolves. Every file was
+  **size-verified**, not merely existence-verified.
+- **Substrate: correct no-op.** `bots/substrate-bus/{substrate-witness.jsonl,topics.json}` are byte-unchanged
+  (md5 `d3f588a44223088f4b62b262b5c8e8c2` / `d94b0a5d5c23baa4c317441a046ed455`, 865 and 4508 bytes) — the
+  substrate calls in the watcher fire only from the `first_poll` and `canon_changed` branches, so a no-change poll
+  appends no substrate event.
+- **No code changes:** staged script md5 `206682962c06f9814a5db65c2fbc7267`, byte-identical to its upstream git
+  blob at HEAD `9e89c4c4`, so no patch was applied.
+- **Open defect, still unresolved (30th poll reporting it):** `bookkeeper` uses `budget=1000.0` against a
+  `gamma+eta` total of 70.0, so `last_conserved` is a constant false by construction. AST re-verified this run:
+  only 2 `bookkeeper_tick` call sites (line 114 `(1.0, 0.0)`, line 128 `(float(delta), 1.0)`), literal `(0.0, 0.0)`
+  call sites = 0, and `budget=1000.0` is a literal at line 62, so the `delta==0`/`eta==0` escape clause is
+  **UNREACHABLE** on every call path and `last_conserved` is False everywhere — the field carries no signal. The
+  fix is a one-liner (set `budget` to the live `gamma+eta` total, or drop the constant and make the predicate
+  mean what it claims), but the script is upstream and byte-identical to its git blob, so no patch was applied.
+
+### Concurrent poll — a second writer landed mid-run (new this round)
+
+While this run was in flight, **another poll published branch
+`wesley/canon-poll-2026-10-25T0152Z`** (upstream HEAD `4d87391e`, 01:52Z) — a `bot_started` (pid 347, 01:52:20Z,
+hash `e694a78df6a0f05e`) plus its own `witness_note` (01:52:54Z, hash `766102d704864f79`). It reported the same
+hash and the same 71 papers, so **the two runs agree on the canon state**; only the log rows differ. The first
+push attempt therefore conflicted on `witness.log` — two append-only writers, one file, no locking.
+
+Resolution (and a trap worth recording): the conflict was resolved by **concatenating raw lines**, not by
+re-serializing parsed JSON. A first attempt parsed the rows, merged them by `ts`, and re-dumped with
+`json.dumps` — which **re-escaped the inherited rows**: row 9's em-dash became `\u2014`, and the row grew from
+656 to 659 bytes, silently corrupting the byte-identity of every inherited row while every *hash* still verified
+(the hash covers `payload`, and the payload round-trips to the same object). The `cmp` against the upstream blob
+caught it; the checksum audit alone did not. **Never re-serialize an append-only log — move the bytes.**
+Final merge: base 89 rows (byte-identical to upstream `9e89c4c4`, `cmp` clean) + the 01:52Z pair + this run's
+pair, ordered by `ts`, **93 rows**; the first 91 rows are byte-identical to upstream `4d87391e` (`cmp` clean).
+Post-merge audit: 93/93 rows carry `ts/iso/event/payload/hash`, **90 hashes verify**, the same 3 inherited
+non-verifying rows and no new mismatch, 0 duplicate `ts`, `ts` non-decreasing, census 48 `bot_started` /
+35 `witness_note` / 6 `poll_failed` / 2 `meta_wipe_recovery` / 2 `first_poll`. Orphan `bot_started` rows: 13
+historical (1,3,5,7,10,13,15,17,18,19,23,28,35) — the standing set, unchanged — and **no new orphan**, because
+both this run's and the concurrent run's `bot_started` rows are immediately followed by their notes.
