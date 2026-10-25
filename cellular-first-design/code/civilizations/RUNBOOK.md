@@ -1,3 +1,39 @@
+# Civ Orchestrator — Run Report, session 204 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **78th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `f60b152` (session 203). **All 16 verification assertions PASS.** Pre-flight **13/13 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session204.md`.
+
+**Session 204 in one line:** `civ-precise` swept **5/5** (a third sweep in five sessions) and the
+chooser/argmax agreement recovered to **4/5 (80 %) — 1 down-grade, 0 up-grades**; the alignment
+spread (**1.9360**) is dominant at **5.41x** the quality spread, while the novelty spread
+(**0.1500**) is the **narrowest in the series**; the run-level low rotated to **`civ-whimsical`**
+while `civ-grounded` held the lifetime low for the **76th** consecutive session.
+
+**Three durable lessons from this session:**
+
+1. **A VERIFIER THAT READS THE ROUNDED LEADERBOARD FAILS A PASSING RUN.** The
+   relevance-delta check reported a **6.67e-03** residual against the leaderboard and
+   **3.33e-03** against the unrounded *baseline*; it reached **4.55e-13** (PASS) only when the
+   *post-run* value was also read from the on-disk `culture.json`. The leaderboard rounds to
+   2 dp and can never carry a 1e-6 tolerance. *Take BOTH endpoints from the unrounded
+   `culture.json` files.*
+2. **THE VARIANCE IN A MOCK BODY CAN COME FROM THE SUBSTITUTED TEXT, NOT THE TEMPLATE.** The
+   first build rendered at **374–377** chars (8 lengths across 8 civs) and the band gate said
+   FAIL. The civ **name** (10–13 chars) was the variance source; padding it to a fixed **13**
+   made every body exactly **364**. *A band check is a variance check: fix the cause.*
+3. **A SPARSE CLONE IS THE FAST PATH FOR A BIG MONOREPO — AND IT AVOIDS A PACK FAILURE.** The
+   full clone of `AI-Writings` died at ~490 MB with `invalid index-pack output`;
+   `--depth 1 --filter=blob:none --sparse` finished the same tree in **11 MB**. *Clone sparse
+   when you only need one subtree.*
+
+**Also durable:** the repo is **`SuperInstance/AI-Writings`** (a *user* account — `GET
+/orgs/ai-writings/repos` 404s while `GET /user/repos` finds it); the NAS under `/workspace` is
+still at quota, so clone to `/tmp` and bridge with `ln -s /tmp/aiw /workspace/repos/ai-writings`
+(inode identity **786871**).
+
 # Civ Orchestrator — Run Report, session 203 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
