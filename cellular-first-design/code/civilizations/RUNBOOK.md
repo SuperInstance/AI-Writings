@@ -1,3 +1,34 @@
+# Civ Orchestrator — Run Report, session 196 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 70th session) + **live JEV** (`jev-1.14.0`).
+Baseline: `52bb1f2` (session 195). **All 27 verification assertions PASS.** Pre-flight **14/14 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session196.md`.
+
+**Session 196 in one line:** `civ-precise` swept 5/5 for the **6th consecutive** sweep
+(chooser down-grade streak now **15**); `civ-grounded` is the lifetime low for the
+**68th** consecutive session; the run-level low rotated to `civ-therapist` (**15th**
+different holder in 15 sessions); and the two low civs **no longer share a signature** —
+`grounded` is low on **quality** (1.0240, fleet-low), `therapist` on **alignment**
+(1.5660, fleet-low).
+
+**Three durable lessons from this session:**
+
+1. **A verifier's isolation key must include every dimension the row is looked up by.**
+   Check 20 failed on a *correct* dataset: it compared the meta_log score for a
+   `(civ, prompt)` against "the later-`ts` row among all civs for that prompt". A
+   `(civ, prompt)` pair occurs **twice** in one run (batch phase + competition phase),
+   so that lookup silently crossed civs. Use the later-`ts` row **for the same
+   `(civ, prompt)`**.
+2. **The response-body band took THREE builds this session** (389 → 372 → 366 against
+   the 332–369 band). A fresh mock template is *not* reliably in band on the first or
+   second trim. Target **366**.
+3. **Launch background servers from a script file**, not an inline subshell:
+   `setsid nohup … < /dev/null &` inside a `.sh`, invoked with `nohup`. An inline
+   `(setsid nohup … &)` died with the calling shell twice, and **a dead mock looks
+   exactly like a mock that never started** — always probe the port after launch.
+
 # Civ Orchestrator — Run Report, session 195 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
