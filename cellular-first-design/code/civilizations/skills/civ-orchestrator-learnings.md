@@ -1635,3 +1635,74 @@ session-168 record of **-1.1033**.
 - Tool timeout 30 s < orchestrator run ~28 s => detached launch, stdout redirected,
   `< /dev/null`.
 
+
+---
+
+## Session 185 (2026-10-25) — the repo owner is NOT the path owner; two verifier traps that fake a mock regression
+
+### 1. THE REPO OWNER IN THE PROMPT PATH CAN BE A DECOY
+
+The task named `/workspace/repos/ai-writings/…`. The GitHub owner `ai-writings` **exists** and
+returns HTTP 200 on its org page — but it is a *different project*: 7 repos
+(`ai-writing`, `ai-writing-tools`, `ai-writing-tool`, `ai-writing-free`, `PakePlus*`), all
+README-only. The actual `cellular-first-design` subtree lives under
+**`SuperInstance/ai-writings`**.
+
+How to find the real owner, in order of reliability:
+1. `git ls-remote https://x-access-token:$GITHUB_TOKEN@github.com/<owner>/<repo>.git`
+   → *Repository not found* = genuinely absent (0 refs), **not** rate-limit noise.
+2. Scrape the owner's repo list from the **web page** (`https://github.com/<owner>?tab=repositories`
+   and grep `href="/<owner>/..."`) — this is **not** subject to the REST rate limit.
+3. The REST API (`/users/…/repos`, `/search/repositories`) returns **403 rate-limited** and
+   renders as "no repos" for every owner at once. **Do not use it to assert absence.**
+
+*Rule: the path in a task prompt is a claim about location, not evidence. Verify the owner
+before you conclude anything about the workspace.*
+
+### 2. TWO VERIFIER TRAPS THAT BOTH PRODUCE A FALSE "80/80 MISMATCH"
+
+Both make the **spec-recompute** check fail on **every** row while every structural check
+(sim counts, deltas, provider set, non-degenerate seeds) still passes. Two rounds lost to these.
+
+**(a) The `prompt` field is stored IN FULL.** The orchestrator has `sim["prompt"] = prompt[:80]`,
+but the CANON prompts are all shorter than 80 chars, so the truncation **never fires**. A verifier
+that does `if r["prompt"] == p[:80]` for a CANON list `p` will match nothing and recompute
+against a *wrong or empty* message. **Check the stored value's length; do not assume the
+truncation happened.**
+
+**(b) The cultural-prompt template ends with a closing quote AND a period.** The exact source is:
+
+```python
+cultural_prompt = f"""You are a voice in the tradition of "{self.culture['name']}".
+Your tenets: {', '.join(self.culture['tenets'])}.
+Your voice: {self.culture['voice_emphasis']}.
+
+{prompt}"""
+```
+
+A rebuild that writes `tradition of "{name}.` (no closing quote) produces a **different md5** ⇒
+80/80 false mismatches. **Always `grep -A 5` the template out of the source. Never rebuild it
+from memory.**
+
+*(Note: the `write`/`read` tools are jailed to the workspace, and the workspace NAS is 100% full,
+so the source must be read with `grep`/`sed` over bash against the `/tmp` clone.)*
+
+### 3. A `(q,n,a)` SCORE-TRIPLE COLLISION IS A JEV PROPERTY, NOT A MOCK DEFECT
+
+Session 185 produced **73/80** distinct `(quality, novelty, alignment)` triples. The cause is
+**not** mock degeneracy: the 80 rows carry **40 distinct mock outputs** (each `civ` x `prompt`
+output appears 2x on average — once in the sim phase, once in the competition phase, with the
+per-phase prompt draw random), and JEV quantized **7 pairs of genuinely different outputs** to
+identical score triples.
+
+**The load-bearing non-degeneracy check is the seed+color+figure recompute** (80/80 this
+session), not the score triple. A score triple is JEV's *output granularity*; the seed is the
+mock's *identity*. **Do not report a triple collision as a mock regression** — verify which of
+the two you are actually measuring before writing it up.
+
+### 4. The run-level low keeps rotating; the axis does not
+
+Session 185's run-level low was `civ-mythic` — a **6th different civ in 6 sessions** — while the
+**lifetime** low stayed `civ-grounded` for the **58th consecutive session**. The axis is stable:
+**alignment** gap 1.1880 vs quality gap 0.0100 = **119x wider** ⇒ every low-relevance civ is a
+**voice** failure, not a prose failure. **Watch the axis, not the holder.**

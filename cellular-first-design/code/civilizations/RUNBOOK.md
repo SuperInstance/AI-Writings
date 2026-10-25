@@ -1,3 +1,52 @@
+# Civ Orchestrator — Run Report, session 185 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 48th session) + **live JEV**.
+Baseline: `6b46ef0` (session 184). **All 21 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session185.md`.
+
+## Headline for the next session
+
+- **THE REPO IS `SuperInstance/ai-writings`, NOT `ai-writings/…`.** The `ai-writings` GitHub org
+  is a *different* owner with 7 README-only repos. `git ls-remote ai-writings/cellular-first-design`
+  -> *Repository not found*; the REST API is 403 rate-limited, so **scrape the owner page or use
+  the git protocol — never infer the owner from the prompt's path.**
+- **THE MOCK NEEDS SEVEN FIXES, AND THE SEED SLICE IS A CONTIGUOUS 4-CHAR SLICE**
+  `h[(i*2)%8:(i*2)%8+4]`, **not** the two 2-char slices in the older spec block. *Check the SLICE,
+  not the render.*
+- **PRE-FLIGHT GATE: 12 CHECKS, 12/12 ON THE FIRST BUILD.** Includes the
+  **repeat-same-message => same seed AND preview** probe (40 x 2) — the only check that catches
+  fix (f) — and the **0 `(civ,prompt)` with >1 seed** check. Body lengths 203.
+- **TAKE THE BASELINE FROM THE GIT BLOB, NOT THE LEADERBOARD.** `git show HEAD:.../culture.json`
+  (unrounded) gave 8/8 exact relevance deltas, residual <= 6.8e-13.
+- **A `(q,n,a)` TRIPLE COLLISION IS NOT A MOCK FAILURE.** JEV quantized 7 pairs of *distinct*
+  outputs to identical score triples (73/80). The **seed+color+figure recompute is the
+  non-degeneracy check** that matters — 80/80 this session. Do not report a triple collision as
+  a mock regression.
+- **TWO VERIFIER TRAPS THAT BOTH PRODUCE FALSE 80/80 MISMATCHES** (cost two rounds this session):
+  (1) the `prompt` field in `simulations.jsonl` is stored **IN FULL** — `sim["prompt"] = prompt[:80]`
+  never truncates because the CANON prompts are shorter than 80 chars; (2) the cultural-prompt
+  template **ENDS with a closing quote and a period** (`tradition of "{name}".`) and the
+  recompute must include it. *Read the source template with `grep -A 5`, do not rebuild it from
+  memory.*
+- **`civ-grounded` remains the low-relevance civ — 58th consecutive session.** Last of 8 on
+  lifetime `relevance` **1285.39**, `relevance_per_sim` **0.990**, run `avg_score` **0.2100**,
+  `alignment` **0.0590**, `quality` **0.0110**, novelty 0.5600 (5th of 8) ⇒ a **voice** failure,
+  not a prose failure. Lowest relevance = **128x** the -10 floor ⇒ no extinction risk.
+- **The run-level low ROTATED to `civ-mythic`** (run `avg_score` **0.1760**, `alignment`
+  **0.0140**) — a 6th different civ in 6 sessions. Alignment gap **1.1880** vs quality gap
+  **0.0100** = **119x wider**. **Do not code against the rotation; watch the axis, not the holder.**
+- **Chooser vs `avg_score` argmax: 4/5 (80 %)** — `civ-precise` took **4/5**. The single
+  disagreement again took the **LOWER**-scoring candidate (0.39 vs 0.79) — 7th consecutive
+  session in which a disagreement is a *down*-grade. **Never treat `win_rate` as a quality metric.**
+- Verification: per-civ D **+10 x 8** = **80** new rows, `meta_log` **+5** (658 -> 663),
+  `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, 0 fallback triples, `zai x 80`,
+  **80/80** rows match an independently recomputed seed+color+figure, **40/40** distinct seeds,
+  **0** `(civ,prompt)` with >1 seed, per-prompt **8/8** distinct seeds AND previews, relevance
+  delta == sum(avg_score) **8/8 exact**, registry 8 all gen 1, extinction **NONE** (lowest
+  +1285.39 = **128x** the floor). **21/21 PASS.**
+
 # Civ Orchestrator — Run Report, session 182 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
