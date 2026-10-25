@@ -1,3 +1,41 @@
+# Civ Orchestrator — Run Report, session 202 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **76th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `2f0fb30` (session 201). **All 16 verification assertions PASS.** Pre-flight **14/14 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session202.md`.
+
+**Session 202 in one line:** `civ-precise` swept **5/5 again** — the second sweep after
+session 201 broke the ten-session streak — but the chooser/argmax agreement fell to
+**1/5 (20 %) — 4 down-grades, 0 up-grades**, and `civ-grounded` was the run-level low
+**and** the lifetime low in the same session (the first such coincidence since session
+195); the alignment spread (**1.8960**) is still dominant at **1.62x** the quality spread,
+while the novelty spread (**0.1380**) is the **narrowest in the series**.
+
+**Three durable lessons from this session:**
+
+1. **THE PRE-FLIGHT BAND CHECK CAUGHT THE FRESH MOCK BUILD, AND THE FIX WAS TO REMOVE
+   THE VARIANCE.** The first body template rendered at **460** characters against the
+   **332–369** band — the gate reported a clean, localised `[FAIL] response body length
+   band 332-369 min=460 max=460`. The template was already variance-free, so the fix
+   was to shorten the tail to a constant **352** — not to trim the longest instance.
+   *A band check is a variance check: fix the cause of the variance, not its maximum.*
+2. **THE RUN-LEVEL LOW AND THE LIFETIME LOW CAN COINCIDE — AND WHEN THEY DO, SAY SO
+   EXPLICITLY.** `civ-grounded` was 8th of 8 on this run's `avg_score` (**1.4130**) and
+   also holds the lifetime low (`relevance` **1561.18**, `relevance_per_sim` **1.063**).
+   Its run axes are `quality` **0.4140** (lowest in the fleet) and `alignment` **1.1610**
+   (2nd-lowest), while `novelty` **2.6640** is the **highest** in the fleet.
+   *Do not attribute a low-novelty reading to a civ whose novelty is the highest.*
+3. **THE CHOOSER HAS STILL NEVER UP-GRADED — AND THE GAP IS WIDENING, NOT NOISY.**
+   Agreement across sessions 198–202 is 3 → 0 → 2 → 3 → **1**, and **every**
+   disagreement in the series took the **lower-scoring** candidate (**0 up-grades
+   ever**). This session `civ-poetic` was the `avg_score` argmax on **4 of 5** prompts
+   and won **0 of 5**. A chooser that only ever picks the worse candidate is
+   *anti-correlated* with `avg_score` where it disagrees. The standing suspect is
+   unchanged: the `best_civ` criteria map (`civ_id` -> `civ name`) is a *label* map, so
+   the chooser may be scoring labels rather than texts.
+
 # Civ Orchestrator — Run Report, session 201 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
