@@ -5,6 +5,73 @@ description: Durable operating knowledge for the Civilization Orchestrator (cell
 
 # Civ Orchestrator — durable learnings
 
+## Session 225 additions (2026-10-25)
+
+### 1. THE "NEEDS `-L`" RULE IS ABOUT **WHERE THE BRIDGE LANDS**, NOT ABOUT `ls`
+
+Session 225 bridged `/workspace/repos/ai-writings/cellular-first-design` -> the **clone
+root** (`/tmp/ai-writings/cellular-first-design`, the inner dir the `CIVS_DIR` constant
+resolves through). The civs directory sits two levels below the bridge target, so the last
+path component of `ls -la /workspace/repos/ai-writings/cellular-first-design/code/civilizations/`
+does **not** cross a symlink boundary — and the plain `ls -la` **worked**. Sessions 214-217
+needed `-L` because those bridges landed on `.../code`, one level closer to the leaf.
+
+*Use `-L` when the last path component crosses the bridge; do not assume it always fails,
+and do not "fix" a working `ls`.*
+
+### 2. THE CURRENT-GENERATION LEDGER HAS **TWO** COLOUR FORMATS — 1120 WITH `#`, 240 WITHOUT
+
+Of 1280 current-format rows, **1120** render the colour with a hash
+(`[mock-zai 71a2] #44cc dd7c/7cd2/2400.`) and **240** without
+(`[mock-zai ba6b] af26 4577/a9d5/49dc.`). Both recompute **1360/1360** against the md5
+algorithm, so the `#` is a **renderer change, not an algorithm change** — the seed, colour
+and figure are identical either way.
+
+*The reconciling parser must make the `#` optional and **normalise one side** before
+comparing. Do not treat "no `#`" as an older generation: filter on the header *shape*
+(`[mock-zai <4hex>] #?<4hex> <4/4/4>`) and then re-derive.*
+
+### 3. A PRE-FLIGHT GATE THAT CRASHES AFTER SEVERAL PASS LINES IS **NOT** A PASSING GATE
+
+The first session-225 gate build printed 8 PASS lines and then died with
+`ValueError: too many values to unpack (expected 3)` — the fixture rows are 4-tuples
+`(civ, prompt, msg, content)` and the determinism loop unpacked 3. The failure was silent
+as a *verdict*: the exit code was 1, but the transcript looked 8-for-8.
+
+*Carry the already-fetched content forward instead of re-deriving it inside the loop, print
+an explicit final verdict line, and exit non-zero on any failure. The same rule as session
+222's "a failed launch must be checked for a clean tree" — a partial transcript is not a
+result.*
+
+### 4. THE MOCK BODY LANDED AT **351** CHARS ON THE FIRST BUILD
+
+A 39-char header + a 163-char recorded tail prefix + a 149-char continuation = **351**,
+inside the 332-369 band on build 1. *Compute the allowance from the fixed prefix; never
+iterate prose to fit a band.*
+
+### 5. THE CHOOSER SERIES (211-225) IS **0 / 40 / 40 / 20 / 100 / 60 / 40 / 40 / 20 / 40 / 20 / 40 / 40 %** — AND STILL **0 UP-GRADES EVER**
+
+Session 225: `civ-precise` won 4/5, `civ-engineer` 1/5; agreement **2/5 (40 %)** with
+**3 down-grades, 0 up-grades**; `civ-poetic` was argmax on 3/5 prompts and won 0/5. The
+widest down-grade margin was **−0.3900**. *Re-derive every session; the series oscillates
+across the full range and the up-grade count is still zero after 15 sessions.*
+
+### 6. THE RUN LOW'S SIGNATURE IS **LOW ALIGNMENT** — 10 SESSIONS RUNNING — AND THE MARGIN MOVED AGAIN
+
+Run low `civ-therapist` (avg **1.4950**, fleet-low run quality **0.9720**, fleet-low run
+alignment **1.0770**), gap to next **0.2577 = 28.8 %** of the run spread **0.8943** — against
+session 220's **13.6 %** for the *same* civ. The run's alignment spread **1.9980** is
+**2.47x** the quality spread and **12.04x** the novelty spread. *The holder is sticky; the
+margin is a separate, faster-moving quantity — quote the gap next to the spread.*
+
+### 7. `civ-grounded` HELD THE LIFETIME LOW FOR THE **89th** CONSECUTIVE SESSION, AND THE THREE AXES REMAIN THREE DIFFERENT CIVS
+
+Lifetime low `civ-grounded` (relevance **1977.52**, rel/sim **1.1352**, lifetime avg
+**1.1836**, fleet-low lifetime quality **0.5154**) — yet its lifetime `win_rate` **0.088**
+is 3rd-best in the fleet. Lifetime **alignment** low is `civ-therapist` (**1.1947**);
+lifetime **novelty** low is `civ-formal` (**1.7129**). *Selection and relevance are
+separate axes and the axis identity rotates. Report the axis, not the holder.*
+
 ## Session 222 additions (2026-10-25)
 
 ### 1. THE BRIDGE TARGET IS DECIDED BY THE SCRIPT'S HARD-CODED `CIVS_DIR` — NOT BY THE VERIFICATION PROBE
