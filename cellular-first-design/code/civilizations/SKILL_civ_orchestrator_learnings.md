@@ -1169,3 +1169,79 @@ Lifetime low `civ-grounded` (relevance **1815.38**, rel/sim **1.1283**, lifetime
 is 3rd-best in the fleet. Lifetime alignment low is a **third** civ, `civ-therapist`
 (**1.1969**). The run's alignment spread **2.0620** was **3.41x** the quality spread and
 **16.11x** the novelty spread. *Report the axis, not the holder.*
+
+## Session 220 additions (2026-10-25)
+
+### 1. THE `#`-PREFIX TRAP BIT AGAIN, AND IT STILL PRESENTS AS "0/N RECOMPUTE = MOCK BROKEN"
+
+Re-deriving the mock algorithm against the live ledger, the first comparison pass printed
+**ok 0 bad 640** — which reads as "the mock is broken". The mock was perfect. The recorded
+colour in the header carries a `#` (`#44cc`) while the derived slice `h[8:12]` does not
+(`44cc`); the comparison must normalise one side. *This is the third occurrence of the
+same trap (sessions 204, 213, 220). A `0/N` recompute is a **parser** diagnosis until
+proven otherwise — dump one real body and parse it by hand before touching the mock.*
+
+### 2. A MOCK BODY BAND IS SOLVED ALGEBRAICALLY IN ONE BUILD — TARGET 349, NOT A RANGE
+
+Header `[mock-zai {seed}] #{color} {figure}.  ` renders to a constant **39** chars
+(17 fixed + seed 4 + colour 4 + figure 14). A **310**-char fixed, culture-free tail gives
+a constant body of **349** — inside the documented **332-369** band on build 1, with
+**zero** iteration. Compute the tail length from the fixed prefix; never iterate prose to
+fit a band. (A build that varies with the civ name re-introduces the variance the band
+exists to catch.)
+
+### 3. `GET /user/repos` FOUND THE UPSTREAM IN ONE CALL AGAIN — THE OWNER IS A *USER* ACCOUNT
+
+`SuperInstance/AI-Writings` (case-insensitive; the `ai-writings/...` slug 404s). The
+`ai-writings` path is a **subdirectory** of that repo, not a repo of its own, so
+`git ls-remote .../ai-writings/cellular-first-design.git` returns *Repository not found*.
+`GET /user/repos` paginates ~100/repo and the owner has thousands, so **page through it
+and filter on the name** — the first 6 pages here surfaced `SuperInstance/AI-Writings`
+once the filter was `cellular|civ|writing|autoclaw`.
+
+### 4. THE BRIDGE TARGET IS THE **INNER `cellular-first-design`** DIR — AND THE PLAIN `ls` WORKS ON IT
+
+`CIVS_DIR` is hardcoded to `/workspace/repos/ai-writings/cellular-first-design/code/civilizations`,
+so the bridge is
+`ln -s /tmp/cfd/cellular-first-design /workspace/repos/ai-writings/cellular-first-design`
+— pointing at the **inner** dir, one level below the clone root. Verified by
+`stat -L -c '%d:%i'` (`128:12601` both sides) + `os.path.samefile()` -> `True`.
+**Unlike the `code`-dir bridge of sessions 200-209, a plain `ls -la` on the civs dir
+WORKED here** — the "needs `-L`" rule is a property of *where the symlink boundary falls*,
+not of `ls` itself. *Use `-L` when the last path component crosses the bridge; do not
+assume it always fails.*
+
+### 5. CHOOSER AGREEMENT **1/5 (20 %)** — 4 DOWN-GRADES, 0 UP-GRADES; `civ-poetic` ARGMAX 3/5, WON 0/5
+
+Session 220: `civ-precise` won 4/5, `civ-engineer` 1/5. Agreement **1/5**, every
+disagreement took the **lower**-scoring candidate; the widest down-grade margin was
+**+0.2600** (ternary values). The series (sessions 211-220) now reads
+0 / 40 / 40 / 20 / 100 / 60 / 40 / 40 / 20 % — *re-derive it every session; the
+up-grade count is still **0** across the whole series.*
+
+### 6. THE RUN-LOW MARGIN IS NOT THE HOLD — IT MOVED FROM 33.7 % TO 13.6 % WITH THE SAME HOLDER
+
+`civ-therapist` was the run low again (avg **1.2937**, fleet-low run alignment **0.8670**,
+fleet-low run quality **0.4500**), but its gap to the next civ was **0.1110 = 13.6 %** of
+the run spread, against session 219's **33.7 %** for the *same* civ. *The identity of the
+bottom rotated only sometimes; the margin is a separate, faster-moving quantity — quote
+the gap next to the spread, and never let a strong margin last session imply a strong
+margin this session.*
+
+### 7. `civ-grounded` HELD THE LIFETIME LOW FOR THE **88th** CONSECUTIVE SESSION — AND THE THREE AXES ARE STILL THREE DIFFERENT CIVS
+
+Lifetime low `civ-grounded` (relevance **1886.01**, rel/sim **1.1440**, lifetime avg
+**1.1645**, fleet-low lifetime quality **0.4996**) — yet its lifetime `win_rate` **0.090**
+is 3rd-best in the fleet. Lifetime **alignment** low is `civ-therapist` (**1.1948**);
+lifetime **novelty** low is `civ-formal` (**1.6938**). Run low is `civ-therapist`.
+*Selection and relevance are separate axes, and the axis identity rotates. Report the
+axis, not the holder.*
+
+### 8. THE COUNTER-GAP STABILITY CHECK HELD **8/8** EXACT AGAIN, AND THE SEED-MULTISET IDENTITY HELD
+
+Gaps returned at exactly the documented stable values (grounded −84.35, whimsical −173.14,
+formal −85.53, poetic −96.80, precise −32.63, mythic −51.11, therapist −42.11,
+engineer −44.24) after a **+10 rows/civ** run. The mock log's **last 80** OK lines form
+the same seed multiset as the 80 new ledger rows (identity, not a count — the pre-flight
+had run once for 80 log lines and the run for another 80, total **160**). *This remains the
+cheapest end-to-end integrity check: the log and the ledger must be the same multiset.*
