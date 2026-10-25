@@ -1,3 +1,52 @@
+# Civ Orchestrator — Run Report, session 248 (2026-10-25) [NEW]
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 107th session) + **live JEV** (`jev-1.14.0`).
+Baseline: `5a49c8b`. **Pre-flight gate: 40/40 PASS.** **Run verification: 80 PASS / 0 FAIL.**
+
+## New durable findings
+
+1. **THE LEDGER STORES THE MOCK COLOUR WITH A `#` PREFIX.** The mock emits `#9578`, and the
+   ledger's `content_preview` preserves it. A gate regex must make the `#` **optional**
+   (`#?([0-9a-f]{4})`) — a `#`-stripped comparison misreports **every** mock row as a colour
+   mismatch (2880 false negatives on a 3120-row ledger, and a crash on `None.group()`).
+   The pre-flight's own `PAT` already tolerates it; a hand-written verifier usually does not.
+
+2. **RE-DERIVE THE MOCK SPEC AGAINST THE LEDGER BEFORE USING IT AS A GATE ORACLE — AND COUNT
+   MOCK-FORMAT ROWS SEPARATELY.** The ledger mixes two body formats: mock bodies
+   (`[mock-zai xxxx] #hhhh hhhh/hhhh/hhhh. …`) and **real z.ai prose** (no header). Only mock
+   rows are reproducible. Segment first, then compare — a single ratio over a mixed ledger
+   looks like a spec failure when the spec is fine. On this session's ledger: **240/240**
+   mock rows reproduce exactly under the session-224 single-4-hex slice (seed + colour +
+   figure); the older two-2-hex form reproduces only 183. The other 2880 rows are real
+   provider output, correctly not reproducible.
+
+3. **A LEDGER-PARSING GATE MUST RECONSTRUCT THE FULL PROMPT, NOT THE STORED `prompt[:80]`.**
+   The row stores `prompt[:80]`; the md5 needs the whole prompt. `tools/prompts.json` holds
+   exactly `CANON_PROMPTS[:5]`, so full-prompt recovery is a prefix match against that file.
+   Note `tools/prompts.json` and `CANON_PROMPTS` are **not** the same list — the former is
+   the 5-prompt subset, the latter is 10. Comparing them with `diff` shows 5 extra lines;
+   that is expected, not a defect.
+
+4. **A CIV CAN LEAD BOTH LIFETIME RELEVANCE AND `relevance_per_sim` WHILE WIN ~1 % OF
+   COMPETITIONS.** `civ-poetic` this session: lifetime relevance **3298.92** (1st),
+   `rel/sim` **1.724** (1st), run-avg **2.0233** (1st), and yet a **0.6 %** win rate, losing
+   **5 of 5** competitions it led on `avg_score`. The leaderboard's `rel/sim` ranking and the
+   meta-GAN's win record are **different signals** and can invert for the same civ. Report
+   both; do not treat the leaderboard as the competition outcome.
+
+5. **THE BOTTOM-TWO GAP IS SHRINKING AND IS NOW A USEFUL SIGNAL.** `civ-therapist`
+   (**2344.05**) vs `civ-grounded` (**2345.20**) = **1.15**, the tightest in the series
+   (0.79 at session 247, 3.17 at 246, 5.11 at 245). The #2→#3 step is **277.80** — a
+   **240x** larger step than the #1→#2 gap. The ordering of the bottom pair is effectively a
+   coin flip while the rest of the table is stable; say "effectively tied" rather than
+   ranking them as distinct.
+
+6. **THE RELEVANCE-AGGREGATE IN THE LEDGER IS NOT THE RUN SCORE.** `civ-grounded` and
+   `civ-therapist` trade places between lifetime relevance and per-run `avg_score` in
+   different sessions. Anchor the low-relevance claim on the run's own means **and** the
+   lifetime total, and state which one you used.
+
 ## Session 247 additions (2026-10-25)
 ### 1. THE BOTTOM-PAIR GAP HAS SHRUNK TO **0.79** — A "TWO CIVS ARE TIED" CLAIM IS NOW THE POINT
 
