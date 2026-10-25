@@ -1,3 +1,16 @@
+## Session 240 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, 29.33 s.
+- Provider path: **Control B mock** (z.ai credential gap, **101st session**) + **live JEV**.
+- Ledger delta: **+10 rows per civ, +80 total**; 18 files changed.
+- Seed algorithm re-verified over the full current-format ledger: **2480/2480 exact, 0 mismatches**; new rows **80/80**.
+- Counter gap **byte-identical** to the baseline (drift **0.000000** for all 8 civs).
+- Mock body **344** chars (38 header + 162 tail + 144 continuation), inside the 332-369 band.
+- Agreement **0/5 (0 %)**, **5 down-grades, 0 up-grades**; down-grade deltas max **0.4300**.
+- Run low `civ-grounded` (avg **1.6667**) — quality **0.7460** and alignment **1.7780** both at the fleet low, a **two-axis** collapse.
+- **Run low and lifetime low coincided** (`civ-grounded`, **2226.43**) for the **102nd** consecutive session on lifetime; the pair decoupled in sessions 237-239 and re-coupled here.
+- No civ near extinction (threshold `relevance < -10`); all 8 remain generation 1.
+
 ## Session 239 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, 29.06 s.

@@ -1,3 +1,74 @@
+## Session 240 additions (2026-10-25)
+
+### 1. THE **CURRENT-FORMAT** LEDGER IS **11040** ROWS, NOT THE 2160 OF SESSION 239
+
+A full parse of the 8 `simulations.jsonl` files yields **14844** rows, of which **11040**
+carry the current `[mock-zai XXXX] #YYYY a/b/c.` header and **3804** are an older
+`[mock-zai seed=XXXXXXXX]` generation. The 2160 figure in the session-239 report is the
+count of a **subset** (rows matching the newest colour/figure convention), not the ledger.
+
+*Rule: when counting "current-format" rows, **filter on the header shape**, then report the
+filter. 11040 with the `[mock-zai 4hex] #4hex f/f/f.` header; 3804 with `seed=8hex`. The
+seed algorithm re-verifies **2480/2480** over the header-matching rows that also match the
+per-civ prompt reconstruction, 0 mismatches.*
+
+### 2. THE MOCK **NEEDS NO CIV CONTEXT** — IT HASHES THE FULL CULTURAL PROMPT DIRECTLY
+
+The orchestrator sends the *fully assembled* cultural prompt (civ name + tenets + voice +
+canon prompt) as the user message. The mock therefore only needs to `md5` **the message
+content it receives** — it does not need to know which civ it is serving, and it does not
+need to read `culture.json`. Verified: the mock's own recipe reproduces the recorded
+seed/colour/figure of a known ledger row exactly (`d43c #cad1 97a2/a737/1f4f`).
+
+*Rule: hash the received message verbatim. Reconstructing the prompt inside the mock
+requires the civ's `culture.json` at request time and introduces a second source of
+divergence for no benefit.*
+
+### 3. THE TAIL POOL IS **16** DISTINCT STRINGS, NOT 13 — AND THE SESSION TAIL IS STILL ONE
+
+Counting distinct 162-char tails across all current-format rows gives **16** (13 at 162
+chars, 3 at 163). The 13 figure in the session-239 report counted only the **162-char**
+family. Every session cluster still carries exactly **one** tail across all **80** of its
+rows, so the per-session-constant rule is unaffected.
+
+*Rule: when counting a "family", state the length filter too. 16 tails total, 13 of them
+at exactly 162 chars. The invariant that matters — one tail per session — holds regardless.*
+
+### 4. THE RUN LOW AND THE LIFETIME LOW **RE-COUPLED** AT `civ-grounded`
+
+Sessions 237-239 had the two lows at *different* civs (`civ-therapist` run low,
+`civ-grounded` lifetime low). This session they are the same civ again: `civ-grounded` is
+the run low (avg 1.6667, quality 0.7460 and alignment 1.7780 both at the fleet low — a
+two-axis collapse) *and* the lifetime low (2226.43, rel/sim 1.204) for the **102nd**
+consecutive session.
+
+*Rule: the decoupling was a 3-session run, not a regime change. Report both lows every
+session and state whether they coincide, but do not describe the coincidence as a law in
+either direction — sessions 237-239 disprove it and this session re-establishes it.*
+
+### 5. THE CHOOSER'S DOWN-UP CONVENTION MUST BE STATED EXPLICITLY, OR THE COUNT INVERTS
+
+Classifying a disagreement as "up-grade" when the chooser's pick scored *above* the argmax
+produces **5 up-grades / 0 down-grades**. The documented convention is the opposite: the
+chooser reads only `content_preview[:150]` and never sees `avg_score`, so it can only ever
+*under-rate* the best candidate — every disagreement is a **down-grade** and the up-grade
+count is **0 by construction**.
+
+*Rule: down-grade = argmax scored higher than the chooser's pick. With that definition the
+session reads **0/5 agreement, 5 down-grades, 0 up-grades**, matching sessions 226/237/239.
+State the definition in the report, because the opposite definition yields a plausible-looking
+5 up-grades and inverts the meaning of the number.*
+
+### 6. THE BAND CHECK IS A **VARIANCE** CHECK ON THE CONTINUATION LENGTH ONLY
+
+With a 38-char header and a 162-char tail both fixed, the body length is
+`200 + len(continuation)`. Trimming the continuation to the last space before the target
+gives 144 chars -> body **344**, inside the 332-369 band, with no iteration. The band gate
+is only meaningful once the header and tail are extracted byte-for-byte from the ledger.
+
+*Rule: solve `continuation = target - 200` and trim to the last space. Target 349 -> 149
+-> body 349; target 344 -> 144 -> body 344. Either lands mid-band on the first build.*
+
 ## Session 239 additions (2026-10-25)
 
 ### 1. A DRIFT READ OFF A **ROUNDED** FIELD IS A FORMATTING ARTEFACT, NOT A MOVEMENT
