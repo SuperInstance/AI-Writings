@@ -1,2 +1,3 @@
-{"ts": 1789966121.9307137, "iso": "2026-09-21T04:48:41", "event": "bot_started", "payload": {"bot": "herman-historian", "pid": 4084}, "hash": "60828bdb6aa44a5d"}
-{"ts": 1789966138.6767938, "iso": "2026-09-21T04:48:58", "event": "chronicle_written", "payload": {"path": "/workspace/repos/ai-writings/bots/herman-historian/chronicles/chronicle-20260921-044858.md", "commits": 15, "witness_entries": 20}, "hash": "80d9dcd48eb2d36f"}
+2026-10-25T19:06:07Z | CHRONICLE | WRITTEN | chronicle-20260308-20261025T190421Z.md | commits=8321 | oldest=2026-03-08T11:04:40-08:00 | newest=2026-10-25T19:04:21+00:00 | authors=62 | sha256=d9b382962a86
+2026-10-25T19:06:20Z | CHRONICLE | WRITTEN | chronicle-20260308-20261025T190421Z.md | commits=8321 | oldest=2026-03-08T11:04:40-08:00 | newest=2026-10-25T19:04:21+00:00 | authors=61 | sha256=12bcc8b71bea
+2026-10-25T19:06:50Z | CHRONICLE | WRITTEN | chronicle-20260308-20261025T190421Z.md | commits=8321 | oldest=2026-03-08T11:04:40-08:00 | newest=2026-10-25T19:04:21+00:00 | authors=54 | sha256=d590ce5f6399
