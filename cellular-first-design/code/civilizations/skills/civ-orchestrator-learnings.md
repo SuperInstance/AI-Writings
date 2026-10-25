@@ -1,3 +1,88 @@
+## Session 189 (2026-10-25) — THE TWO LENGTH BANDS, AND A VERIFIER THAT FAILS ITSELF
+
+**Run clean (session 189).** per-civ delta = **+10** x 8 = **80 new rows**,
+`meta_log` D = **+5** (678 -> 683), `Winner:` lines = **5**, **80/80** rows
+`provider=zai` with the `[mock-zai` prefix, **0** rows with a JEV `error` key, **0**
+rows with the 2.0/2.0/2.0 fallback triple, **80/80** rows match an independently
+recomputed seed+color+figure, **40/40** distinct seeds, **0** `(civ,prompt)` combos
+carrying >1 seed, per-prompt **8/8** distinct seeds AND previews on all 5 prompts,
+**80/80** distinct `(q,n,a)`, relevance delta == sum(`avg_score`) **8/8 exact**
+(max residual **3.9e-13**), wins **+5** / losses **+35**, meta-vs-ledger **0** mismatches,
+registry 8 all gen 1, extinction **NONE** (lowest +1338.36 = **134x** the floor).
+**Pre-flight PASS on the THIRD build.** **29/29 assertions PASS.**
+
+### NEW — the pre-flight's two length bands are DIFFERENT bands, and the response one must be measured
+
+The gate needs a *response* body band of **332-369** chars and a *cultural-prompt* band of
+**167-209** chars. These are unrelated numbers and asserting one against the other is
+foolish. This session's builds went **267 -> 531 -> 360**: the first was too short (the
+seed can be cut out of the orchestrator's 200-char `content_preview` truncation), the
+second was too long (the preview fills with prose the scorer never sees).
+
+*Rule: compute the target length from the ASSEMBLED string, not from an intuition about
+how many sentences to add. The `[mock-zai seed=XXXX] ... colour CCCC ... figure
+F/F/F ...` prefix is ~90 chars of VARIABLE width (the figure alone is 14), so "one more
+sentence" is not a length control. Assemble the string in a scratch script, measure, and
+then trim the tail to land mid-band.*
+
+### NEW — a per-prompt group holds ROWS, but the distinctness target is the CIV COUNT
+
+The sim phase draws its prompt at random from the same 5 competition prompts, so a
+per-prompt group in the 10 new rows holds **11-20 rows** for only **8 civs** — the same civ
+repeats 1-4 times, each time with the **same** seed (the seed is a function of the
+message, and the message is civ+prompt, not the row). A verifier written as
+`len(set(seeds)) == len(rows)` therefore reports a false FAIL on a perfectly clean run.
+This session: 11, 20, 18, 14, 17 rows per prompt, **8** distinct seeds each.
+
+*Rule: assert distinctness against the GROUP SIZE (8 civs), not the SAMPLE SIZE. The row
+count is a property of the run schedule; the civ count is a property of the data.*
+
+### Findings
+
+- **`civ-grounded` remains the lifetime low — 61st consecutive session.** Lifetime
+  `relevance` **1338.36** (last of 8), `relevance_per_sim` **1.000** (it has crept back
+  to exactly 1.000), `win_rate` **0.107** — **3rd-best in the fleet**. Run `avg_score`
+  **1.3070**, `alignment` **0.7900**, `quality` **0.4290**, novelty **2.7020** (**1st of
+  8**). Lifetime: `avg_score` 1.0295, `alignment` 1.0761, `quality` 0.3997 — last of 8 on
+  all three. Axis gaps: alignment **1.0696** vs quality **0.3453** = **3.10x wider** ⇒ a
+  **voice** failure. Lowest relevance **+1338.36 = 134x** the −10 floor.
+- **THE RUN-LEVEL LOW ROTATED to `civ-therapist`** (run `avg_score` **1.2537**,
+  `alignment` **0.5240**, `quality` **0.5600**) — a **9th different civ in 9 sessions**,
+  while its lifetime standing is 7th of 8. Run axis gaps: alignment **2.3390** vs quality
+  **0.7920** = **2.95x wider**. *The holder rotates; the axis does not.*
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — the **10th consecutive session** in
+  which a disagreement is a *down*-grade. `civ-precise` took 4/5 (the 5/5 sweep of session
+  188 broke; `civ-engineer` won the ternary prompt). `civ-poetic` was the argmax on **4/5**
+  prompts and won **0/5**. The largest disagreement in the series (**+0.7300**) hands the
+  ternary prompt to `civ-engineer`, **0.73 below** the leader. **The `best_civ` criteria
+  map (civ_id -> civ name) is the suspect**, not the quality signal.
+- Run spreads: `avg_score` 0.9840, `alignment` **2.3390** (widest), quality 0.7920,
+  novelty 0.1140.
+
+### Re-confirmations (this session)
+
+- NAS EDQUOT total (**18th session**) — 600 G/600 G, 0 bytes free; clone to `/tmp`
+  (overlay, 22 G free) with `--filter=blob:none` + sparse-checkout `cellular-first-design`;
+  bridge the **clone root**; verify with `stat -L -c '%d:%i'` on both sides (here
+  **129:3668** on both).
+- z.ai **401** `token expired or incorrect` (credential gap, endpoint healthy) —
+  **63rd session**. **JEV HTTP 200** on a well-formed body, disclosing **`jev-1.14.0`**.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code).
+- `gh` not installed (**20th session**) — `GET /user/repos` with `GITHUB_TOKEN`; the
+  GitHub API is case-insensitive.
+- Tool timeout 30 s < orchestrator run ~28 s ⇒ detached launch, stdout redirected **and**
+  `< /dev/null`, then poll `ps` + the log.
+- `git status --porcelain` = **18 modified** (8 civs x 2 files + `leaderboard.json` +
+  `meta_log.jsonl`).
+- **NEW — `pkill -f` self-matches the calling shell.** `pkill -f "mock_zai.py 8181"`
+  matched the bash `-c` command line that contained the same string, killing the shell
+  and returning **empty tool output** — indistinguishable from a hung command.
+  *Kill by PID captured from `ps`, or use a pattern that cannot appear in your own
+  command line.*
+
+---
+
 
 ## Session 184 (2026-10-25) — THE NAS SILENTLY TRUNCATES TO 0 BYTES; `ls` IS NOT EVIDENCE
 

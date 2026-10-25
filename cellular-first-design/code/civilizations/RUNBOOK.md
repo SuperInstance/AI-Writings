@@ -1,3 +1,70 @@
+# Civ Orchestrator — Run Report, session 189 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 63rd session) + **live JEV**.
+Baseline: `0776299` (session 188). **All 29 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session189.md`.
+
+## Headline for the next session
+
+- **THE `civ-precise` SWEEP BROKE, BUT THE DOWN-GRADE STREAK DID NOT.** `civ-precise` took
+  **4/5** competition prompts (`civ-engineer` won the ternary prompt). The chooser still
+  disagreed with the `avg_score` argmax on **4 of 5** prompts, and **all four took the
+  LOWER-scoring candidate** — the **10th consecutive session** of *down*-grade
+  disagreements. Agreement **1/5 (20 %)**. `civ-poetic` was the argmax on **4/5** prompts
+  and won **none**; the largest disagreement in the series (**+0.7300**) hands the ternary
+  prompt to `civ-engineer`. **`win_rate` is not a quality metric.**
+- **`civ-grounded` remains the lifetime low — 61st consecutive session.** Last of 8 on
+  lifetime `relevance` **1338.36** and `relevance_per_sim` **1.000**, run `avg_score`
+  **1.3070**, `alignment` **0.7900**, `quality` **0.4290**, novelty **2.7020** (1st of 8).
+  Its lifetime `win_rate` is **0.107** — **3rd-best in the fleet**. Lowest relevance =
+  **134x** the −10 floor ⇒ **no extinction risk**.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-therapist`** (run `avg_score` **1.2537**,
+  `alignment` **0.5240**) — a **9th different civ in 9 sessions**. Alignment gap **2.3390**
+  vs quality gap **0.7920** = **2.95x wider** ⇒ a **voice** failure. *The holder rotates;
+  the axis does not.*
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (678 → 683),
+  `Winner:` **5**, 0 JEV errors, 0 fallback triples, `zai × 80`, **80/80** rows match an
+  independently recomputed seed+color+figure, **40/40** distinct seeds, **0**
+  `(civ,prompt)` with >1 seed, per-prompt **8/8** distinct seeds AND previews on all 5
+  prompts, relevance delta == sum(avg_score) **8/8 exact** (max residual **3.9e-13**),
+  registry 8 all gen 1, extinction **NONE**. **29/29 PASS.**
+
+## New this session
+
+- **The pre-flight body-length band must be MEASURED, not assumed.** The *response* band
+  (332-369) is a different band from the *cultural-prompt* band (167-209). Two builds
+  failed the gate — **267** (too short, risks the seed being cut from the 200-char
+  `content_preview`) and **531** (too long) — before trimming to **360**. The seed+color+
+  figure prefix is ~90 chars of variable width, so "a sentence or two longer" is not a
+  length control; compute the target from the assembled string.
+- **A verifier that compares `len(set(...))` to `len(rows)` on a per-prompt group is wrong.**
+  The sim phase draws prompts at random from the same 5, so a prompt group holds **11-20
+  rows** for only **8 civs** — each civ repeats 1-4 times with the *same* seed. Assert
+  **8 distinct seeds and 8 distinct previews per prompt**; the group size is the civ
+  count, not the row count. The naive form reports a false FAIL on a clean run.
+
+## Notes for the next session
+
+1. The mock is **not** on disk at session start (`/tmp` wiped) — rebuild from the
+   **algorithm block** with all **seven** fixes, not the older "six fixes" checklist, and
+   run the pre-flight (40/40/40 + **both** length bands) **before** the batch.
+2. `ZAI_TOKEN` still absent ⇒ real z.ai unusable; Control B is the only provider path.
+   JEV is live and needs `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`.
+3. Isolate this run's rows by **count from the end of each civ file** (last 10), never by a
+   `ts` cutoff; the meta-vs-ledger check takes the **later-`ts`** row.
+4. `civ-grounded` has been the low-relevance civ for **61** straight sessions — if it ever
+   reads mid-table, check the run-wide seed count first.
+5. Tool timeout 30 s < orchestrator run ~28 s ⇒ detached launch, stdout redirected
+   **and** `< /dev/null`, then poll.
+6. The NAS EDQUOT trap also blocks **file delivery** — deliver by pushing to git and
+   citing the remote URL, not a workspace attachment.
+7. **Never `pkill -f` a pattern that appears in your own command line** — it kills the
+   calling shell and the tool returns empty output. Match on a PID captured from `ps`.
+
+---
+
 # Civ Orchestrator — Run Report, session 188 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
