@@ -1344,3 +1344,45 @@ The 8 impossibility proofs (in order of discovery):
 6. The build cannot ship what hasn't been built
 7. The system cannot be a system without a watch
 8. The agent cannot grow without help (recursion bottoms out)
+
+---
+
+### Canon Watcher Operations (2026-10-25, 109th wipe)
+
+**Where the watcher actually lives.** The `bots/wesley-mechanic/` tree is **not on `main`**. `main` is a slim
+181-entry branch (`cellular-first-design/`, `prose/`). The live working branch is **`master`** (17,877 entries),
+and the watcher path `bots/wesley-mechanic/wesley_watcher.py` exists only there. Repo: `SuperInstance/AI-Writings`
+(3.7 GB — clone with `--filter=blob:none`).
+
+**The canon endpoint.** `https://live-canon.superinstance.dev/api/canon` serves `{"papers":[...],"count":71}`.
+The script's `paper_count` comes from `data.get("paper_count", data.get("count", 0))` — `paper_count` is a legacy
+key the endpoint no longer serves; **`count` is the live key**. It sits behind a User-Agent filter: a default
+Python-urllib agent gets **403**; the script sends `User-Agent: curl/8.5.0` and gets 200.
+
+**Canon hash as of 2026-10-25T17:33Z: `b20375d389cb505d`, 71 papers** — unchanged across the last five polls
+(2026-10-24T20:20Z → 2026-10-25T17:33Z). A poll that reports "no change" is the expected steady state, not a fault.
+
+**NAS quota trap (recurrence).** The workspace mount was again at 600G/600G (100%). Symptoms this time: `cp` into
+`/workspace` reported **`failed to close ... Disk quota exceeded`** on *every* file and left **0-byte stubs** that
+still appeared in `ls -la`. A 100-byte write "succeeded" (exit 0) and produced a **0-byte file**; a 4 KB write
+failed with exit 1. **Never trust `ls -la` alone — stat the byte size.** `mount --bind` was **denied** (no
+CAP_SYS_ADMIN in this sandbox).
+
+**The symlink workaround that works.** Copy the working tree to the overlay fs (28 G free at `/tmp`, not subject
+to EDQUOT), then make the hardcoded absolute path a symlink:
+`ln -s /tmp/aiw/bots/wesley-mechanic /workspace/repos/ai-writings/bots/wesley-mechanic`. The watcher hardcodes
+`/workspace/repos/ai-writings/bots/wesley-mechanic/...` for all four paths (witness.log, state.json,
+bookkeeper.wal) and `sys.path.insert(0, '/workspace/repos/ai-writings/bots/substrate-bus')`, so symlinking
+**both** dirs lets the script run **unmodified** — source md5 stayed `7e497f89d8396f5d6c04f4aec5e14a18`,
+`git diff` empty against HEAD. A symlinked `substrate-bus` leaves a `__pycache__/` dir behind; delete it before
+committing.
+
+**Transient NFS glitch.** Right after creating the symlinks, one `ls` on the symlinked path returned
+`No such file or directory` while the symlink itself was present and the mount was still at 100%. A retry
+succeeded. **Re-run a failed `ls` before concluding the file is gone** — a single miss is not evidence of absence.
+
+**What a "no change" poll does and does not write.** `run_once` on an unchanged hash writes **only** the
+`bot_started` line to `witness.log`. `state.json` and `bookkeeper.wal` are **not** rewritten (no `save_state`,
+no `bookkeeper_tick` on the unchanged path), and `substrate-witness.jsonl` is untouched. `bookkeeper.wal` stays at
+`ticks: 1, gamma: 1.0, last_conserved: false` — the `false` is inherited, not recomputed, because
+`bookkeeper_tick` only runs on a change. **A witness note is only warranted on a real `canon_changed` event.**
