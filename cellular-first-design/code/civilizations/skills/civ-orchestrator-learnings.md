@@ -870,3 +870,109 @@ wrap, session-118 md5-of-whole-message seeding, session-144 `Connection: close` 
 `Content-Length`). Pre-flight: 8/8 distinct seeds AND 8/8 distinct previews, cultural-prompt
 lengths 167–199, HTTP 200 in 1.6 ms, 0 tracebacks, 0 `EXC:`. Teardown: killed the **server** pid
 by exact argv; 0 remaining procs; `curl` exit 7 = port closed.
+
+## Session 164 (2026-10-25) — a fresh workspace is not a missing repo; the bridge is the whole job
+
+**Verification held (26/26 checks).** per-civ Δ = **+10** × 8 = **80 new rows** (engineer
+1076→1086, formal 1107→1117, grounded 1122→1132, mythic 1079→1089, poetic 1101→1111,
+precise 1071→1081, therapist 1074→1084, whimsical 1134→1144), `meta_log` Δ = **+5** (553 → 558),
+`Winner:` lines = **5**, **80/80** rows `[mock-zai`-prefixed with `provider={zai}`, **0** JEV
+`error` keys, **0** 2.0/2.0/2.0 fallback triples, **40 distinct seeds / 80 rows** with **0**
+`(civ,prompt)` combos carrying >1 seed, `git status --porcelain` = **18 modified**
+(8 ledgers + 8 cultures + meta_log + leaderboard), +1 new report file.
+
+### The workspace was **completely empty** — not "the repo is missing"
+
+At session start `/workspace` held only `.plugin-cache`. The prompt's path
+`/workspace/repos/ai-writings/cellular-first-design/code/civilizations` did not exist (7th
+consecutive occurrence). Recovery, in order:
+
+1. `GET /search/repositories?q=ai-writings` with `GITHUB_TOKEN` → the org's own repo is
+   **`SuperInstance/ai-writings`** (API is case-insensitive; the remote confirms
+   "This repository moved → `SuperInstance/AI-Writings`"). The `ai-writings/cellular-first-design`
+   slug 404s — do not use it.
+2. **Clone to `/tmp`, never `/workspace`.** Cloning straight into `/workspace` fails with
+   `error: .../.git/description: close error: Disk quota exceeded` *while `ls` still shows a
+   half-created `.git` directory* — check the clone's **stderr**, not just its exit code.
+3. `ln -sfn /tmp/aiw/cellular-first-design /workspace/repos/ai-writings/cellular-first-design`
+   — the link target is the **nested `cellular-first-design` dir**, not the clone root.
+   Verify with `stat -L -c '%d:%i'` (both sides `129:3669`) **and** `-ef`. Never flatten.
+
+**New this session:** the **NAS write trap also blocks file delivery.** `cp` of a 10 KB report
+into `/workspace/output/` exited 1 with `Disk quota exceeded` and left a **0-byte** file; a
+direct `open(path,'w').write('x'*100)` also produced a **0-byte** file with **no error at all**.
+So *no* file can be materialized under `/workspace` — not even a small one, and not even
+without `cp`. **Deliver reports by pushing to git and citing the remote URL** (verified
+`Accept: application/vnd.github.raw` returns the full 10 749 bytes), not via a workspace
+attachment. Do not emit a `<media>` tag pointing at a 0-byte workspace file.
+
+### The mock needs **FOUR** fixes, not three
+
+The session-160/151 reports say "the two load-bearing fixes" (112 index wrap, 118 md5 seeding);
+the session-160 note adds the session-144 transport pair. The **session-145 interpolation fix
+is a fourth independent one** — the response template was written as a literal
+`"[mock-zai seed={}] "` with no `.format()` call, so every response carried the seed `{}`
+(1 distinct seed, not 40) while the mock was healthy by *every* socket-level check: HTTP 200,
+prefix present, 0 tracebacks, correct row counts, exit 0. **Only the `distinct seeds == 40`
+assertion caught it.** Full rebuild checklist:
+
+| # | Fix | Session | Symptom if missing |
+|---|---|---|---|
+| a | `seed[(i*2)%8:((i*2)%8)+2]` | 112 | `ValueError` on `i>=4` ⇒ HTTP 500 **while the socket stays open** |
+| b | `md5(whole_message)[:8]` | 118 | first 8 alnum chars are `YouAreA` for every civ ⇒ all 8 civs emit identical text ⇒ the chooser breaks a perfect tie |
+| c | `Connection: close` + `Content-Length` | 144 | `urllib` fine, but `curl` hangs to the tool timeout on a healthy server |
+| d | interpolate the seed placeholder | 145 | every row carries the literal seed `{}` ⇒ 1 distinct seed, not 40 |
+
+**Pre-flight this session:** 40 requests using the **exact long cultural prompt**, HTTP 200 in
+1.2 ms, **40/40 distinct seeds**, **40/40 distinct previews**, 214-char bodies, prefix
+present, **0 tracebacks**, and each returned seed matched an independently recomputed
+`md5(whole_message)[:8]`.
+
+**Tool-timeout trap, restated with the fix:** `setsid nohup … &` **inherits stdout**, so the
+tool call blocks to the 30 s timeout *even though the job started*. Redirect stdout/stderr to a
+file **and** add `< /dev/null`; then poll `ps` + the log. The 30 s tool timeout is also
+< the ~20-45 s orchestrator run ⇒ always detach the orchestrator itself.
+
+### `civ-grounded` — the low-relevance civ, **40 consecutive sessions (125–164)**
+
+Lifetime (8 844 rows): `avg_score` **0.9942** (last), `quality` **0.4175** (last),
+`alignment` **1.0802** (last), `relevance` **1041.09** (last), `relevance_per_sim` **0.956**
+(last). The structural gap is **alignment: 0.4021 below the next civ (engineer 1.4823) vs
+0.0353 on quality = 11.4× wider.** Alignment is the dimension the meta-GAN *selects* on ⇒ a
+**voice** failure, not a prose failure. Lifetime novelty 1.4849 is **6th of 8** (not "above
+median" — check the rank, the mid-field claim in older reports is wrong at this row count).
+Extinction risk **NONE** (threshold −10; lowest relevance 1041.09 = 104× above the floor).
+
+This run Grounded is again last on `avg_score` (0.4477) and `alignment` (0.2940), but the run
+is **compressed**: only **0.0050** separates Grounded from `civ-therapist` (0.4527). Report the
+lifetime table as the structural signal and the run ranking as the watch axis; a per-run low
+that moves to another civ is normal (session 138 saw Grounded 6th of 8 on the run).
+
+### Chooser vs `avg_score` argmax: **0/5 (0 %)** — and every disagreement goes the same way
+
+`civ-precise` won **5/5** yet was the argmax on **0/5**; in all five the chooser took a
+**lower**-scoring candidate (p2 whimsical 1.037 vs precise 0.587; p4 poetic 1.207 vs precise
+0.593). **11th consecutive session with the "chooser picks lower" direction.** Mechanism
+(confirmed in source): the chooser is a JEV **`choice`** question over 150-char
+`content_preview` snippets; `avg_score` is the mean of three **`score`** questions on the same
+text — different questions, different answers. **Never treat `win_rate` as a quality
+metric.** Clean-mock series now has **14** five-sample points (0/5 … 4/5 … 0/5) ⇒ the honest
+claim is *somewhere in 0–80 %*, not a point estimate.
+
+### Counter gap: **NEGATIVE** and unchanged in magnitude
+
+`culture.json` `relevance_score` − ledger Σ`avg_score` = **−609.92** total, with per-civ
+offsets **identical to the pre-run git blobs** (whimsical −173.14, poetic −96.80, formal
+−85.53, grounded −84.35, mythic −51.11, engineer −44.24, therapist −42.11, precise −32.63).
+`save_state()` has no lock ⇒ **`relevance_per_sim` is not recomputable from the ledger by an
+auditor.** Compute the sign from the data; do not copy it from a prior report.
+
+### JEV liveness vs z.ai (48th session)
+
+JEV: malformed `questions` → **422** `{"type":"dict_type"}` — a payload-shape complaint, so
+the token was **accepted**; do not read 422 as "JEV down". z.ai: **401** `token expired or
+incorrect` ⇒ endpoint healthy, **credential absent** (`ZAI_TOKEN` is in neither the env nor
+any sandbox secret). Control B (mock) is therefore the only provider path, and it needs
+**both** `ZAI_TOKEN` (any non-empty placeholder — the token gate runs *before* the URL
+override) **and** `ZAI_URL_OVERRIDE`. `TYPESAFEAI_KEY` must be exported from
+`TYPESAFE_AI_TOKEN`.
