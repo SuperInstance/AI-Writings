@@ -1698,3 +1698,95 @@ on different axes**, which is the rule (session 132), not a contradiction.
   mock healthy (pid 303/304, listening, 0 tracebacks). **When a detached launch times out,
   check `ps` in a separate command before assuming the launch failed** — this is the
   session-149 note confirmed a second time.
+
+
+## Session 153 — clean mock #23; chooser-vs-argmax 5/5 (100 %); Grounded holds the low for the 49th session (2026-10-25)
+
+**Run:** 8 civs x 5 sims + 5 competition prompts, `--sims 5 --prompts 5 --providers zai`,
+Control B mock bridge, JEV live. Baseline `386f103` (session 152). **All 54 checks PASS.**
+
+- per-civ ledger delta **+10** x 8 = **80 rows**; `meta_log` **498 -> 503** (+5);
+  `Winner:` lines **5**; **0** JEV `error` keys; **0** 2.0/2.0/2.0 fallbacks;
+  **80/80** `[mock-zai` prefix with `provider=zai`; **40/40** distinct seeds;
+  **0** `(civ,prompt)` combos with >1 seed; sim->competition ts gap at index 4 in **8/8**
+  civs (1.20-23.02 s); **8/8 distinct previews on all 5 competition prompts**;
+  `git status --porcelain` = **18** modified.
+
+- **JEV liveness at the SCORE level:** the 80 new rows carry **80 distinct
+  `(quality, novelty, alignment)` triples** (q 0.01-0.58, n 0.78-1.93, a 0.10-2.24) and
+  confidences **0.53-1.00**. A silent 2.0 default would give one repeated triple and
+  constant 0.5 confidence. **Assert the triple count, not just the absence of `error`.**
+
+**Chooser vs `avg_score` argmax: 5/5 (100 %)** - `civ-precise` swept all 5 and was argmax
+in all 5. Joint-highest of the clean-mock series and the first **perfect** agreement since
+the session-118 fix. Clean-mock series: 0,3,1,4,4,3,0,4,4,1,2,4,4,0,2,4,1,4,0,**5**
+(s.118-153) - 23 five-sample points cannot pin a rate; say *somewhere in 0-100 %*.
+
+**THIS RUN IS SILENT ON THE "CHOOSER TAKES THE LOWER-SCORING CANDIDATE" FINDING.** 0
+disagreements = 0 samples of the direction. Every disagreement ever observed under a clean
+mock had a **negative** delta. A perfect-agreement run neither confirms nor refutes it -
+**do not report 5/5 as if the direction were re-measured.**
+
+**`civ-grounded` remains the low-relevance civ - 49 consecutive sessions (95-153).** Last of
+8 on lifetime `relevance` 970.72, `relevance_per_sim` 0.992, `avg_score` 1.0324,
+`alignment` 1.1621, `quality` 0.4572. Label did **not** rotate (965.00/0.996 ->
+970.72/0.992). Absolute gaps to next-lowest: **alignment 0.2340** (vs therapist 1.3962)
+vs **quality 0.0338** (vs formal 0.4909). Alignment is the axis the meta-GAN selects on =>
+a **voice** failure, not a prose failure. `civ-formal` is the distinct low-**novelty** axis
+(1.3750, last of 8). Grounded is **above median** on novelty (1.4778, 6th of 8) - not
+boring, just *unmistakable in a way the chooser does not reward*.
+
+**Inverses hold:** `civ-poetic` 1st on lifetime `avg_score` (1.5936) / `quality` (0.8074) /
+`relevance_per_sim` (1.554) but **last on `win_rate` (0.013)**, won 0/5 - the stable
+selection-failure inverse. `civ-precise` best `win_rate` (0.573), **highest lifetime
+alignment (2.1791)**, 1st on run `avg_score` (1.2120) at `preferred_temp` **0.2** - the
+mirror inverse. `civ-whimsical` 2nd on lifetime `avg_score` (1.4566), last on `win_rate`
+(0.010).
+
+**Watch axis `civ-therapist`** - 3rd session at the run bottom on `alignment` (0.2220);
+still 5th of 8 on lifetime `avg_score` (1.2090) => watch axis, not a finding. Run low on
+`avg_score` is therapist (0.5393), lifetime low is grounded - **different civs on
+different axes** (session 132 rule).
+
+- Extinction risk **NONE** (threshold -10, lowest +970.72, 97x the floor). Registry 8,
+  `max_civs` 12, all `generation=1`.
+- Counter gap a **FIXED per-civ offset, byte-identical to s.147-150**: whimsical +63,
+  grounded +43, formal +42, poetic +37, engineer +22, mythic +20, therapist +17, precise
+  +16, **TOTAL +260**. Per-civ constant, not an accumulating leak.
+- Cross-civ spreads: `alignment` **1.6340**, `avg_score` 0.6727, `novelty` 0.5950,
+  `quality` **0.1460** (collapsed to a 0.055-0.201 band, 18 of the last 19 clean-mock
+  sessions). The quality collapse is a **LEVEL that moves** - rank on spreads, never on
+  absolute quality levels.
+- Run levels depressed vs lifetime (run `avg_score` 0.539-1.212 vs lifetime 1.03-1.59) -
+  a JEV level shift for this batch, **not a civ effect**; the ordering carries the info.
+
+### NEW - `civilizations.json` is multi-line JSON, not JSONL (re-confirmed)
+
+`json.loads(line)` raises `JSONDecodeError: Expecting value: line 2 column 1`. Use
+`json.load(open(path))`. Loud failure, not silent.
+
+### NEW - the "8 distinct previews" check must group ACROSS civs, not within one civ
+
+Grouping previews **per civ** can never yield 8 (one civ contributes one row per prompt),
+so the check reports a false failure on 8/8 civs. The correct assertion is: for ONE
+competition prompt, the set of `content_preview` across all 8 civs has size 8. The
+existing RUNBOOK snippet is written against the *cross-civ* row set and is correct; a
+per-civ reader of the same rule is not.
+
+### Re-confirmations
+
+NAS EDQUOT total (14th session) - clone to `/tmp` (overlay), then bridge the **nested**
+`cellular-first-design` dir. **`ln -sfn` will replace a symlink with a real directory** -
+if the link path is already a real dir, `rm -rf` it and use plain `ln -s`. Verify with
+`stat -L -c '%d:%i'` on both sides (**129:3669** both sides this session) + `-ef` (EF_OK) +
+`readlink -f`; never flatten. `gh` not installed (29th session) - `GET /user/repos` pages
+1-8, match `AI-Writings` (3.7 GB, pushed 01:04:50Z); the `ai-writings/cellular-first-design`
+slug 404s. Tool timeout 30 s < run wall time (~45 s) - detached launch then poll.
+`ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`). `TYPESAFEAI_KEY` must be
+exported from `TYPESAFE_AI_TOKEN`. JEV liveness = 422 on malformed `questions`; z.ai = 401
+(credential gap, endpoint healthy) - **45th session**.
+
+**Sparse-checkout nuance:** the **cone** form
+(`git sparse-checkout init --cone && set cellular-first-design/code/civilizations`) works
+when the leaf is a *directory*; the session-151 `--no-cone` note applies to non-directory
+leaves. Either way the working tree is a few MB.
