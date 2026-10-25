@@ -189,3 +189,26 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   exact to 3.4e-13.)
 - Run `avg_score` levels sit **above** the lifetime band; the **ordering** carries the
   information, not the level.
+- **The low-`avg_score` civ and the low-`alignment` axis can be DIFFERENT civs in the same
+  session** — and the low-`alignment` axis *does* rotate run-to-run even when the
+  low-`avg_score` civ does not. Session 183: run low-`avg_score` = `civ-grounded` (same as
+  lifetime low), but run low-`alignment` = `civ-mythic` (0.1670), whereas session 182's
+  run low-alignment civ was `civ-therapist`. Do not conflate the two axes.
+- **The Grounded alignment-to-quality gap ratio is a structural constant, not a coincidence:**
+  **3.16x** in BOTH session 182 and session 183 (lifetime alignment gap 0.1353 vs quality gap
+  0.0428). When the ratio lands near 3x, the diagnosis is "voice failure", not prose failure —
+  and it is safe to state the diagnosis as structural rather than per-session.
+- **A `chk(name, cond, detail)` helper with the arguments in the wrong order will report a
+  FALSE FAIL that looks like a data defect.** A check written as
+  `chk("... == 0", sum(...)==0)` (the boolean in the *detail* slot) evaluates the *name string*
+  as the condition — truthy, so it PASSES, not fails; but the mirror mistake
+  `chk("... == 0", sum(...))` puts the count in the *detail* slot and the condition stays the
+  truthy string. Session 183 hit a variant that FAILED while the data was clean (0 real
+  fallback triples, verified by an independent recount). **When a single assertion fails,
+  recount the underlying quantity in a separate one-liner before believing the failure** —
+  the ledger was correct and the checker was wrong.
+- **Use the code-search API to find a file in a huge multi-repo org:**
+  `GET /search/code?q=filename:<file>` returns the repo + path directly, and works for
+  repos that `GET /user/repos` pagination never reaches (5 400+ owned repos). It also gives
+  the exact path, so the sparse-checkout set can be written from the API response instead of
+  guessed.
