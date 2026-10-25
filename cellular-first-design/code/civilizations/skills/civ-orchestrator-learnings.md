@@ -709,3 +709,77 @@ candidate. 30-row trailing window 11/30. **The direction is the finding; the rat
   `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported; the `ls` race
   did NOT reproduce; `civilizations.json` is multi-line JSON, not JSONL; `meta_log` `results` is
   a list of `[civ_id, score]` pairs. z.ai credential gap: 46th session.
+
+## Session 161 (2026-10-25) — the counter-gap epoch trap, and the mock's THREE rebuild fixes
+
+**Run clean (session 161, 24th consecutive clean mock).** per-civ delta = **+10** × 8 = **80 new
+rows**, `meta_log` Δ = **+5** (538 → 543), `Winner:` lines = **5**, **80/80** rows `[mock-zai`-prefixed
+with `provider={zai}`, **0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0 fallback
+triple, **80 distinct `(q,n,a)` triples** (confidences 0.93–1.00), **40 distinct seeds / 80 rows**
+with **0** `(civ,prompt)` combos carrying >1 seed, sim→competition ts gap at index 4 in **8/8**
+(0.61–0.70 s), and **5/5 competition prompts at 8/8 distinct seeds AND 8/8 distinct previews**.
+`git status --porcelain` = **18** modified. **Chooser vs `avg_score` argmax 0/5 (0 %)** — all 5
+disagreements took the lower-scoring candidate (max |delta| 0.4633 on p3).
+
+### NEW — the counter gap: NEVER mix epochs, or it fakes an accumulating leak
+
+The gap was first computed as **pre-run blob `relevance` vs post-run ledger sum** → **−628.17**,
+which had *drifted* from session 160's −609.93 and looked like the fixed offset was finally
+accumulating. It is not. The blob's `relevance` **predates** this run while the ledger
+**includes** it, so the run's own scores get subtracted twice.
+
+Compute **both sides in the same epoch**:
+
+| civ | HEAD blob rel | HEAD blob ledger | blob gap | post-run rel | post-run ledger | post-run gap | Δ |
+|---|---|---|---|---|---|---|---|
+| civ-grounded | 1023.8200 | 1108.1667 | −84.3467 | 1025.7100 | 1110.0567 | −84.3467 | 0.0000 |
+| civ-whimsical | 1410.7433 | 1583.8867 | −173.1433 | 1413.0900 | 1586.2333 | −173.1433 | 0.0000 |
+| civ-formal | 1194.2467 | 1279.7733 | −85.5267 | 1196.4000 | 1281.9267 | −85.5267 | 0.0000 |
+| civ-poetic | 1597.6433 | 1694.4467 | −96.8033 | 1600.8267 | 1697.6300 | −96.8033 | 0.0000 |
+| civ-precise | 1436.8433 | 1469.4767 | −32.6333 | 1440.7667 | 1473.4000 | −32.6333 | 0.0000 |
+| civ-mythic | 1298.2800 | 1349.3900 | −51.1100 | 1299.6867 | 1350.7967 | −51.1100 | 0.0000 |
+| civ-therapist | 1190.2200 | 1232.3333 | −42.1133 | 1191.3233 | 1233.4367 | −42.1133 | 0.0000 |
+| civ-engineer | 1167.1567 | 1211.4000 | −44.2433 | 1169.3967 | 1213.6400 | −44.2433 | 0.0000 |
+| **TOTAL** | | | **−609.92** | | | **−609.92** | **0.0000** |
+
+**Rule: show both epochs side by side.** If the gap appears to move, first check the two columns
+come from the same snapshot. A per-civ Δ of **0.0000** is the proof that the offset is fixed. A
+"gap that grows every session" is the symptom of the epoch mix, not of a leak in `save_state()`.
+Never quote the epoch-mixed number.
+
+### NEW — a rebuilt mock needs THREE fixes, not two
+
+The two long-named ones (session-112 index wrap, session-118 md5-of-whole-message seeding) are
+joined by a third: the **session-144 `Connection: close` + `Content-Length`** pair. Without it
+`urllib` (the orchestrator's client) is fine but a plain `curl -X POST` **hangs to the tool
+timeout** on a perfectly healthy server — easy to misread as "the mock is down".
+
+| # | Fix | Session | Symptom if missing |
+|---|---|---|---|
+| a | `seed[(i*2)%8:((i*2)%8)+2]` | 112 | `ValueError` on `i>=4` ⇒ HTTP 500 **while the socket stays open** |
+| b | `md5(whole_message)[:8]` | 118 | first 8 alnum chars are `YouAreA` for every civ ⇒ identical text for all 8 civs ⇒ chooser breaks a perfect tie |
+| c | `Connection: close` + `Content-Length` | 144 | `curl` hangs to timeout against a healthy server |
+
+Verified this session: HTTP 200 in 1 ms, `[mock-zai seed=…]` present, 8/8 distinct seeds AND 8/8
+distinct previews on the **exact long cultural prompt** (lengths 167–199), stable across two
+rounds, **0 tracebacks** in `/tmp/mock_zai.log`.
+
+### Low-relevance civ — the low label did NOT rotate (51 sessions, 95–161)
+
+`civ-grounded` remains the lifetime low on all five axes: `relevance` 1025.71,
+`relevance_per_sim` 0.969, `avg_score` 1.0073, `alignment` 1.1048, `quality` 0.4279 —
+**last of 8 on every one**. Absolute gaps: **alignment 0.2080** (vs therapist 1.3128) vs
+**quality 0.0321** (vs formal 0.4600). Alignment is the axis the meta-GAN *selects* on ⇒ a
+**voice** failure, not a prose failure. Lifetime novelty 1.4892 is **below** median (1.6160) ⇒
+losing on **two** axes (alignment and novelty).
+
+**`civ-therapist` is a watch axis, not a finding** — 7th consecutive session at the run bottom
+on **both** `avg_score` (0.1103) and `alignment` (0.0250), but lifetime standing is mid-field
+(`avg_score` 1.1702, 6th of 8). The run low and the lifetime low are different civs on different
+axes (session-132 rule).
+
+**Inverses hold:** `civ-poetic` 1st on lifetime `avg_score` (1.5704) / `quality` (0.7684) /
+`relevance` (1600.83) but **last on `win_rate` (0.012)**; `civ-precise` best `win_rate` (0.579),
+**highest lifetime alignment (2.1444)**, 1st on run `avg_score` (0.3923). `civ-formal` remains the
+distinct low-**novelty** axis (1.3987, last; alignment 1.6793 healthy). Extinction risk **NONE**
+(threshold −10, lowest +1025.71 = 102× the floor); registry 8, `max_civs` 12, all `generation=1`.

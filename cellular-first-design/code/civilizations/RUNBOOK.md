@@ -2022,3 +2022,109 @@ all `generation=1`.
   `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported; the `ls` race
   did **not** reproduce; `civilizations.json` is multi-line JSON, not JSONL; `meta_log` `results`
   is a list of `[civ_id, score]` pairs. z.ai credential gap: 46th session.
+
+---
+
+## Session 161 — clean mock #24; chooser-vs-argmax 0/5; Grounded holds the low for the 51st session (2026-10-25)
+
+**Run:** 8 civs x 5 sims + 5 competition prompts, `--sims 5 --prompts 5 --providers zai`,
+Control B mock bridge, JEV live. Baseline `d61ffbe4` (session 160). **All 48 checks PASS.**
+
+- per-civ ledger delta **+10** x 8 = **80 rows**; `meta_log` **538 -> 543** (+5);
+  `Winner:` lines **5**; **0** JEV `error` keys; **0** 2.0/2.0/2.0 fallbacks;
+  **80/80** `[mock-zai` prefix with `provider=zai`; **40/40** distinct seeds;
+  **0** `(civ,prompt)` combos with >1 seed; sim->competition ts gap at index 4 in **8/8**
+  (0.61-0.70 s); **8/8 distinct previews AND 8/8 distinct seeds on all 5 competition
+  prompts** — the **24th consecutive clean measurement**; `git status --porcelain` = **18** modified.
+- **JEV liveness at the SCORE level:** 80 distinct `(quality, novelty, alignment)` triples
+  (q 0.008-0.018, n 0.155-0.572, a 0.025-0.896), confidences 0.93-1.00.
+- **Chooser vs `avg_score` argmax: 0/5 (0 %)** — all 5 disagreements took the **lower**-scoring
+  candidate (max |delta| 0.4633 on p3). Clean-mock series now has 25 five-sample points;
+  still cannot pin a rate — report as a sample, keep the **direction** as the finding.
+- **`civ-grounded` remains the low-relevance civ — 51 consecutive sessions (95-161).** Last of 8
+  on lifetime `relevance` 1025.71, `relevance_per_sim` 0.969, `avg_score` 1.0073,
+  `alignment` 1.1048, `quality` 0.4279. Absolute gaps: **alignment 0.2080** (vs therapist
+  1.3128) vs **quality 0.0321** (vs formal 0.4600) — a **voice** failure, not a prose failure.
+  Lifetime novelty 1.4892 is **below** median (1.6160) ⇒ losing on **two** axes.
+- **Watch axis `civ-therapist`** — 7th consecutive session at the run bottom on **both**
+  `avg_score` (0.1103) and `alignment` (0.0250), but lifetime standing is mid-field
+  (`avg_score` 1.1702, 6th of 8) ⇒ **watch axis, not a finding**.
+- **Inverses hold:** `civ-poetic` 1st on lifetime `avg_score` (1.5704) / `quality` (0.7684) /
+  `relevance` (1600.83) but **last on `win_rate` (0.012)**; `civ-precise` best `win_rate`
+  (0.579), **highest lifetime alignment (2.1444)**, 1st on run `avg_score` (0.3923).
+- Extinction risk **NONE** (threshold -10, lowest +1025.71, **102x** the floor). Registry 8,
+  `max_civs` 12, all `generation=1`.
+- Cross-civ spreads: `alignment` **0.8710**, `novelty` 0.4170, `avg_score` 0.2820,
+  `quality` **0.0100** (collapsed again — the 19th of the last 20 clean-mock sessions).
+
+### NEW (this session) — the counter-gap method has an EPOCH-MIXING trap that fakes an accumulating leak
+
+The gap was first computed as *pre-run blob `relevance`* vs *post-run ledger sum*:
+
+```
+civ-grounded  blob_rel=1023.8200  ledger_sum=1110.0567  gap=-86.2367
+...                                                        TOTAL  -628.1667
+```
+
+That value had **drifted** from session 160's -609.93 and looked like the long-standing fixed
+offset was finally accumulating. It is not. The comparison **mixes epochs**: the blob's
+`relevance` predates this run while the ledger includes it, so this run's own scores are
+subtracted twice.
+
+**The correct method computes both sides in the SAME epoch** — either both at HEAD
+(blob `relevance` vs **blob** ledger sum) or both post-run (`culture.json` `relevance` vs
+**working-tree** ledger sum):
+
+```
+civ-grounded  blob_rel=1023.8200  blob_ledger=1108.1667  gap=-84.3467
+              new_rel =1025.7100  new_ledger =1110.0567  gap=-84.3467   delta=0.0000
+...  TOTAL  blob gap=-609.9200   post-run gap=-609.9200   delta=0.0000
+```
+
+Both give **-609.92**, byte-identical to session 160, per-civ Δ **0.0000** across the run.
+
+**Rule: the gap table must show BOTH epochs side by side.** If the gap appears to move, first
+check that the two columns come from the same snapshot; a per-civ Δ of 0.0000 is the proof that
+the offset is fixed. A "gap that grows every session" is the classic symptom of this mistake,
+not of a leak in `save_state()`. Never quote the epoch-mixed number.
+
+### NEW (this session) — a mock rebuilt from the RUNBOOK must re-apply THREE independent fixes, not two
+
+The session-160 report names the session-112 index wrap and the session-118 md5-of-whole-message
+seeding as "the two load-bearing fixes". A **third** is equally required: the **session-144
+`Connection: close` + `Content-Length`** pair. Without it, `curl -X POST` hangs to the tool
+timeout even though the server has already logged `200` — the classic "server answered, client
+waited for EOF" split, which is easy to misread as "the mock is down".
+
+Treat all three as one checklist on every rebuild:
+
+| # | Fix | Session | Symptom if missing |
+|---|---|---|---|
+| a | `seed[(i*2)%8:((i*2)%8)+2]` | 112 | `ValueError` on `i>=4` ⇒ HTTP 500 **while the socket stays open** |
+| b | `md5(whole_message)[:8]` | 118 | first 8 alnum chars are `YouAreA` for every civ ⇒ all 8 civs emit identical text ⇒ chooser breaks a perfect tie |
+| c | `Connection: close` + `Content-Length` | 144 | `urllib` fine, but `curl` hangs to the tool timeout on a healthy server |
+
+All three applied and verified this session: HTTP 200 in 1 ms, `[mock-zai seed=…]` present,
+8/8 distinct seeds AND 8/8 distinct previews on the **exact long cultural prompt**
+(lengths 167-199), stable across two rounds, **0 tracebacks** in `/tmp/mock_zai.log`.
+
+### Re-confirmations (this session)
+
+- NAS EDQUOT total (14th session) — clone to `/tmp` (overlay, 28 G free; the 3.7 GB repo's
+  *working tree* is only ~6 MB after sparse checkout), then bridge the **nested**
+  `cellular-first-design` dir; verify with `stat -L -c '%d:%i'` on both sides + `-ef`
+  (this session `129:12601` both sides, EF_OK); never flatten.
+- `gh` not installed (16th session) — `GET /search/repositories?q=…` + `GET /user/repos`;
+  `git ls-remote` is ground truth for existence. API is case-insensitive:
+  `SuperInstance/ai-writings` == `SuperInstance/AI-Writings`.
+- Tool timeout 30 s < orchestrator run ~20 s ⇒ detached launch with stdout redirected, then poll
+  `ps` + the log.
+- `ZAI_URL_OVERRIDE` alone is **dead code** (the `ZAI_TOKEN` gate returns `None` first) —
+  Control B needs **both**; `TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`.
+- JEV liveness = **422** on a malformed `questions` (payload-shape complaint ⇒ auth OK);
+  z.ai = **401** `token expired or incorrect` (credential gap, endpoint healthy) — **47th session**.
+- `meta_log.jsonl` `results` is a **list of `[civ_id, score]` pairs**, not a dict.
+  Winner fields: `winner_civ` / `winner_name`.
+- Run isolation: **last 10 rows of each civ file**, then an explicit `ts` sort — never
+  `rows[-80:]` over a concatenation (glob order is filesystem order, not chronological).
+- The `ls` race on the bridged deep path **did not reproduce** — `ls` succeeded first try.
