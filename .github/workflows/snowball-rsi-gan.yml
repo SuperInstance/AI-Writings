@@ -23,6 +23,7 @@ on:
 permissions:
   id-token: write
   contents: write
+  pull-requests: write
 
 jobs:
   write:
@@ -98,4 +99,10 @@ jobs:
             exit 1
           fi
           git commit -m "snowball: RSI GAN inspired piece (vault providers)"
-          git push
+          # main is protected (PR review required, admins enforced, no force-push).
+          # Publish the inspired piece as a reviewable PR instead of pushing to main.
+          BRANCH="automation/snowball-$(date -u +%Y%m%dT%H%M%S)"
+          git push origin "HEAD:$BRANCH"
+          gh pr create --base main --head "$BRANCH" \
+            --title "snowball: RSI GAN inspired piece (vault providers)" \
+            --body "Written by the snowball-rsi-gan workflow. \`main\` is protected, so this lands as a reviewable PR (one approving review required)."
