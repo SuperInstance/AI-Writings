@@ -1,0 +1,23 @@
+The ash batten took the strain until its grain blanched white, then it sheared with a sound like a pistol shot. A three-foot splinter whipped across the mold loft, struck the iron casing of the band saw, and left the room quiet except for the heavy thud of the diesel generator down at the fuel dock.
+"Third one," Luke said. He stayed on his knees, his palms flat against the layout floor, pinning the unbroken end of the wood to the chalk lines. Sweat had tracked through the gray grease on his forehead. "The modeler wants a twelve-degree twist in a four-foot run to clear the rudder post casing. It's the only way the stern frames meet the hydro-metrics for the syndicate's hull."
+Jude didn't answer. He was looking at his left hand. A sliver of ash had opened the palm below the thumb. He squeezed until a bead of dark blood formed, wiped it on his trouser leg without looking, and picked up a fresh length of green cedar.
+"The modeler's calculating for fiberglass, Luke."
+"It's calculating for the timber we bought." Luke stood up, his boots scuffing the gray silt on the floorboards. He pointed a finger at the silver terminal humming on the herring crate in the corner, its screen scrolling blue coordinate files. "The file goes to the mill by five or we lose the slot. The crabbing syndicate has two hulls in the dry dock Monday. Our timber sits on the pier for three weeks, and we default on the completion bond."
+He stepped between Jude and the floor paper, his shadow cutting off the terminal's glare.
+"I’ve got four apprentices in the bunkhouse who need winter hours to make union. An imperfect frame we can sister with iron brackets keeps the doors open. Your fair curve doesn't pay the heating oil."
+Luke had watched the first batten split down the center too. He knew the wood was refusing the geometry. But knowing didn't change the ledger.
+Jude looked at the blue light bouncing off Luke's wet shirt. He walked to the herring crate, reached out with one broad hand, and turned the terminal's face flush against the corrugated iron wall.
+The loft dropped into the purple dim of coastal dusk.
+"My grandfather oiled steam-trawlers," Jude said, kneeling back down at the paper. He set a five-pound lead weight on the aft end of the green cedar, another amidships. He didn't force the twist. He simply let the timber find its own unforced resistance against the ducks until the line flattened—three inches wider than the digital model demanded, a fraction thicker than the spec allowed. "When the automated diesels came in, he spent three winters telling the co-op a machine couldn't feel a bearing by touch. He was right. The steam went out anyway. The diesel didn't care about his fingers. It just became the floorboards."
+He ran his carpenter's chalk along the cedar's natural edge.
+"The machine knows every hull shape in the Pacific database," Jude murmured, the white line clean against the dark butcher paper. "But it doesn't know this tree grew on the rainy side of the ridge. It thinks the grain is uniform. If we send that file to the mill, the automated router will cut the line perfectly, and the wood will split down the heart-shake the first time the rudder takes a cross-swell."
+He stood up and held out the chalk.
+"The mill slot is gone, Luke. We’re going to have to sawn-frame the stern by hand out of the legacy oak behind the shop. It’s going to run three weeks late, and the syndicate will hit us with the bond penalty."
+Luke didn't take the chalk. He looked at the white line on the floor, then out the dark window toward the bunkhouse where the lights were just coming on. Sawn-framing by hand meant double the wages against a shrinking margin. It meant the yard would quietly bleed through December.
+"That legacy oak is dry-rotted in the core," Luke said, his voice dropping into a hard, defensive rasp. "Half of it isn't seasoned. If we cut into it and find it's soft, we don't have a boat, we don't have a bond, and we don't have a yard next spring."
+"It's tight at the heart," Jude said, his voice level. "My dad checked the rings before he passed. It'll take the bolts."
+Luke stood there in the purple dusk for a long moment. The silence between them was heavy, weighted by the real arithmetic of the winter. He looked at the turned terminal, then at Jude’s blood-stained trousers.
+"That had better float," Luke said.
+He turned and walked toward the small office telephone in the back corner of the loft to call the mill and forfeit the slot.
+Jude didn't watch him go. He set the chalk down on the paper between their footprints, knelt back down in the dust, and went back to fairing his curve.
+Behind them, down at the fuel dock, the generator kept time.
